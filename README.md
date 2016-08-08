@@ -4,4 +4,4 @@ Nó là một tệp dài vì trước các phiên bản được dán lên Faceb
 
 Bạn có thể biến dịch nó với gcc hay clang. Tôi chưa thử biến dịch nào khác nhưng tôi nghỉ cái nào hỗ trợ C hiện đại nên không có vấn đề.
 
-Làm ơn chia sẻ chương trình này. Tôi ất nghĩ ngờ đây là phần mền dò tia đầu tiên được lập tại Việt Nam.
+Làm ơn chia sẻ chương trình này. Tôi rất nghĩ ngờ đây là phần mền dò tia đầu tiên được lập tại Việt Nam.
