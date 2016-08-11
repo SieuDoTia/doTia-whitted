@@ -1,6 +1,6 @@
 //  Ví dụ phương pháp kết xuất dò tia đơn giản
-//  Phiên Bản 4.14
-//  Phát hành 2559/05/20
+//  Phiên Bản 4.15
+//  Phát hành 2559/08/11
 //  Hệ tọa độ giống OpenGL (+y là hướng lên)
 //  Khởi đầu 2557/12/18
 
@@ -10,7 +10,9 @@
 //  Lệnh dạng: <sỗ phim trường> <số hoạt hình đầu> <số hoạt hình cuối> <beRồng ảnh> <bề cao ảnh> <cỡ kích điểm ảnh>
 //  ---- Cho phối cảnh
 //  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520   600  300   0.01
-//  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520  2048 1024  0.003  <---- chuẩn cho phim 2K
+//  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520  8192 4096  0.00075 <---- 8K  (8192 x 4320)
+//  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520  4096 2048  0.0015  <---- 4K  (4096 x 2160)
+//  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520  2048 1024  0.003  <---- 2K
 //  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520  1536  768  0.004  <---- ~ Câu Truyện Đồ Chơi 1
 //  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520  1024  512  0.006
 //  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520   512  256  0.014
@@ -27,11 +29,13 @@
 //  - Mặt Parabol
 //  - Tứ Diện
 //  - Bát Diện
+//  - Thập Nhị Diện
 //  - Kim Tư Tháp
 //  - Dốc
 //  - Nhị Thập Diện
 //  - Sao Gai
 //  - Mặt Sóng
+//  - Hình Xuyến
 
 //  - Vật Thể Bool
 //  - Vật Thể Ghép
@@ -135,7 +139,7 @@ typedef struct {
 
 typedef struct {
    Mau mau0;     // màu0
-   Mau mau1;     // màu1
+   Mau mau1;     // màu1hinhdang
    float phongTo;   // phóng to
    float beRongNet; // bề rộng nét
 } HoaTietOcXoay;
@@ -404,6 +408,14 @@ typedef struct {
    float hopQuanh[6];  // hộp quanh
 } MatSong;
 
+/* Hình Xuyến */
+typedef struct {
+   Vecto viTri;    // vị trí
+   float banKinhVong;   // bán kính vòng
+   float banKinhOng;    // bán kính ống
+   float hopQuanh[6];  // hộp quanh
+} HinhXuyen;
+
 /* Tam Giác */
 typedef struct {
    unsigned short dinh0;
@@ -429,6 +441,14 @@ typedef struct {
    unsigned short soLuongTamGiac;   // số lượng tam giác
    float hopQuanh[6];   // hộp quanh
 } BatDien;
+
+/* Thập Nhị Diện */
+typedef struct {
+   Vecto mangDinh[32];   // mảng đỉnh
+   TamGiac mangTamGiac[60];  // mảng mặt
+   unsigned short soLuongTamGiac;   // số lượng tam giác
+   float hopQuanh[6];   // hộp quanh
+} ThapNhiDien;
 
 /* Kim Tư Tháp */
 typedef struct {
@@ -470,11 +490,13 @@ typedef union {
    HinhNon hinhNon;    // hình nón
    MatHyperbol matHyperbol; // mặt hyperbol
    MatParabol matParabol;   // mặt hyperbol
-   MatSong matSong;         // mặt Sóng
+   MatSong matSong;         // mặt sóng
+   HinhXuyen hinhXuyen;     // hình xuyến
    TuDien tuDien;     // tứ diện
    BatDien batDien;   // bát diện
+   ThapNhiDien thapNhiDien;  // thập nhị diện
    KimTuThap kimTuThap;  // kim tư tháp
-   Doc doc;             // dốc
+   Doc doc;              // dốc
    NhiThapDien nhiThapDien;  // nhị thập diện
    SaoGai saoGai;       //  sai gai
 } HinhDang;             // hình dạng
@@ -488,12 +510,14 @@ typedef union {
 #define kLOAI_HINH_DANG__MAT_HYPERBOL  6 // mặt hyperbol
 #define kLOAI_HINH_DANG__MAT_SONG      7
 #define kLOAI_HINH_DANG__MAT_PARABOL   8 // mặt parabol
-#define kLOAI_HINH_DANG__TU_DIEN       9 // tú diện
-#define kLOAI_HINH_DANG__BAT_DIEN     10 // tú diện
-#define kLOAI_HINH_DANG__KIM_TU_THAP  11 // kim tư tháp
-#define kLOAI_HINH_DANG__DOC          12 // dốc
-#define kLOAI_HINH_DANG__NHI_THAP_DIEN  13 // nhị thập diện
-#define kLOAI_HINH_DANG__SAO_GAI        14 // sao gai
+#define kLOAI_HINH_DANG__HINH_XUYEN    9 // hình xuyến
+#define kLOAI_HINH_DANG__TU_DIEN      10 // tú diện
+#define kLOAI_HINH_DANG__BAT_DIEN     11 // bát diện
+#define kLOAI_HINH_DANG__THAP_NHI_DIEN 12 // thập nhị diện
+#define kLOAI_HINH_DANG__KIM_TU_THAP  13 // kim tư tháp
+#define kLOAI_HINH_DANG__DOC          14 // dốc
+#define kLOAI_HINH_DANG__NHI_THAP_DIEN  15 // nhị thập diện
+#define kLOAI_HINH_DANG__SAO_GAI        16 // sao gai
 
 #define kLOAI_VAT_THE__GHEP  101    // vật thể ghép
 #define kLOAI_VAT_THE__BOOL  102    // vật thể bool
@@ -741,10 +765,17 @@ float xemCatMatParabol( MatParabol *matParabol, Tia *tia, Vecto *phapTuyen, Vect
 MatSong datMatSong( float beRong, float beDai, float bienDo0, float bienDo1, float bienDo2, BaoBi *baoBiVT ); // đặt mặt sóng
 float xemCatMatSong( MatSong *matSong, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung, float thoiGian );  // xem cắt mặt sóng
 
+// ---- hình xuyến
+HinhXuyen datHinhXuyen( float banKinhVong, float banKinhOng, BaoBi *baoBiVT ); // đặt hình xuyến
+float xemCatHinhXuyen( HinhXuyen *hinhXuyen, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung, float thoiGian );  // xem cắt hình xuyến
+
+
 // ---- tứ diện
 TuDien datTuDien( float beRong, float beCao, float beDai, BaoBi *baoBiVT ); // đặt tứ diện
 // ---- bát diện
 BatDien datBatDien( float beRong, float beCao, float beDai, BaoBi *baoBiVT ); // đặt bát diện
+// ---- thập nhị diện
+ThapNhiDien datThapNhiDien( float beRong, float beCao, float beDai, BaoBi *baoBiVT ); // đặt thập nhị diện
 // ---- kim tư tháp
 KimTuThap datKimTuThap( float beRong, float beCao, float beDai, BaoBi *baoBiVT ); // đặt kim tư tháp
 // ---- dốc
@@ -1078,15 +1109,15 @@ void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong ) {
 //   printf( "goc anh %5.3f %5.3f %5.3f\n", gocX, gocY, gocZ );
 //   printf( "tia.goc %5.3f %5.3f %5.3f\n", tia.goc.x, tia.goc.y, tia.goc.z );
 //   exit(0);
-   unsigned int chiSoAnh = 0;
-   unsigned int chiSoAnhCuoi = beRong*beCao;   // cho biết đang kết xuất ảnh bao nhiêu
+   unsigned long int chiSoAnh = 0;
+   unsigned long int chiSoAnhCuoi = beRong*beCao;   // cho biết đang kết xuất ảnh bao nhiêu
    
    unsigned short hang = 0;
    while( hang < beCao ) {
 
       // ---- cho ảnh tính lâu, cho biết đang kết xuất ảnh bao nhiêu
       if( (chiSoAnh & 0xfff) == 0 )
-         printf( "%4d‰\n", chiSoAnh*1000/chiSoAnhCuoi );
+         printf( "%4ld‰\n", chiSoAnh*1000/chiSoAnhCuoi );
 
       // ---- tính hướng cho tia của điểm ảnh này
       tia.huong.x = gocX + buocDoc.x*hang - tia.goc.x;
@@ -1458,7 +1489,7 @@ Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi ) {
       diemTrung.x = tia->goc.x + thongTinToMauVatTheGanNhat.cachXa*tia->huong.x;
       diemTrung.y = tia->goc.y + thongTinToMauVatTheGanNhat.cachXa*tia->huong.y;
       diemTrung.z = tia->goc.z + thongTinToMauVatTheGanNhat.cachXa*tia->huong.z;
-      
+
       // ---- tính cách xa
       if( soNhoi == 0 ) {
          // ---- tính điểm trúng tương đối với máy quay phim
@@ -1499,7 +1530,7 @@ Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi ) {
          while( soVatTheBongToi < soLuongVatTheBongToi ) {
             //         printf("thongTinToMauBong loaiVatThe %d\n", thongTinToMauBong.vatThe->loai );
             // ---- tìm đục vật thể
-            Vecto toaDoHoaTiet = nhanVectoVoiMaTran3x3( &(thongTinToMauBong[soVatTheBongToi].diemTrungTDVT), thongTinToMauBong[soVatTheBongToi].vatThe->phongTo ); // <---- TẠI SAO .phongTo???
+            Vecto toaDoHoaTiet = nhanVectoVoiMaTran3x3( &(thongTinToMauBong[soVatTheBongToi].diemTrungTDVT), thongTinToMauBong[soVatTheBongToi].vatThe->phongTo ); // <---- TẠI SAO .phongTo??? phóng to họa tiết
             // toMauVat( VatThe *vatThe, Vecto *diemTrungTDVT, Vecto phapTuyen, Vecto huongTia )
             Mau mauVat = toMauVat( thongTinToMauBong[soVatTheBongToi].vatThe, &toaDoHoaTiet, thongTinToMauBong[soVatTheBongToi].phapTuyenTDVT, phimTruong->matTroi.huongAnh );
 //            printf( "mauVat.dd %5.3f  duc %5.3f\n", mauVat.dd, duc );
@@ -1921,6 +1952,11 @@ float xemTiaCoTrungVatTrongKhongGianVat( VatThe *vatThe, Tia *tia, Vecto *phapTu
          // ---- kiếm cách xa (cách xa theo đơn vị hướng tia, không phải đơn vị thế giới)
          cachXa = xemCatMatSong( matSong, tia, phapTuyen, diemTrungTDVT, (float)thoiGian );
       }
+      else if( vatThe->loai == kLOAI_HINH_DANG__HINH_XUYEN ) {
+         HinhXuyen *hinhXuyen = &(vatThe->hinhDang.hinhXuyen);
+         // ---- kiếm cách xa (cách xa theo đơn vị hướng tia, không phải đơn vị thế giới)
+         cachXa = xemCatHinhXuyen( hinhXuyen, tia, phapTuyen, diemTrungTDVT, (float)thoiGian );
+      }
       else if( vatThe->loai == kLOAI_HINH_DANG__TU_DIEN ) {
          TuDien *tuDien = &(vatThe->hinhDang.tuDien);
          // ---- kiếm cách xa (cách xa theo đơn vị hướng tia, không phải đơn vị thế giới)
@@ -1931,6 +1967,11 @@ float xemTiaCoTrungVatTrongKhongGianVat( VatThe *vatThe, Tia *tia, Vecto *phapTu
          BatDien *batDien = &(vatThe->hinhDang.batDien);
          // ---- kiếm cách xa (cách xa theo đơn vị hướng tia, không phải đơn vị thế giới)
          cachXa = xemCatVatTheTamGiac( batDien->mangDinh, batDien->mangTamGiac, batDien->soLuongTamGiac, tia, phapTuyen, diemTrungTDVT );
+      }
+      else if( vatThe->loai == kLOAI_HINH_DANG__THAP_NHI_DIEN ) {
+         ThapNhiDien *thapNhiDien = &(vatThe->hinhDang.thapNhiDien);
+         // ---- kiếm cách xa (cách xa theo đơn vị hướng tia, không phải đơn vị thế giới)
+         cachXa = xemCatVatTheTamGiac( thapNhiDien->mangDinh, thapNhiDien->mangTamGiac, thapNhiDien->soLuongTamGiac, tia, phapTuyen, diemTrungTDVT );
       }
       else if( vatThe->loai == kLOAI_HINH_DANG__KIM_TU_THAP ) {
          KimTuThap *kimTuThap = &(vatThe->hinhDang.kimTuThap);
@@ -4512,6 +4553,32 @@ float xemCatMatSong( MatSong *matSong, Tia *tia, Vecto *phapTuyen, Vecto *diemTr
    return cachXa;
 }
 
+#pragma mark ---- Hình Xuyến
+HinhXuyen datHinhXuyen( float banKinhVong, float banKinhOng, BaoBi *baoBiVT ) {
+   HinhXuyen hinhXuyen;
+   hinhXuyen.banKinhVong = banKinhVong;
+   hinhXuyen.banKinhOng = banKinhOng;
+   
+   baoBiVT->gocCucTieu.x = -banKinhVong - banKinhOng;
+   baoBiVT->gocCucDai.x = banKinhVong + banKinhOng;
+   baoBiVT->gocCucTieu.y = -banKinhOng;
+   baoBiVT->gocCucDai.y = banKinhOng;
+   baoBiVT->gocCucTieu.z = baoBiVT->gocCucTieu.x;
+   baoBiVT->gocCucDai.z = baoBiVT->gocCucDai.x;
+   
+   return hinhXuyen;
+}
+
+float xemCatHinhXuyen( HinhXuyen *hinhXuyen, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung, float thoiGian ) {
+   
+   float cachXa = kVO_CUC;
+   
+   // <----------- chưa làm
+   //   printf( "cachXa %5.3f\n", cachXa );
+   return cachXa;
+}
+
+
 #pragma mark ---- Tứ Diện
 TuDien datTuDien( float beRong, float beCao, float beDai, BaoBi *baoBiVT ) {
    
@@ -4565,6 +4632,7 @@ TuDien datTuDien( float beRong, float beCao, float beDai, BaoBi *baoBiVT ) {
 float xemCatVatTheTamGiac( Vecto *mangDinh, TamGiac *mangTamGiac, unsigned short soLuongTamGiac, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung ) {
    
    float nghiemGanNhat = kVO_CUC;
+//   printf( "Tia %5.3f %5.3f %5.3f  %5.3f %5.3f %5.3f\n", tia->goc.x, tia->goc.y, tia->goc.z, tia->huong.x, tia->huong.y, tia->huong.z );
    
    unsigned char cat = kSAI;
    unsigned char soMat = 0;
@@ -4574,19 +4642,22 @@ float xemCatVatTheTamGiac( Vecto *mangDinh, TamGiac *mangTamGiac, unsigned short
       tamGiac[0] = mangDinh[mangTamGiac[soMat].dinh0];
       tamGiac[1] = mangDinh[mangTamGiac[soMat].dinh1];
       tamGiac[2] = mangDinh[mangTamGiac[soMat].dinh2];
+
+      Vecto ketQua = tinhPhapTuyenChoTamGiac( tamGiac );
+//      printf( "%d/%d  dinh %d %d %d\n", soMat, soLuongTamGiac, mangTamGiac[soMat].dinh0, mangTamGiac[soMat].dinh1, mangTamGiac[soMat].dinh2 );
+//      printf( "    PT %5.3f %5.3f %5.3f\n", ketQua.x, ketQua.y, ketQua.z );
       
       float nghiem = xemCatTamGiacMT( tamGiac, tia );
       
       if( nghiem < nghiemGanNhat ) {  // mặt 0
          nghiemGanNhat = nghiem;
-         Vecto ketQua = tinhPhapTuyenChoTamGiac( tamGiac );
-         phapTuyen->x = ketQua.x;
-         phapTuyen->y = ketQua.y;
-         phapTuyen->z = ketQua.z;
+         Vecto phapTuyenTamGiac = tinhPhapTuyenChoTamGiac( tamGiac );
+         phapTuyen->x = phapTuyenTamGiac.x;
+         phapTuyen->y = phapTuyenTamGiac.y;
+         phapTuyen->z = phapTuyenTamGiac.z;
          diemTrung->x = tia->goc.x + nghiem*tia->huong.x;
          diemTrung->y = tia->goc.y + nghiem*tia->huong.y;
          diemTrung->z = tia->goc.z + nghiem*tia->huong.z;
-         donViHoa( phapTuyen );
       }
       soMat++;
    }
@@ -4623,7 +4694,6 @@ BatDien datBatDien( float beRong, float beCao, float beDai, BaoBi *baoBi ) {
    batDien.mangDinh[4].y = 0.0f;
    batDien.mangDinh[4].z = nuaBeDai;
    // ---- cực dưới
-   Vecto dinh5;
    batDien.mangDinh[5].x = 0.0;
    batDien.mangDinh[5].y = -0.5f*beCao;
    batDien.mangDinh[5].z = 0.0f;
@@ -4661,7 +4731,7 @@ BatDien datBatDien( float beRong, float beCao, float beDai, BaoBi *baoBi ) {
    batDien.mangTamGiac[7].dinh0 = 1;
    batDien.mangTamGiac[7].dinh1 = 4;
    batDien.mangTamGiac[7].dinh2 = 5;
-   
+
    baoBi->gocCucTieu.x = -nuaBeRong;
    baoBi->gocCucDai.x = nuaBeRong;
    baoBi->gocCucTieu.y = -0.5f*beCao;
@@ -4671,6 +4741,400 @@ BatDien datBatDien( float beRong, float beCao, float beDai, BaoBi *baoBi ) {
 
    return batDien;
 }
+
+
+#pragma mark ---- Thập Nhị Diện
+ThapNhiDien datThapNhiDien( float beRong, float beCao, float beDai, BaoBi *baoBi ) {
+   
+   ThapNhiDien thapNhiDien;
+   thapNhiDien.soLuongTamGiac = 60;  // 12 ngũ giảc x 5 tam giác
+   
+   // ==== các tâm
+   // ---- tâm mặt trên
+   thapNhiDien.mangDinh[0].x = 0.0f;
+   thapNhiDien.mangDinh[0].y = 0.79465f*beCao;
+   thapNhiDien.mangDinh[0].z = 0.0f;
+   // ---- tâm 5 ngũ giác lớp trên
+   thapNhiDien.mangDinh[1].x = 0.417777f*beRong;
+   thapNhiDien.mangDinh[1].y = 0.35568f*beCao;
+   thapNhiDien.mangDinh[1].z = 0.57551f*beDai;
+   
+   thapNhiDien.mangDinh[2].x = 0.67597f*beRong;
+   thapNhiDien.mangDinh[2].y = 0.35568f*beCao;
+   thapNhiDien.mangDinh[2].z = -0.21915f*beDai;
+
+   thapNhiDien.mangDinh[3].x = 0.000000f*beRong;
+   thapNhiDien.mangDinh[3].y = 0.35568f*beCao;
+   thapNhiDien.mangDinh[3].z = -0.71027f*beDai;
+
+   thapNhiDien.mangDinh[4].x = -0.67597f*beRong;
+   thapNhiDien.mangDinh[4].y = 0.35568f*beCao;
+   thapNhiDien.mangDinh[4].z = -0.21915f*beDai;
+
+   thapNhiDien.mangDinh[5].x = -0.41777f*beRong;
+   thapNhiDien.mangDinh[5].y = 0.35568f*beCao;
+   thapNhiDien.mangDinh[5].z = 0.57551f*beDai;
+   // ---- tâm 5 ngũ giác lớp dưới
+   thapNhiDien.mangDinh[6].x = 0.00000f*beRong;
+   thapNhiDien.mangDinh[6].y = -0.35568f*beCao;
+   thapNhiDien.mangDinh[6].z = 0.71027f*beDai;
+   
+   thapNhiDien.mangDinh[7].x = 0.67597f*beRong;
+   thapNhiDien.mangDinh[7].y = -0.35568f*beCao;
+   thapNhiDien.mangDinh[7].z = 0.21915f*beDai;
+
+   thapNhiDien.mangDinh[8].x = 0.41777f*beRong;
+   thapNhiDien.mangDinh[8].y = -0.35568f*beCao;
+   thapNhiDien.mangDinh[8].z = -0.57551f*beDai;
+   
+   thapNhiDien.mangDinh[9].x = -0.41777f*beRong;
+   thapNhiDien.mangDinh[9].y = -0.35568f*beCao;
+   thapNhiDien.mangDinh[9].z = -0.57551f*beDai;
+
+   thapNhiDien.mangDinh[10].x = -0.67597f*beRong;
+   thapNhiDien.mangDinh[10].y = -0.35568f*beCao;
+   thapNhiDien.mangDinh[10].z = 0.21915f*beDai;
+   // ---- tâm mặt dưới
+   thapNhiDien.mangDinh[11].x = 0.00000f*beRong;
+   thapNhiDien.mangDinh[11].y = -0.79465f*beCao;
+   thapNhiDien.mangDinh[11].z = 0.000000f*beDai;
+
+   // ---- rìa mặt trên
+   thapNhiDien.mangDinh[12].x = 0.0f;
+   thapNhiDien.mangDinh[12].y = 0.79465451f*beCao;
+   thapNhiDien.mangDinh[12].z = 0.60706196f*beRong;
+
+   thapNhiDien.mangDinh[13].x = 0.57735022f*beDai;
+   thapNhiDien.mangDinh[13].y = 0.79465451f*beCao;
+   thapNhiDien.mangDinh[13].z = 0.18759247f*beRong;
+   
+   thapNhiDien.mangDinh[14].x = 0.35682211f*beDai;
+   thapNhiDien.mangDinh[14].y = 0.79465451f*beCao;
+   thapNhiDien.mangDinh[14].z = -0.49112344f*beRong;
+   
+   thapNhiDien.mangDinh[15].x = -0.35682211f*beDai;
+   thapNhiDien.mangDinh[15].y = 0.79465451f*beCao;
+   thapNhiDien.mangDinh[15].z = -0.49112344f*beRong;
+
+   thapNhiDien.mangDinh[16].x = -0.57735022f*beDai;
+   thapNhiDien.mangDinh[16].y = 0.79465451f*beCao;
+   thapNhiDien.mangDinh[16].z = 0.18759247f*beRong;
+
+   // ---- xích đạo
+   thapNhiDien.mangDinh[17].x = 0.0f;
+   thapNhiDien.mangDinh[17].y = 0.18759248f*beCao;
+   thapNhiDien.mangDinh[17].z = 0.98224695f*beRong;
+   
+   thapNhiDien.mangDinh[18].x = 0.93417235f*beDai;
+   thapNhiDien.mangDinh[18].y = 0.18759248f*beCao;
+   thapNhiDien.mangDinh[18].z = 0.30353102f*beRong;
+
+   thapNhiDien.mangDinh[19].x = 0.57735022f*beDai;
+   thapNhiDien.mangDinh[19].y = 0.18759248f*beCao;
+   thapNhiDien.mangDinh[19].z = -0.79465445f*beRong;
+
+   thapNhiDien.mangDinh[20].x = -0.57735022f*beDai;
+   thapNhiDien.mangDinh[20].y = 0.18759248f*beCao;
+   thapNhiDien.mangDinh[20].z = -0.79465445f*beRong;
+   
+   thapNhiDien.mangDinh[21].x = -0.93417235f*beDai;
+   thapNhiDien.mangDinh[21].y = 0.18759248f*beCao;
+   thapNhiDien.mangDinh[21].z = 0.30353102f*beRong;
+   
+   // ----
+   thapNhiDien.mangDinh[22].x = 0.57735022f*beDai;
+   thapNhiDien.mangDinh[22].y = -0.18759248f*beCao;
+   thapNhiDien.mangDinh[22].z = 0.79465445f*beRong;
+   
+   thapNhiDien.mangDinh[23].x = 0.93417235f*beDai;
+   thapNhiDien.mangDinh[23].y = -0.18759248f*beCao;
+   thapNhiDien.mangDinh[23].z = -0.30353102f*beRong;
+   
+   thapNhiDien.mangDinh[24].x = 0.0f;
+   thapNhiDien.mangDinh[24].y = -0.18759248f*beCao;
+   thapNhiDien.mangDinh[24].z = -0.98224695f*beRong;
+
+   thapNhiDien.mangDinh[25].x = -0.93417235f*beDai;
+   thapNhiDien.mangDinh[25].y = -0.18759248f*beCao;
+   thapNhiDien.mangDinh[25].z = -0.30353102f*beRong;
+   
+   thapNhiDien.mangDinh[26].x = -0.57735022f*beDai;
+   thapNhiDien.mangDinh[26].y = -0.18759248f*beCao;
+   thapNhiDien.mangDinh[26].z = 0.79465445f*beRong;
+
+   // ---- rìa mặt dưới
+   thapNhiDien.mangDinh[27].x = 0.35682211f*beDai;
+   thapNhiDien.mangDinh[27].y = -0.79465451f*beCao;
+   thapNhiDien.mangDinh[27].z = 0.49112344f*beRong;
+   
+   thapNhiDien.mangDinh[28].x = 0.57735022f*beDai;
+   thapNhiDien.mangDinh[28].y = -0.79465451f*beCao;
+   thapNhiDien.mangDinh[28].z = -0.18759247f*beRong;
+   
+   thapNhiDien.mangDinh[29].x = 0.0f;
+   thapNhiDien.mangDinh[29].y = -0.79465451f*beCao;
+   thapNhiDien.mangDinh[29].z = -0.60706196f*beRong;
+   
+   thapNhiDien.mangDinh[30].x = -0.57735022f*beDai;
+   thapNhiDien.mangDinh[30].y = -0.79465451f*beCao;
+   thapNhiDien.mangDinh[30].z = -0.18759247f*beRong;
+   
+   thapNhiDien.mangDinh[31].x = -0.35682211f*beDai;
+   thapNhiDien.mangDinh[31].y = -0.79465451f*beCao;
+   thapNhiDien.mangDinh[31].z = 0.49112344f*beRong;
+
+   // ---- mảng tam giác
+   // ngũ giác trên
+   thapNhiDien.mangTamGiac[0].dinh0 = 0;
+   thapNhiDien.mangTamGiac[0].dinh1 = 12;
+   thapNhiDien.mangTamGiac[0].dinh2 = 13;
+   
+   thapNhiDien.mangTamGiac[1].dinh0 = 0;
+   thapNhiDien.mangTamGiac[1].dinh1 = 13;
+   thapNhiDien.mangTamGiac[1].dinh2 = 14;
+   
+   thapNhiDien.mangTamGiac[2].dinh0 = 0;
+   thapNhiDien.mangTamGiac[2].dinh1 = 14;
+   thapNhiDien.mangTamGiac[2].dinh2 = 15;
+   
+   thapNhiDien.mangTamGiac[3].dinh0 = 0;
+   thapNhiDien.mangTamGiac[3].dinh1 = 15;
+   thapNhiDien.mangTamGiac[3].dinh2 = 16;
+
+   thapNhiDien.mangTamGiac[4].dinh0 = 0;
+   thapNhiDien.mangTamGiac[4].dinh1 = 16;
+   thapNhiDien.mangTamGiac[4].dinh2 = 12;
+   // ----
+   thapNhiDien.mangTamGiac[5].dinh0 = 1;
+   thapNhiDien.mangTamGiac[5].dinh1 = 13;
+   thapNhiDien.mangTamGiac[5].dinh2 = 12;
+   
+   thapNhiDien.mangTamGiac[6].dinh0 = 1;
+   thapNhiDien.mangTamGiac[6].dinh1 = 12;
+   thapNhiDien.mangTamGiac[6].dinh2 = 17;
+   
+   thapNhiDien.mangTamGiac[7].dinh0 = 1;
+   thapNhiDien.mangTamGiac[7].dinh1 = 17;
+   thapNhiDien.mangTamGiac[7].dinh2 = 22;
+   
+   thapNhiDien.mangTamGiac[8].dinh0 = 1;
+   thapNhiDien.mangTamGiac[8].dinh1 = 22;
+   thapNhiDien.mangTamGiac[8].dinh2 = 18;
+   
+   thapNhiDien.mangTamGiac[9].dinh0 = 1;
+   thapNhiDien.mangTamGiac[9].dinh1 = 18;
+   thapNhiDien.mangTamGiac[9].dinh2 = 13;
+   // ----
+   thapNhiDien.mangTamGiac[10].dinh0 = 2;
+   thapNhiDien.mangTamGiac[10].dinh1 = 14;
+   thapNhiDien.mangTamGiac[10].dinh2 = 13;
+   
+   thapNhiDien.mangTamGiac[11].dinh0 = 2;
+   thapNhiDien.mangTamGiac[11].dinh1 = 13;
+   thapNhiDien.mangTamGiac[11].dinh2 = 18;
+
+   thapNhiDien.mangTamGiac[12].dinh0 = 2;
+   thapNhiDien.mangTamGiac[12].dinh1 = 18;
+   thapNhiDien.mangTamGiac[12].dinh2 = 23;
+   
+   thapNhiDien.mangTamGiac[13].dinh0 = 2;
+   thapNhiDien.mangTamGiac[13].dinh1 = 23;
+   thapNhiDien.mangTamGiac[13].dinh2 = 19;
+
+   thapNhiDien.mangTamGiac[14].dinh0 = 2;
+   thapNhiDien.mangTamGiac[14].dinh1 = 19;
+   thapNhiDien.mangTamGiac[14].dinh2 = 14;
+   // ----
+   thapNhiDien.mangTamGiac[15].dinh0 = 3;
+   thapNhiDien.mangTamGiac[15].dinh1 = 15;
+   thapNhiDien.mangTamGiac[15].dinh2 = 14;
+
+   thapNhiDien.mangTamGiac[16].dinh0 = 3;
+   thapNhiDien.mangTamGiac[16].dinh1 = 14;
+   thapNhiDien.mangTamGiac[16].dinh2 = 19;
+   
+   thapNhiDien.mangTamGiac[17].dinh0 = 3;
+   thapNhiDien.mangTamGiac[17].dinh1 = 19;
+   thapNhiDien.mangTamGiac[17].dinh2 = 24;
+   
+   thapNhiDien.mangTamGiac[18].dinh0 = 3;
+   thapNhiDien.mangTamGiac[18].dinh1 = 24;
+   thapNhiDien.mangTamGiac[18].dinh2 = 20;
+   
+   thapNhiDien.mangTamGiac[19].dinh0 = 3;
+   thapNhiDien.mangTamGiac[19].dinh1 = 20;
+   thapNhiDien.mangTamGiac[19].dinh2 = 15;
+   // ----
+   thapNhiDien.mangTamGiac[20].dinh0 = 4;
+   thapNhiDien.mangTamGiac[20].dinh1 = 16;
+   thapNhiDien.mangTamGiac[20].dinh2 = 15;
+   
+   thapNhiDien.mangTamGiac[21].dinh0 = 4;
+   thapNhiDien.mangTamGiac[21].dinh1 = 15;
+   thapNhiDien.mangTamGiac[21].dinh2 = 20;
+
+   thapNhiDien.mangTamGiac[22].dinh0 = 4;
+   thapNhiDien.mangTamGiac[22].dinh1 = 20;
+   thapNhiDien.mangTamGiac[22].dinh2 = 25;
+
+   thapNhiDien.mangTamGiac[23].dinh0 = 4;
+   thapNhiDien.mangTamGiac[23].dinh1 = 25;
+   thapNhiDien.mangTamGiac[23].dinh2 = 21;
+
+   thapNhiDien.mangTamGiac[24].dinh0 = 4;
+   thapNhiDien.mangTamGiac[24].dinh1 = 21;
+   thapNhiDien.mangTamGiac[24].dinh2 = 16;
+   // ----
+   thapNhiDien.mangTamGiac[25].dinh0 = 5;
+   thapNhiDien.mangTamGiac[25].dinh1 = 12;
+   thapNhiDien.mangTamGiac[25].dinh2 = 16;
+
+   thapNhiDien.mangTamGiac[26].dinh0 = 5;
+   thapNhiDien.mangTamGiac[26].dinh1 = 16;
+   thapNhiDien.mangTamGiac[26].dinh2 = 21;
+
+   thapNhiDien.mangTamGiac[27].dinh0 = 5;
+   thapNhiDien.mangTamGiac[27].dinh1 = 21;
+   thapNhiDien.mangTamGiac[27].dinh2 = 26;
+
+   thapNhiDien.mangTamGiac[28].dinh0 = 5;
+   thapNhiDien.mangTamGiac[28].dinh1 = 26;
+   thapNhiDien.mangTamGiac[28].dinh2 = 17;
+   
+   thapNhiDien.mangTamGiac[29].dinh0 = 5;
+   thapNhiDien.mangTamGiac[29].dinh1 = 17;
+   thapNhiDien.mangTamGiac[29].dinh2 = 12;
+   // ====
+   thapNhiDien.mangTamGiac[30].dinh0 = 6;
+   thapNhiDien.mangTamGiac[30].dinh1 = 31;
+   thapNhiDien.mangTamGiac[30].dinh2 = 27;
+   
+   thapNhiDien.mangTamGiac[31].dinh0 = 6;
+   thapNhiDien.mangTamGiac[31].dinh1 = 26;
+   thapNhiDien.mangTamGiac[31].dinh2 = 31;
+
+   thapNhiDien.mangTamGiac[32].dinh0 = 6;
+   thapNhiDien.mangTamGiac[32].dinh1 = 17;
+   thapNhiDien.mangTamGiac[32].dinh2 = 26;
+   
+   thapNhiDien.mangTamGiac[33].dinh0 = 6;
+   thapNhiDien.mangTamGiac[33].dinh1 = 22;
+   thapNhiDien.mangTamGiac[33].dinh2 = 17;
+   
+   thapNhiDien.mangTamGiac[34].dinh0 = 6;
+   thapNhiDien.mangTamGiac[34].dinh1 = 27;
+   thapNhiDien.mangTamGiac[34].dinh2 = 22;
+   // ----
+   thapNhiDien.mangTamGiac[35].dinh0 = 7;
+   thapNhiDien.mangTamGiac[35].dinh1 = 27;
+   thapNhiDien.mangTamGiac[35].dinh2 = 28;
+   
+   thapNhiDien.mangTamGiac[36].dinh0 = 7;
+   thapNhiDien.mangTamGiac[36].dinh1 = 22;
+   thapNhiDien.mangTamGiac[36].dinh2 = 27;
+
+   thapNhiDien.mangTamGiac[37].dinh0 = 7;
+   thapNhiDien.mangTamGiac[37].dinh1 = 18;
+   thapNhiDien.mangTamGiac[37].dinh2 = 22;
+
+   thapNhiDien.mangTamGiac[38].dinh0 = 7;
+   thapNhiDien.mangTamGiac[38].dinh1 = 23;
+   thapNhiDien.mangTamGiac[38].dinh2 = 18;
+   
+   thapNhiDien.mangTamGiac[39].dinh0 = 7;
+   thapNhiDien.mangTamGiac[39].dinh1 = 28;
+   thapNhiDien.mangTamGiac[39].dinh2 = 23;
+   // ----
+   thapNhiDien.mangTamGiac[40].dinh0 = 8;
+   thapNhiDien.mangTamGiac[40].dinh1 = 28;
+   thapNhiDien.mangTamGiac[40].dinh2 = 29;
+
+   thapNhiDien.mangTamGiac[41].dinh0 = 8;
+   thapNhiDien.mangTamGiac[41].dinh1 = 23;
+   thapNhiDien.mangTamGiac[41].dinh2 = 28;
+
+   thapNhiDien.mangTamGiac[42].dinh0 = 8;
+   thapNhiDien.mangTamGiac[42].dinh1 = 19;
+   thapNhiDien.mangTamGiac[42].dinh2 = 23;
+
+   thapNhiDien.mangTamGiac[43].dinh0 = 8;
+   thapNhiDien.mangTamGiac[43].dinh1 = 24;
+   thapNhiDien.mangTamGiac[43].dinh2 = 19;
+   
+   thapNhiDien.mangTamGiac[44].dinh0 = 8;
+   thapNhiDien.mangTamGiac[44].dinh1 = 29;
+   thapNhiDien.mangTamGiac[44].dinh2 = 24;
+   // ----
+   thapNhiDien.mangTamGiac[45].dinh0 = 9;
+   thapNhiDien.mangTamGiac[45].dinh1 = 29;
+   thapNhiDien.mangTamGiac[45].dinh2 = 30;
+   
+   thapNhiDien.mangTamGiac[46].dinh0 = 9;
+   thapNhiDien.mangTamGiac[46].dinh1 = 24;
+   thapNhiDien.mangTamGiac[46].dinh2 = 29;
+
+   thapNhiDien.mangTamGiac[47].dinh0 = 9;
+   thapNhiDien.mangTamGiac[47].dinh1 = 20;
+   thapNhiDien.mangTamGiac[47].dinh2 = 24;
+
+   thapNhiDien.mangTamGiac[48].dinh0 = 9;
+   thapNhiDien.mangTamGiac[48].dinh1 = 25;
+   thapNhiDien.mangTamGiac[48].dinh2 = 20;
+   
+   thapNhiDien.mangTamGiac[49].dinh0 = 9;
+   thapNhiDien.mangTamGiac[49].dinh1 = 30;
+   thapNhiDien.mangTamGiac[49].dinh2 = 25;
+   // ----
+   thapNhiDien.mangTamGiac[50].dinh0 = 10;
+   thapNhiDien.mangTamGiac[50].dinh1 = 30;
+   thapNhiDien.mangTamGiac[50].dinh2 = 31;
+   
+   thapNhiDien.mangTamGiac[51].dinh0 = 10;
+   thapNhiDien.mangTamGiac[51].dinh1 = 25;
+   thapNhiDien.mangTamGiac[51].dinh2 = 30;
+   
+   thapNhiDien.mangTamGiac[52].dinh0 = 10;
+   thapNhiDien.mangTamGiac[52].dinh1 = 21;
+   thapNhiDien.mangTamGiac[52].dinh2 = 25;
+
+   thapNhiDien.mangTamGiac[53].dinh0 = 10;
+   thapNhiDien.mangTamGiac[53].dinh1 = 26;
+   thapNhiDien.mangTamGiac[53].dinh2 = 21;
+
+   thapNhiDien.mangTamGiac[54].dinh0 = 10;
+   thapNhiDien.mangTamGiac[54].dinh1 = 31;
+   thapNhiDien.mangTamGiac[54].dinh2 = 26;
+   // ----
+   thapNhiDien.mangTamGiac[55].dinh0 = 11;
+   thapNhiDien.mangTamGiac[55].dinh1 = 28;
+   thapNhiDien.mangTamGiac[55].dinh2 = 27;
+   
+   thapNhiDien.mangTamGiac[56].dinh0 = 11;
+   thapNhiDien.mangTamGiac[56].dinh1 = 29;
+   thapNhiDien.mangTamGiac[56].dinh2 = 28;
+
+   thapNhiDien.mangTamGiac[57].dinh0 = 11;
+   thapNhiDien.mangTamGiac[57].dinh1 = 30;
+   thapNhiDien.mangTamGiac[57].dinh2 = 29;
+
+   thapNhiDien.mangTamGiac[58].dinh0 = 11;
+   thapNhiDien.mangTamGiac[58].dinh1 = 31;
+   thapNhiDien.mangTamGiac[58].dinh2 = 30;
+   
+   thapNhiDien.mangTamGiac[59].dinh0 = 11;
+   thapNhiDien.mangTamGiac[59].dinh1 = 27;
+   thapNhiDien.mangTamGiac[59].dinh2 = 31;
+
+   baoBi->gocCucTieu.x = -0.98224695f*beRong;
+   baoBi->gocCucDai.x = 0.98224695f*beRong;
+   baoBi->gocCucTieu.y = -0.79465451f*beCao;
+   baoBi->gocCucDai.y = 0.79465451f*beCao;
+   baoBi->gocCucTieu.z = -0.93417235f*beDai;
+   baoBi->gocCucDai.z = 0.93417235f*beDai;
+   
+   return thapNhiDien;
+}
+
 
 #pragma mark ---- Kim Tư Tháp
 KimTuThap datKimTuThap( float beRong, float beCao, float beDai, BaoBi *baoBi ) {
@@ -5035,6 +5499,7 @@ Vecto tinhPhapTuyenChoTamGiac( Vecto *tamGiac ) {
    canh_02.z = tamGiac[2].z - tamGiac[0].z;
 
    Vecto phapTuyen = tichCoHuong( &canh_01, &canh_02 );
+   donViHoa( &phapTuyen );
    
    return phapTuyen;
 }
@@ -14130,7 +14595,7 @@ void nangCapLocXoay( VatThe *danhSachVat, unsigned short soHoatHinh );
 #define kNHAN_VAT__BONG_BONG_DAU_PT1     14
 #define kNHAN_VAT__BONG_BONG_CUOI_PT1    15
 
-#define kSO_LUONG__BONG_BONG_TRONG_BAY  100  // <----- 5000
+#define kSO_LUONG__BONG_BONG_TRONG_BAY  5000  // <----- 5000
 #define kTOC_DO_BONG_BONG_TRONG_BAY     0.004f       // tốc độ bong bóng trong bay
 #define kSO_LUONG__HAT_BAY_TRONG_LOC_XOAY  300   // số lượng hạt bay trong lốc xoay
 
@@ -14860,9 +15325,8 @@ unsigned short datQuocLo( VatThe *danhSachVat ) {
    Mau mauDat;
    mauDat.d = 1.0f;   mauDat.l = 0.8f;   mauDat.x = 0.4f;   mauDat.dd = 1.0f;   mauDat.p = 0.0f;
    
-   float mangViTri_z[] = { 2400.0f, 2000.0f, 1600.0f, 1200.0f, 800.0f,
-      400.0f, -420.0f, -820.0f, -1220.0f, -1620.0f,
-      -2020.0f, -2400.0f, -2800.0f};
+   float mangViTri_z[] = { 2400.0f, 2000.0f, 1600.0f, 1200.0f, 800.0f, 400.0f,
+      -420.0f, -820.0f, -1220.0f, -1620.0f, -2020.0f, -2400.0f, -2800.0f};
 
    // ==== mặt đường
    Mau mauOc0;
@@ -17423,10 +17887,10 @@ void nangCapVaiChanh_PT_1( VatThe *vaiChanh, unsigned short soHoatHinh ) {
    // ---- chùm ra bong bóng và chạy
    else if( soHoatHinh < 1770 ) {
       Bezier congBezier;  // cong Bezier cho đoạn thời gian này
-      congBezier.diemQuanTri[0].x = 6.0f;    congBezier.diemQuanTri[0].y = 100.7f;    congBezier.diemQuanTri[0].z = -53.0f;
-      congBezier.diemQuanTri[1].x = 6.0f;    congBezier.diemQuanTri[1].y = 100.7f;    congBezier.diemQuanTri[1].z = -53.0f;
-      congBezier.diemQuanTri[2].x = 3.0f;    congBezier.diemQuanTri[2].y = 100.7f;    congBezier.diemQuanTri[2].z = -106.7f;
-      congBezier.diemQuanTri[3].x = 3.0f;    congBezier.diemQuanTri[3].y = 100.7f;    congBezier.diemQuanTri[3].z = -160.0f;
+      congBezier.diemQuanTri[0].x = 6.0f;    congBezier.diemQuanTri[0].y = viTriVaiChanh.y;    congBezier.diemQuanTri[0].z = -53.0f;
+      congBezier.diemQuanTri[1].x = 6.0f;    congBezier.diemQuanTri[1].y = viTriVaiChanh.y;    congBezier.diemQuanTri[1].z = -53.0f;
+      congBezier.diemQuanTri[2].x = 3.0f;    congBezier.diemQuanTri[2].y = viTriVaiChanh.y;    congBezier.diemQuanTri[2].z = -106.7f;
+      congBezier.diemQuanTri[3].x = 3.0f;    congBezier.diemQuanTri[3].y = viTriVaiChanh.y;    congBezier.diemQuanTri[3].z = -160.0f;
       
       float thamSoBezier = ((float)soHoatHinh - 1690)/80.0f;
       viTriVaiChanh = tinhViTriBezier3C( &congBezier, thamSoBezier );
@@ -17445,7 +17909,7 @@ void nangCapVaiChanh_PT_1( VatThe *vaiChanh, unsigned short soHoatHinh ) {
       viTriVaiChanh.z = -160.0f - 2.0f*(soHoatHinh - 1770);
    }
    else { // ---- bị hút lên trong lốc xoay
-      viTriVaiChanh.y = 100.7f + 20*atan( (soHoatHinh - 1920)*0.05f );
+      viTriVaiChanh.y = 100.2f + vaiChanh->hinhDang.hinhCau.banKinh + 20*atan( (soHoatHinh - 1920)*0.05f );
       
       float banKinh = expf( (viTriVaiChanh.y - 100.7f)*0.04 ) - 1.0f;
       float goc = soHoatHinh*0.3333f;
@@ -17987,8 +18451,8 @@ void chuanBiMayQuayPhimVaMatTroiPhimTruong2( PhimTruong *phimTruong ) {
    // ==== máy quay phim
    phimTruong->mayQuayPhim.kieuChieu = kKIEU_CHIEU__TOAN_CANH;
    // ---- vị trí bắt đầu cho máy quay phim
-   phimTruong->mayQuayPhim.viTri.x = -2.1f;
-   phimTruong->mayQuayPhim.viTri.y = 2.8f;
+   phimTruong->mayQuayPhim.viTri.x = 0.0f;
+   phimTruong->mayQuayPhim.viTri.y = 2.6f;
    phimTruong->mayQuayPhim.viTri.z = 10.0f;
    phimTruong->mayQuayPhim.cachManChieu = 5.0f;
    Vecto trucQuayMayQuayPhim;
@@ -18082,7 +18546,7 @@ unsigned short vatTheThu( VatThe *danhSachVat ) {
   
 //   viTri.x = 3.0f;    viTri.y = 0.0f;     viTri.z = 0.0f;
 //   hoaTietHaiChamBi( &viTri, &(danhSachVat[0].hoaTiet.hoaTietHaiChamBi) );
-
+   mauNen.p = 0.3f;   mauOc0.p = 0.3f;
    viTri.x = -1.0f;    viTri.y = -0.5f;    viTri.z = 1.0f;
    mauNen.dd = 0.2f;
    danhSachVat[soLuungVat].hinhDang.hinhCau = datHinhCau( 0.8f, &(danhSachVat[soLuungVat].baoBiVT));
@@ -18102,17 +18566,19 @@ unsigned short vatTheThu( VatThe *danhSachVat ) {
    danhSachVat[soLuungVat].hoaTiet.hoaTietDiHuong = datHoaTietDiHuong( &mauOc0, &mauNen );
    danhSachVat[soLuungVat].soHoaTiet = kHOA_TIET__DI_HUONG;
    soLuungVat++;
-/*
-   mauNen.dd = 0.1f;
-   viTri.x = 1.5f;
-   danhSachVat[soLuungVat].hinhDang.hinhCau = datHinhCau( 0.6f, &(danhSachVat[soLuungVat].baoBiVT));
-   danhSachVat[soLuungVat].loai = kLOAI_HINH_DANG__HINH_CAU;
+
+/*   mauNen.d = 1.0f;   mauNen.l = 0.0f;   mauNen.x = 0.0f;  mauNen.dd = 1.0f;
+   mauOc0.d = 1.0f;   mauOc0.l = 0.0f;   mauOc0.x = 0.5f;  mauOc0.dd = 1.0f;
+   viTri.x = -3.0f;
+   viTri.z = 2.0f;
+   viTri.y = -1.0f;
+   danhSachVat[soLuungVat].hinhDang.thapNhiDien = datThapNhiDien( 1.0f, 1.0f, 1.0f, &(danhSachVat[soLuungVat].baoBiVT));
+   danhSachVat[soLuungVat].loai = kLOAI_HINH_DANG__THAP_NHI_DIEN;
    danhSachVat[soLuungVat].chietSuat = 1.0f;
    datBienHoaChoVat( &(danhSachVat[soLuungVat]), &phongTo, &quaternion, &viTri );
    danhSachVat[soLuungVat].hoaTiet.hoaTietDiHuong = datHoaTietDiHuong( &mauOc0, &mauNen );
    danhSachVat[soLuungVat].soHoaTiet = kHOA_TIET__DI_HUONG;
-   soLuungVat++;
-*/
+   soLuungVat++; */
 
    return soLuungVat;
 }
