@@ -1,6 +1,6 @@
 //  Ví dụ phương pháp kết xuất dò tia đơn giản
-//  Phiên Bản 4.15
-//  Phát hành 2559/08/11
+//  Phiên Bản 4.16
+//  Phát hành 2559/08/13
 //  Hệ tọa độ giống OpenGL (+y là hướng lên)
 //  Khởi đầu 2557/12/18
 
@@ -1579,16 +1579,16 @@ Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi ) {
             Tia tiaPhanXa = tinhTiaPhanXa( thongTinToMauVatTheGanNhat.phapTuyenTDVT, diemTrung, tia->huong );
             mauPhanXa = doTia( &tiaPhanXa, phimTruong, soNhoi + 1 );
             // ---- tính màu cao quang
-            if( thay ) {
+            if( thay || (mauVat.dd < 1.0f) ) {
                mauCaoQuang = tinhCaoQuang( &(phimTruong->matTroi), &(tiaPhanXa.huong), 250.0f*tiSoPhanXa );
                float chinh = sqrtf(tiSoPhanXa);
-               mauCaoQuang.d *= chinh;  // màu ánh sánh phản xađ từ môi trường
+               mauCaoQuang.d *= chinh;  // màu ánh sánh phản xạ từ môi trường
                mauCaoQuang.l *= chinh;
                mauCaoQuang.x *= chinh;
              //  mauCaoQuang.dd = 1.0f;
             }
             else {
-               mauCaoQuang.d = 0.0f;  // màu ánh sánh phản xađ từ môi trường
+               mauCaoQuang.d = 0.0f;  // màu ánh sánh phản xạ từ môi trường
                mauCaoQuang.l = 0.0f;
                mauCaoQuang.x = 0.0f;
                mauCaoQuang.dd = 1.0f;
@@ -18567,7 +18567,7 @@ unsigned short vatTheThu( VatThe *danhSachVat ) {
    danhSachVat[soLuungVat].soHoaTiet = kHOA_TIET__DI_HUONG;
    soLuungVat++;
 
-/*   mauNen.d = 1.0f;   mauNen.l = 0.0f;   mauNen.x = 0.0f;  mauNen.dd = 1.0f;
+   mauNen.d = 1.0f;   mauNen.l = 0.0f;   mauNen.x = 0.0f;  mauNen.dd = 1.0f;
    mauOc0.d = 1.0f;   mauOc0.l = 0.0f;   mauOc0.x = 0.5f;  mauOc0.dd = 1.0f;
    viTri.x = -3.0f;
    viTri.z = 2.0f;
@@ -18578,7 +18578,7 @@ unsigned short vatTheThu( VatThe *danhSachVat ) {
    datBienHoaChoVat( &(danhSachVat[soLuungVat]), &phongTo, &quaternion, &viTri );
    danhSachVat[soLuungVat].hoaTiet.hoaTietDiHuong = datHoaTietDiHuong( &mauOc0, &mauNen );
    danhSachVat[soLuungVat].soHoaTiet = kHOA_TIET__DI_HUONG;
-   soLuungVat++; */
+   soLuungVat++;
 
    return soLuungVat;
 }
