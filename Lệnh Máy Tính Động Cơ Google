@@ -1,0 +1,7 @@
+## Cho Máy Tính Động Cơ Google
+
+#### Tải lên tệp doTia.c:
+./gcloud compute copy-files ~/Documents/Ma_C/doTia.c --zone "us-west1-a" render-node:~/doTia.c
+
+#### Tải xuống tệp KetXuat_01_0914.exr:
+./gcloud compute copy-files  --zone "us-west1-a" render-node:~/KetXuat_01_0914.exr ~/Documents/Ma_C/KetXuat_01_0914.exr
