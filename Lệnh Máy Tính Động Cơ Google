@@ -1,7 +1,21 @@
 ## Cho Máy Tính Động Cơ Google
 
+#### Đạt Điểm Máy Vi Tính Ảo (theo 2016-08-26)
+• Số lượng bộ xở lý:(Cores) 1
+• Lượng trí nhớ:(Memory) 1 GB
+• Preemptible (không biết này là nghĩa gì nhưng cho được rẻ tiền nhất)
+• Khu vực nào ở Hoa Kỳ (cho được rẻ tiền nhất)
+
+
+#### Cài Đạt GCC
+sudo apt-get install gcc
+
 #### Tải lên tệp doTia.c:
 ./gcloud compute copy-files ~/Documents/Ma_C/doTia.c --zone "us-west1-a" render-node:~/doTia.c
 
 #### Tải xuống tệp KetXuat_01_0914.exr:
 ./gcloud compute copy-files  --zone "us-west1-a" render-node:~/KetXuat_01_0914.exr ~/Documents/Ma_C/KetXuat_01_0914.exr
+
+
+// ---- Thử Nghiệm
+./gcloud compute instances create <tên máy ảo> --custom-cpu <số lượng> --custom-memory 1 --zone us-central1-b --preemptible
