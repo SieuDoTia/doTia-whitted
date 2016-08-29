@@ -1116,7 +1116,7 @@ void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong ) {
    while( hang < beCao ) {
 
       // ---- cho ảnh tính lâu, cho biết đang kết xuất ảnh bao nhiêu
-      printf( "%d/%d\n", hang, beCao );
+      printf( "%d/%d (%d‰)\n", hang, beCao, hang*1000/beCao );
 
       // ---- tính hướng cho tia của điểm ảnh này
       tia.huong.x = gocX + buocDoc.x*hang - tia.goc.x;
