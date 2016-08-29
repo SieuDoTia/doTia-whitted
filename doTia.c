@@ -1,6 +1,6 @@
 //  Ví dụ phương pháp kết xuất dò tia đơn giản
-//  Phiên Bản 4.16
-//  Phát hành 2559/08/13
+//  Phiên Bản 4.19
+//  Phát hành 2559/08/29
 //  Hệ tọa độ giống OpenGL (+y là hướng lên)
 //  Khởi đầu 2557/12/18
 
@@ -816,8 +816,8 @@ void xoaAnh( Anh *anh );  // xóa ảnh
 void donViHoa( Vecto *vecto );   // đơn vị hóa
 Vecto tichCoHuong( Vecto *vecto0, Vecto *vecto1 );   // tích có hướng
 
-// ---- lưu ảnh
-void luuAnh( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short thoiGianKetXuat );   // lưu ảnh
+// ---- lưu ảnh RLE
+void luuAnhRLE( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short thoiGianKetXuat );   // lưu ảnh
 
 #pragma mark Họa Tiết Thủ Tục ---- HẾT XÀI TỌA ĐỘ VẬT THỂ, KHÔNG PHẢI TỌA ĐỘ THẾ GIỚI
 // ---- không (màu đều)
@@ -977,7 +977,7 @@ int main( int argc, char **argv ) {
    // ---- cho hình sẽ phóng to theo cỡ kích ảnh
    float coKichDiemAnh;// = 0.005f*3.0f;   // 1.0f;
    docThamCoKich( argc, argv, &beRongAnh, &beCaoAnh, &coKichDiemAnh );
-   printf( "Cỡ Kích Ảnh: %d %d %5.3f\n", beRongAnh, beCaoAnh, coKichDiemAnh );
+   printf( "Cỡ Kích Ảnh: %d %d %5.4f\n", beRongAnh, beCaoAnh, coKichDiemAnh );
 
 
    Anh anh = taoAnhVoiCoKich( beRongAnh, beCaoAnh, coKichDiemAnh );
@@ -1000,7 +1000,7 @@ int main( int argc, char **argv ) {
 
 //      xemVatThe( phimTruong.danhSachVatThe, phimTruong.soLuongVatThe );
       char tenAnh[256];
-      sprintf( tenAnh, "KếtXuất_%02d_%04d.exr", phimTruong.soPhimTruong, phimTruong.soHoatHinhDau );
+      sprintf( tenAnh, "KetXuat_%02d_%04d.exr", phimTruong.soPhimTruong, phimTruong.soHoatHinhDau );
 
       // ---- xây tầng bậc đoạn bao bì
       phimTruong.baoBi = tinhBaoBiTGChoDanhSachVatThe( phimTruong.danhSachVatThe, phimTruong.soLuongVatThe );
@@ -1035,7 +1035,7 @@ int main( int argc, char **argv ) {
       time_t thoiGianKetXuat = thoiGianKetThuc - thoiGianBatDau;
 
       // ---- lưu ảnh
-      luuAnh( tenAnh, &anh, kKIEU_HALF, (unsigned short)thoiGianKetXuat );
+      luuAnhRLE( tenAnh, &anh, kKIEU_HALF, (unsigned short)thoiGianKetXuat );
       
       // ---- báo lưu xong ảnh nào
       printf( "-->> %s <<--  %ld giây (%5.2f phút) %d/%d\n", tenAnh, thoiGianKetXuat, (float)thoiGianKetXuat/60.0f,
@@ -1116,8 +1116,7 @@ void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong ) {
    while( hang < beCao ) {
 
       // ---- cho ảnh tính lâu, cho biết đang kết xuất ảnh bao nhiêu
-      if( (chiSoAnh & 0xfff) == 0 )
-         printf( "%4ld‰\n", chiSoAnh*1000/chiSoAnhCuoi );
+      printf( "%d/%d\n", hang, beCao );
 
       // ---- tính hướng cho tia của điểm ảnh này
       tia.huong.x = gocX + buocDoc.x*hang - tia.goc.x;
@@ -5351,47 +5350,47 @@ SaoGai datSaoGai( BaoBi *baoBiVT ) {
    SaoGai saoGai;
    saoGai.soLuongTamGiac = 60;
    // ---- các gai
-   saoGai.mangDinh[0].x = -1.15180;   saoGai.mangDinh[0].y = 0.00000;    saoGai.mangDinh[0].z = 1.50772;
-   saoGai.mangDinh[1].x = -0.35593;   saoGai.mangDinh[1].y = -1.09542;   saoGai.mangDinh[1].z = 1.50772;
-   saoGai.mangDinh[2].x = 0.93182;    saoGai.mangDinh[2].y = -0.67702;   saoGai.mangDinh[2].z = 1.50772;
-   saoGai.mangDinh[3].x = 0.93182;    saoGai.mangDinh[3].y = 0.67702;    saoGai.mangDinh[3].z = 1.50772;
-   saoGai.mangDinh[4].x = -0.35593;   saoGai.mangDinh[4].y = 1.09542;    saoGai.mangDinh[4].z = 1.50772;
+   saoGai.mangDinh[0].x = -1.15180f;   saoGai.mangDinh[0].y = 0.00000f;    saoGai.mangDinh[0].z = 1.50772f;
+   saoGai.mangDinh[1].x = -0.35593f;   saoGai.mangDinh[1].y = -1.09542f;   saoGai.mangDinh[1].z = 1.50772f;
+   saoGai.mangDinh[2].x = 0.93182f;    saoGai.mangDinh[2].y = -0.67702f;   saoGai.mangDinh[2].z = 1.50772f;
+   saoGai.mangDinh[3].x = 0.93182f;    saoGai.mangDinh[3].y = 0.67702f;    saoGai.mangDinh[3].z = 1.50772f;
+   saoGai.mangDinh[4].x = -0.35593f;   saoGai.mangDinh[4].y = 1.09542f;    saoGai.mangDinh[4].z = 1.50772f;
    
-   saoGai.mangDinh[5].x = -1.86364;   saoGai.mangDinh[5].y = 0.00000;    saoGai.mangDinh[5].z = 0.35592;
-   saoGai.mangDinh[6].x = -0.57590;   saoGai.mangDinh[6].y = -1.77242;   saoGai.mangDinh[6].z = 0.35592;
-   saoGai.mangDinh[7].x = 1.50771;    saoGai.mangDinh[7].y = -1.09543;   saoGai.mangDinh[7].z = 0.35592;
-   saoGai.mangDinh[8].x = 1.50771;    saoGai.mangDinh[8].y = 1.09543;    saoGai.mangDinh[8].z = 0.35592;
-   saoGai.mangDinh[9].x = -0.57590;   saoGai.mangDinh[9].y = 1.77242;    saoGai.mangDinh[9].z = 0.35592;
+   saoGai.mangDinh[5].x = -1.86364f;   saoGai.mangDinh[5].y = 0.00000f;    saoGai.mangDinh[5].z = 0.35592f;
+   saoGai.mangDinh[6].x = -0.57590f;   saoGai.mangDinh[6].y = -1.77242f;   saoGai.mangDinh[6].z = 0.35592f;
+   saoGai.mangDinh[7].x = 1.50771f;    saoGai.mangDinh[7].y = -1.09543f;   saoGai.mangDinh[7].z = 0.35592f;
+   saoGai.mangDinh[8].x = 1.50771f;    saoGai.mangDinh[8].y = 1.09543f;    saoGai.mangDinh[8].z = 0.35592f;
+   saoGai.mangDinh[9].x = -0.57590f;   saoGai.mangDinh[9].y = 1.77242f;    saoGai.mangDinh[9].z = 0.35592f;
 
-   saoGai.mangDinh[10].x = -1.50771;  saoGai.mangDinh[10].y = -1.09543;  saoGai.mangDinh[10].z = -0.35592;
-   saoGai.mangDinh[11].x = 0.57590;   saoGai.mangDinh[11].y = -1.77242;  saoGai.mangDinh[11].z = -0.35592;
-   saoGai.mangDinh[12].x = 1.86364;   saoGai.mangDinh[12].y = 0.00000;   saoGai.mangDinh[12].z = -0.35592;
-   saoGai.mangDinh[13].x = 0.57590;   saoGai.mangDinh[13].y = 1.77242;   saoGai.mangDinh[13].z = -0.35592;
-   saoGai.mangDinh[14].x = -1.50771;  saoGai.mangDinh[14].y = 1.09543;   saoGai.mangDinh[14].z = -0.35592;
+   saoGai.mangDinh[10].x = -1.50771f;  saoGai.mangDinh[10].y = -1.09543f;  saoGai.mangDinh[10].z = -0.35592f;
+   saoGai.mangDinh[11].x = 0.57590f;   saoGai.mangDinh[11].y = -1.77242f;  saoGai.mangDinh[11].z = -0.35592f;
+   saoGai.mangDinh[12].x = 1.86364f;   saoGai.mangDinh[12].y = 0.00000f;   saoGai.mangDinh[12].z = -0.35592f;
+   saoGai.mangDinh[13].x = 0.57590f;   saoGai.mangDinh[13].y = 1.77242f;   saoGai.mangDinh[13].z = -0.35592f;
+   saoGai.mangDinh[14].x = -1.50771f;  saoGai.mangDinh[14].y = 1.09543f;   saoGai.mangDinh[14].z = -0.35592f;
 
-   saoGai.mangDinh[15].x = -0.93182;  saoGai.mangDinh[15].y = -0.67702;  saoGai.mangDinh[15].z = -1.50772;
-   saoGai.mangDinh[16].x = 0.35593;   saoGai.mangDinh[16].y = -1.09542;  saoGai.mangDinh[16].z = -1.50772;
-   saoGai.mangDinh[17].x = 1.15180;   saoGai.mangDinh[17].y = 0.00000;   saoGai.mangDinh[17].z = -1.50772;
-   saoGai.mangDinh[18].x = 0.35593;   saoGai.mangDinh[18].y = 1.09542;   saoGai.mangDinh[18].z = -1.50772;
-   saoGai.mangDinh[19].x = -0.93182;  saoGai.mangDinh[19].y = 0.67702;   saoGai.mangDinh[19].z = -1.50772;
+   saoGai.mangDinh[15].x = -0.93182f;  saoGai.mangDinh[15].y = -0.67702f;  saoGai.mangDinh[15].z = -1.50772f;
+   saoGai.mangDinh[16].x = 0.35593f;   saoGai.mangDinh[16].y = -1.09542f;  saoGai.mangDinh[16].z = -1.50772f;
+   saoGai.mangDinh[17].x = 1.15180f;   saoGai.mangDinh[17].y = 0.00000f;   saoGai.mangDinh[17].z = -1.50772f;
+   saoGai.mangDinh[18].x = 0.35593f;   saoGai.mangDinh[18].y = 1.09542f;   saoGai.mangDinh[18].z = -1.50772f;
+   saoGai.mangDinh[19].x = -0.93182f;  saoGai.mangDinh[19].y = 0.67702f;   saoGai.mangDinh[19].z = -1.50772f;
 
    // ==== nhị thập diện
    // ---- đỉnh trên
-   saoGai.mangDinh[20].x = 0.00000;   saoGai.mangDinh[20].y = 0.00000;   saoGai.mangDinh[20].z = 0.50000;
+   saoGai.mangDinh[20].x = 0.00000f;   saoGai.mangDinh[20].y = 0.00000f;   saoGai.mangDinh[20].z = 0.50000f;
    
-   saoGai.mangDinh[21].x = -0.36180;  saoGai.mangDinh[21].y = -0.26286;  saoGai.mangDinh[21].z = 0.22361;
-   saoGai.mangDinh[22].x = 0.13819;   saoGai.mangDinh[22].y = -0.42532;  saoGai.mangDinh[22].z = 0.22361;
-   saoGai.mangDinh[23].x = 0.44721;   saoGai.mangDinh[23].y = 0.00000;   saoGai.mangDinh[23].z = 0.22361;
-   saoGai.mangDinh[24].x = 0.13819;   saoGai.mangDinh[24].y = 0.42532;   saoGai.mangDinh[24].z = 0.22361;
-   saoGai.mangDinh[25].x = -0.36180;  saoGai.mangDinh[25].y = 0.26286;   saoGai.mangDinh[25].z = 0.22361;
+   saoGai.mangDinh[21].x = -0.36180f;  saoGai.mangDinh[21].y = -0.26286f;  saoGai.mangDinh[21].z = 0.22361f;
+   saoGai.mangDinh[22].x = 0.13819f;   saoGai.mangDinh[22].y = -0.42532f;  saoGai.mangDinh[22].z = 0.22361f;
+   saoGai.mangDinh[23].x = 0.44721f;   saoGai.mangDinh[23].y = 0.00000f;   saoGai.mangDinh[23].z = 0.22361f;
+   saoGai.mangDinh[24].x = 0.13819f;   saoGai.mangDinh[24].y = 0.42532f;   saoGai.mangDinh[24].z = 0.22361f;
+   saoGai.mangDinh[25].x = -0.36180f;  saoGai.mangDinh[25].y = 0.26286f;   saoGai.mangDinh[25].z = 0.22361f;
 
-   saoGai.mangDinh[26].x = -0.44721;  saoGai.mangDinh[26].y = 0.00000;   saoGai.mangDinh[26].z = -0.22361;
-   saoGai.mangDinh[27].x = -0.13819;  saoGai.mangDinh[27].y = -0.42532;  saoGai.mangDinh[27].z = -0.22361;
-   saoGai.mangDinh[28].x = 0.36180;   saoGai.mangDinh[28].y = -0.26286;  saoGai.mangDinh[28].z = -0.22361;
-   saoGai.mangDinh[29].x = 0.36180;   saoGai.mangDinh[29].y = 0.26286;   saoGai.mangDinh[29].z = -0.22361;
-   saoGai.mangDinh[30].x = -0.13819;  saoGai.mangDinh[30].y = 0.42532;   saoGai.mangDinh[30].z = -0.22361;
+   saoGai.mangDinh[26].x = -0.44721f;  saoGai.mangDinh[26].y = 0.00000f;   saoGai.mangDinh[26].z = -0.22361f;
+   saoGai.mangDinh[27].x = -0.13819f;  saoGai.mangDinh[27].y = -0.42532f;  saoGai.mangDinh[27].z = -0.22361f;
+   saoGai.mangDinh[28].x = 0.36180f;   saoGai.mangDinh[28].y = -0.26286f;  saoGai.mangDinh[28].z = -0.22361f;
+   saoGai.mangDinh[29].x = 0.36180f;   saoGai.mangDinh[29].y = 0.26286f;   saoGai.mangDinh[29].z = -0.22361f;
+   saoGai.mangDinh[30].x = -0.13819f;  saoGai.mangDinh[30].y = 0.42532f;   saoGai.mangDinh[30].z = -0.22361f;
    // ---- đỉnh dưới
-   saoGai.mangDinh[31].x = 0.00000;   saoGai.mangDinh[31].y = 0.00000;   saoGai.mangDinh[31].z = -0.50000;
+   saoGai.mangDinh[31].x = 0.00000f;   saoGai.mangDinh[31].y = 0.00000f;   saoGai.mangDinh[31].z = -0.50000f;
    
    // ---- mảng tam giác (đỉnh gai trước, hai điểm của dấy tam giác sau; mỗi gai có ba tam giác)
    saoGai.mangTamGiac[0].dinh0 = 0;   saoGai.mangTamGiac[0].dinh1 = 21;   saoGai.mangTamGiac[0].dinh2 = 20;
@@ -5643,11 +5642,14 @@ void luuThongTinCuaSoDuLieu( FILE *tep, unsigned int beRong, unsigned int beCao 
 void luuThongTinCuaSoChieu( FILE *tep, unsigned int beRong, unsigned int beCao );
 void luuThoiGianKetXuat( FILE *tep, unsigned short thoiGianKetXuat );
 void luuBangDuLieuAnh( FILE *tep, unsigned short beRong, unsigned short beCao, unsigned char soLuongKenh, unsigned char kieuDuLieu );
-void luuDuLieuKenhFloat( FILE *tep, const float *kenh, unsigned int diaChi, unsigned short beRong );
-void luuDuLieuKenhHalf( FILE *tep, const float *kenh, unsigned int diaChi, unsigned short beRong );
+void chepDuLieuKenhFloat( unsigned char *dem, const float *kenh, unsigned short beRong );
+void chepDuLieuKenhHalf( unsigned char *dem, const float *kenh, unsigned short beRong );
 unsigned short doiFloatSangHalf( float soFloat );
+void locDuLieuTrongDem(unsigned char *dem, unsigned int beDai, unsigned char *demLoc);
+unsigned int nenRLE(unsigned char *dem, int beDai, unsigned char *demNen);
 
-void luuAnh( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short thoiGianKetXuat ) {
+/* Lưu Ảnh RLE */
+void luuAnhRLE( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short thoiGianKetXuat ) {
    
    FILE *tep = fopen( tenTep, "wb" );
 //   luuThongTinKenhEXR( unsigned short beRong, unsigned short beCao );
@@ -5681,7 +5683,7 @@ void luuAnh( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short th
    fputc( 0x00, tep );
    fputc( 0x00, tep );
 
-   fputc( 0x00, tep );  // không nén
+   fputc( 0x01, tep );  // RLE
 
    // ---- cửa sổ dữ liệu
    luuThongTinCuaSoDuLieu( tep, beRong, beCao );
@@ -5757,11 +5759,24 @@ void luuAnh( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short th
    fputc( 0x00, tep );
    
    // ==== bảng cho thành phần dữ liệu ảnh
+   // ---- giữ địa chỉ đầu bảng thành phần
+   unsigned long long diaChiDauBangThanhPhan = ftell( tep );
+   // ---- lưu bàng rỗng
    luuBangDuLieuAnh( tep, beRong, beCao, 3, kieuDuLieu );
+   unsigned long long *bangThanhPhan = malloc( beCao << 3 );
+   
+   // ---- bề dài dệm
+   unsigned int beDaiDem = (beRong << kieuDuLieu)*3; // nhân 3 cho 3 kênh 
+   // ---- tạo đệm để lọc dữ liệu
+   unsigned char *dem = malloc( beDaiDem );
+   unsigned char *demLoc = malloc( beDaiDem );
+   unsigned char *demNenRLE = malloc( beDaiDem << 1);  // nhân 2 cho an toàn
    
    // ---- lưu dữ liệu cho thành phần ảnh
    unsigned short soHang = 0;
    while( soHang < beCao ) {
+      
+      bangThanhPhan[soHang] = ftell( tep );
 
       // ---- luư số hàng
       fputc( soHang & 0xff, tep );
@@ -5769,29 +5784,69 @@ void luuAnh( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short th
       fputc( (soHang >> 16), tep );
       fputc( (soHang >> 24), tep );
       
-      // ---- bề dài dữ liệu
-      unsigned int beDauDuLieu = beRong*3 << kieuDuLieu;  // 1 cho half, 2 cho float
-      fputc( beDauDuLieu & 0xff, tep );
-      fputc( (beDauDuLieu >> 8), tep );
-      fputc( (beDauDuLieu >> 16), tep );
-      fputc( (beDauDuLieu >> 24), tep );
-      
       // ---- dữ liệu kênh
-      unsigned int diaChi = beRong*(beCao - soHang - 1);
+      unsigned int diaChiKenhBatDau = beRong*(beCao - soHang - 1);
+      unsigned int diaChiDem = 0;
+
       if( kieuDuLieu == kKIEU_FLOAT ) {
-         luuDuLieuKenhFloat( tep, anh->kenhXanh, diaChi, beRong );
-         luuDuLieuKenhFloat( tep, anh->kenhLuc, diaChi, beRong );
-         luuDuLieuKenhFloat( tep, anh->kenhDo, diaChi, beRong );
+         // ---- chép kênh xanh
+         chepDuLieuKenhFloat( dem, &(anh->kenhXanh[diaChiKenhBatDau]), beRong);
+         // ---- chép kênh lục
+         diaChiDem += beRong << kieuDuLieu;
+         chepDuLieuKenhFloat( &(dem[diaChiDem]), &(anh->kenhLuc[diaChiKenhBatDau]), beRong);
+         // ---- chép kênh đỏ
+         diaChiDem += beRong << kieuDuLieu;
+         chepDuLieuKenhFloat( &(dem[diaChiDem]), &(anh->kenhDo[diaChiKenhBatDau]), beRong);
       }
       else {
-         luuDuLieuKenhHalf( tep, anh->kenhXanh, diaChi, beRong );
-         luuDuLieuKenhHalf( tep, anh->kenhLuc, diaChi, beRong );
-         luuDuLieuKenhHalf( tep, anh->kenhDo, diaChi, beRong );
+         // ---- chép kênh xanh
+         chepDuLieuKenhHalf( dem, &(anh->kenhXanh[diaChiKenhBatDau]), beRong);
+         // ---- chép kênh lục
+         diaChiDem += beRong << kieuDuLieu;
+         chepDuLieuKenhHalf( &(dem[diaChiDem]), &(anh->kenhLuc[diaChiKenhBatDau]), beRong);
+         // ---- chép kênh đỏ
+         diaChiDem += beRong << kieuDuLieu;
+         chepDuLieuKenhHalf( &(dem[diaChiDem]), &(anh->kenhDo[diaChiKenhBatDau]), beRong);
+      }
+
+      locDuLieuTrongDem( dem, beDaiDem, demLoc);
+      unsigned int beDaiDuLieuNen = nenRLE( demLoc, beDaiDem, demNenRLE );
+      
+      fputc( beDaiDuLieuNen & 0xff, tep );
+      fputc( (beDaiDuLieuNen >> 8), tep );
+      fputc( (beDaiDuLieuNen >> 16), tep );
+      fputc( (beDaiDuLieuNen >> 24), tep );
+      
+      // ---- lưu dữ liệu nén
+      unsigned int diaChi = 0;
+      while( diaChi < beDaiDuLieuNen ) {
+         fputc( demNenRLE[diaChi], tep );
+         diaChi++;
       }
 
       soHang++;
    }
+   
+   // ---- lưu bảng thành phân
+   fseek( tep, diaChiDauBangThanhPhan, SEEK_SET );
+   soHang = 0;
+   while( soHang < beCao ) {
+      unsigned long long diaChiThanhPhan = bangThanhPhan[soHang];
+      fputc( diaChiThanhPhan & 0xff, tep );
+      fputc( (diaChiThanhPhan >> 8), tep );
+      fputc( (diaChiThanhPhan >> 16), tep );
+      fputc( (diaChiThanhPhan >> 24), tep );
+      fputc( (diaChiThanhPhan >> 32), tep );
+      fputc( (diaChiThanhPhan >> 40), tep );
+      fputc( (diaChiThanhPhan >> 48), tep );
+      fputc( (diaChiThanhPhan >> 56), tep );
+      soHang++;
+   }
  
+   // ---- thả trí nhớ
+   free( dem );
+   free( demLoc );
+   free( demNenRLE );
    // ---- đóng tệp
    fclose( tep );
 }
@@ -5969,37 +6024,41 @@ void luuBangDuLieuAnh( FILE *tep, unsigned short beRong, unsigned short beCao, u
 
 }
 
-void luuDuLieuKenhFloat( FILE *tep, const float *kenh, unsigned int diaChi, unsigned short beRong ) {
+void chepDuLieuKenhFloat( unsigned char *dem, const float *kenh, unsigned short beRong ) {
 
    unsigned short soCot = 0;
+   unsigned int diaChiDem = 0;
    while( soCot < beRong ) {
 
       union {
          float f;
          unsigned int i;
       } ui;
-      
-      ui.f = kenh[diaChi + soCot];
-      fputc( ui.i & 0xff, tep );
-      fputc( (ui.i >> 8), tep );
-      fputc( (ui.i >> 16), tep );
-      fputc( (ui.i >> 24), tep );
+
+      ui.f = kenh[soCot];
+      dem[diaChiDem] = ui.i & 0xff;
+      dem[diaChiDem + 1] = (ui.i >> 8) & 0xff;
+      dem[diaChiDem + 2] = (ui.i >> 16) & 0xff;
+      dem[diaChiDem + 3] = (ui.i >> 24) & 0xff;
+      diaChiDem += 4;
       soCot++;
    }
-   // ---- kênh tiếp
+
 }
 
-void luuDuLieuKenhHalf( FILE *tep, const float *kenh, unsigned int diaChi, unsigned short beRong ) {
+void chepDuLieuKenhHalf( unsigned char *dem, const float *kenh, unsigned short beRong ) {
    
    unsigned short soCot = 0;
+   unsigned int diaChiDem = 0;
    while( soCot < beRong ) {
 
-      unsigned short h = doiFloatSangHalf( kenh[diaChi + soCot] );
-      fputc( h & 0xff, tep );
-      fputc( (h >> 8), tep );
+      unsigned short h = doiFloatSangHalf( kenh[soCot] );
+      dem[diaChiDem] = h & 0xff;
+      dem[diaChiDem + 1] = (h >> 8) & 0xff;
+      diaChiDem += 2;
       soCot++;
    }
-   // ---- kênh tiếp
+
 }
 
 // ---- rất đơn giản, cho tốc đ`ộ nhanh và biết nguồn dữ liệu, KHÔNG THEO TOÀN CHUẨN EXR cho đổi float
@@ -6041,6 +6100,100 @@ unsigned short doiFloatSangHalf( float soFloat ) {
    }
 
    return soHalf;
+}
+
+// ---- Từ thư viện OpenEXR
+void locDuLieuTrongDem(unsigned char *dem, unsigned int beDai, unsigned char *demLoc ) {
+
+   {
+      unsigned char *t1 = demLoc;
+      unsigned char *t2 = demLoc + (beDai + 1) / 2;
+      char *dau = (char *)dem;  // đầu đệm cần lọc
+      char *ketThuc = dau + beDai;
+      unsigned char xong = kSAI;
+      
+      while( !xong )
+      {
+         if (dau < ketThuc)
+            *(t1++) = *(dau++);
+         else
+            xong = kSAI;
+         
+         if (dau < ketThuc)
+            *(t2++) = *(dau++);
+         else
+            xong = kDUNG;
+      }
+   }
+   
+   // trừ
+   {
+      unsigned char *t = (unsigned char *)demLoc + 1;
+      unsigned char *ketThuc = (unsigned char *)demLoc + beDai;
+      int p = t[-1];
+      
+      while (t < ketThuc) {
+         
+         int d = (int)(t[0]) - p + 128;
+         p = t[0];
+         t[0] = d;
+         ++t;
+      }
+   }
+
+}
+
+#define kDAY_TOI_THIEU 3  // dãy tối thiếu
+#define kDAY_TOI_DA 127   // dãy tối đa
+// ---- Từ thư viện OpenEXR
+unsigned int nenRLE(unsigned char *dem, int beDai, unsigned char *demNen) {
+
+   const unsigned char *demKetThuc = dem + beDai; // kết thúc của đệm
+   const unsigned char *dayBatDau = dem;  // dãy bắt đầu
+   const unsigned char *dayKetThuc = dem + 1; // dãy kết thúc
+   unsigned char *diaChiDemNen = demNen;  // địa chỉ trong đệm nén
+   
+   // ---- khi chưa tới két thúc đệm
+   while (dayBatDau < demKetThuc) {
+      
+      // ---- đếm số lượng byte cùng giá trị; cẩn thận đừng về kết thúc đệm, dãy lớn hơnkDAY_TOI_DA
+      while (dayKetThuc < demKetThuc && *dayBatDau == *dayKetThuc && dayKetThuc - dayBatDau - 1 <kDAY_TOI_DA) {
+         ++dayKetThuc;
+      }
+      // ---- nếu số lượng byte giống >= kDAY_TOI_THIEU
+      if (dayKetThuc - dayBatDau >= kDAY_TOI_THIEU) {
+         //
+         // có thể nén
+         //
+         // ---- số lượng byte cùng giá trị - 1
+         *diaChiDemNen++ = (dayKetThuc - dayBatDau) - 1;
+         // ---- giá trị byte
+         *diaChiDemNen++ = *(signed char *) dayBatDau;
+         // ---- move to where different value found orkDAY_TOI_DA (smallest of these two)
+         dayBatDau = dayKetThuc;
+      }
+      else {
+         //
+         // có dãy byte khác nhau
+         //
+         // ---- đếm số lượng byte không giống; cần thận về kết thúc đệm,
+         while (dayKetThuc < demKetThuc &&
+                ((dayKetThuc + 1 >= demKetThuc || *dayKetThuc != *(dayKetThuc + 1)) || (dayKetThuc + 2 >= demKetThuc || *(dayKetThuc + 1) != *(dayKetThuc + 2))) &&
+                dayKetThuc - dayBatDau <kDAY_TOI_DA) {
+            ++dayKetThuc;
+         }
+         // ---- số lượng byte không giống
+         *diaChiDemNen++ = dayBatDau - dayKetThuc;
+         // ---- lưu byte không giống
+         while (dayBatDau < dayKetThuc) {
+            *diaChiDemNen++ = *(signed char *) (dayBatDau++);
+         }
+      }
+      // ---- move to next byte
+      ++dayKetThuc;
+   }
+   
+   return (unsigned int)(diaChiDemNen - demNen);
 }
 
 #pragma mark ---- Bezier
@@ -6750,8 +6903,8 @@ Mau hoaTietNgoiSaoCau( Vecto *viTri, HoaTietNgoiSaoCau *hoaTietNgoiSaoCau ) {
          float goc1 = acos( vectoVuongMat.x*hoaTietNgoiSaoCau->mangHuong1[soNgoiSao].x + vectoVuongMat.y*hoaTietNgoiSaoCau->mangHuong1[soNgoiSao].y + vectoVuongMat.z*hoaTietNgoiSaoCau->mangHuong1[soNgoiSao].z );
 
          // ---- giữ 0 ≤ kinh độ ≤ 2π
-         if( goc1 > 1.5707963f )
-            6.283184f - goc0;
+//         if( goc1 > 1.5707963f )
+//            6.283184f - goc0; // <-----
          
          // ---- tìm ở đâu giữa nan
          float gocSao = goc0 - hoaTietNgoiSaoCau->goc*floorf( goc0/hoaTietNgoiSaoCau->goc );
@@ -14595,7 +14748,7 @@ void nangCapLocXoay( VatThe *danhSachVat, unsigned short soHoatHinh );
 #define kNHAN_VAT__BONG_BONG_DAU_PT1     14
 #define kNHAN_VAT__BONG_BONG_CUOI_PT1    15
 
-#define kSO_LUONG__BONG_BONG_TRONG_BAY  5000  // <----- 5000
+#define kSO_LUONG__BONG_BONG_TRONG_BAY  100  // <----- 5000
 #define kTOC_DO_BONG_BONG_TRONG_BAY     0.004f       // tốc độ bong bóng trong bay
 #define kSO_LUONG__HAT_BAY_TRONG_LOC_XOAY  300   // số lượng hạt bay trong lốc xoay
 
@@ -18571,6 +18724,32 @@ unsigned short vatTheThu( VatThe *danhSachVat ) {
    mauOc0.d = 1.0f;   mauOc0.l = 0.0f;   mauOc0.x = 0.5f;  mauOc0.dd = 1.0f;
    viTri.x = -3.0f;
    viTri.z = 2.0f;
+   viTri.y = -1.0f;
+   danhSachVat[soLuungVat].hinhDang.thapNhiDien = datThapNhiDien( 1.0f, 1.0f, 1.0f, &(danhSachVat[soLuungVat].baoBiVT));
+   danhSachVat[soLuungVat].loai = kLOAI_HINH_DANG__THAP_NHI_DIEN;
+   danhSachVat[soLuungVat].chietSuat = 1.0f;
+   datBienHoaChoVat( &(danhSachVat[soLuungVat]), &phongTo, &quaternion, &viTri );
+   danhSachVat[soLuungVat].hoaTiet.hoaTietDiHuong = datHoaTietDiHuong( &mauOc0, &mauNen );
+   danhSachVat[soLuungVat].soHoaTiet = kHOA_TIET__DI_HUONG;
+   soLuungVat++;
+   
+   mauNen.d = 0.5f;   mauNen.l = 0.0f;   mauNen.x = 1.0f;  mauNen.dd = 1.0f;
+   mauOc0.d = 0.3f;   mauOc0.l = 0.0f;   mauOc0.x = 1.0f;  mauOc0.dd = 1.0f;
+   viTri.x = -2.5f;
+   viTri.z = 4.5f;
+   viTri.y = -1.0f;
+   danhSachVat[soLuungVat].hinhDang.thapNhiDien = datThapNhiDien( 1.0f, 1.0f, 1.0f, &(danhSachVat[soLuungVat].baoBiVT));
+   danhSachVat[soLuungVat].loai = kLOAI_HINH_DANG__THAP_NHI_DIEN;
+   danhSachVat[soLuungVat].chietSuat = 1.0f;
+   datBienHoaChoVat( &(danhSachVat[soLuungVat]), &phongTo, &quaternion, &viTri );
+   danhSachVat[soLuungVat].hoaTiet.hoaTietDiHuong = datHoaTietDiHuong( &mauOc0, &mauNen );
+   danhSachVat[soLuungVat].soHoaTiet = kHOA_TIET__DI_HUONG;
+   soLuungVat++;
+   
+   mauNen.d = 0.0f;   mauNen.l = 0.0f;   mauNen.x = 1.0f;  mauNen.dd = 1.0f;
+   mauOc0.d = 0.0f;   mauOc0.l = 0.0f;   mauOc0.x = 1.0f;  mauOc0.dd = 1.0f;
+   viTri.x = 2.5f;
+   viTri.z = 2.5f;
    viTri.y = -1.0f;
    danhSachVat[soLuungVat].hinhDang.thapNhiDien = datThapNhiDien( 1.0f, 1.0f, 1.0f, &(danhSachVat[soLuungVat].baoBiVT));
    danhSachVat[soLuungVat].loai = kLOAI_HINH_DANG__THAP_NHI_DIEN;
