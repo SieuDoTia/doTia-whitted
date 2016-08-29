@@ -1,0 +1,8 @@
+# puppy linux
+Cần cài đặt:
+• slacko-6.3.2-uefi.iso
+• devx_slacko_6.3.0.sfs (các thư viện C)
+• llvm-2.8-all.pet (clang)
+
+## Đường dẫn đến thư mục ổ USB (nếu không xài ổ cứng)
+cd  ../../mnt/sdb1
