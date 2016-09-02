@@ -18572,8 +18572,8 @@ PhimTruong datPhimTruongSo2( unsigned int argc, char **argv ) {
    unsigned int soHoatHinhCuoi = 100;     // số bức ảnh cuối cho phim trường này
    
    docThamSoHoatHinh( argc, argv, &soHoatHinhDau, &soHoatHinhCuoi );
-   if( soHoatHinhDau < 0 )
-      soHoatHinhDau = 0;
+   if( soHoatHinhDau > 99 )
+      soHoatHinhDau = 99;
    if( soHoatHinhCuoi > 100 )     // số bức ảnh cuối cho phim trường này
       soHoatHinhCuoi = 100;
    
