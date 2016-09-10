@@ -4,5 +4,6 @@ Cần cài đặt:
 • devx_slacko_6.3.0.sfs (các thư viện C)
 • llvm-2.8-all.pet (clang)
 
-## Đường dẫn đến thư mục ổ USB (nếu không xài ổ cứng)
-cd  ../../mnt/sdb1
+## Đường dẫn đến thư mục của USB (nếu không xài ổ cứng và giao diện đồ họa)
+mount /dev/sdb1 /mnt 
+cd  ../mnt/
