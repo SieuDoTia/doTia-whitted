@@ -11,9 +11,14 @@ Phần mềm này và ảnh kết xuất từ nó là đồ phạm vi công cộ
 
 ## Danh Bạ Tài Liệu
 • hồ sơ EXR-4096x2160: tệp ảnh ví dụ EXR 4096 × 2160 điểm ảnh (4k)
+
 • hồ sơ Kich-Hoa: kịch họa vẽ cho các tập
+
 • hồ sơ MinhHoaLýThuyet: các ảnh minh họa cho mô tả lý thuyết trong trang wiki
+
 • hồ sơ PNG-4096x2160: tệp ảnh ví dụ PNG 4096 × 2160 điểm ảnh (4k)
+
 • Lệnh Máy Tính Động Cơ Google: các lệnh giúp quản lý và xài Máy Tính Động Cơ của Google để kết xuất ảnh.
+
 • doTia.c: mâ nguồn chương trình dò tia
 
