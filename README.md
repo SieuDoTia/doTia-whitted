@@ -20,5 +20,7 @@ Phần mềm này và ảnh kết xuất từ nó là đồ phạm vi công cộ
 
 • Lệnh Máy Tính Động Cơ Google: các lệnh giúp quản lý và xài Máy Tính Động Cơ của Google để kết xuất ảnh.
 
+• Phương Pháp Puppy Linux: các lệnh cho xài hệ điều hành Puppy Linux để kết xuất ảnh
+
 • doTia.c: mâ nguồn chương trình dò tia
 
