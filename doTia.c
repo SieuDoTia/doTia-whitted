@@ -1,6 +1,6 @@
 //  Ví dụ phương pháp kết xuất dò tia đơn giản
-//  Phiên Bản 4.21
-//  Phát hành 2559/09/03
+//  Phiên Bản 4.23
+//  Phát hành 2559/09/15
 //  Hệ tọa độ giống OpenGL (+y là hướng lên)
 //  Khởi đầu 2557/12/18
 
@@ -1116,7 +1116,7 @@ void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong ) {
    while( hang < beCao ) {
 
       // ---- cho biết khi đến hàng mới
-      printf( "%3d/%d (%d‰)\n", hang, beCao, hang*1000/beCao );
+      printf( "%4d/%d (%d‰)\n", hang, beCao, hang*1000/beCao );
 
       // ---- tính hướng cho tia của điểm ảnh này
       tia.huong.x = gocX + buocDoc.x*hang - tia.goc.x;
@@ -1209,7 +1209,7 @@ void veAnhChieuCuTuyen( Anh *anh, PhimTruong *phimTruong ) {
    while( hang < beCao ) {
       
       // ---- cho biết khi đến hàng mới
-      printf( "%3d/%d (%d‰)\n", hang, beCao, hang*1000/beCao );
+      printf( "%4d/%d (%d‰)\n", hang, beCao, hang*1000/beCao );
       
       // ---- tính hướng cho tia của điểm ảnh này
       tia.goc.x = gocX + buocDoc.x*hang;
@@ -1293,7 +1293,7 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
    while( hang < beCao ) {
       
       // ---- cho biết khi đến hàng mới
-      printf( "%3d/%d (%d‰)\n", hang, beCao, hang*1000/beCao );
+      printf( "%4d/%d (%d‰)\n", hang, beCao, hang*1000/beCao );
       
       float gocXoayNgang = gocNgang;
       Vecto xoayDoc = xoayVectoQuanhTruc( &huongMayQuayPhimNhin, &huongNgang, gocXoayDoc );
@@ -2144,6 +2144,8 @@ float xemTiaCoTrungVatBoolTrongKhongGianVat( VatThe *danhSachVatTheBool, unsigne
       soVat++;
    }
    
+   // ----
+   
    // ---- xử lý: cần kiếm điểm gần nhất mà giá trị đém = 1
    if( soDoan > 0 ) {
       // ---- chuần bị mảng chỉ số
@@ -2173,13 +2175,13 @@ float xemTiaCoTrungVatBoolTrongKhongGianVat( VatThe *danhSachVatTheBool, unsigne
       // ---- kiếm cách gần nhất
       char dem = 0;
       // ---- đặt giá trị đếm bằng tổng giả trị của vật thể góc tia đang ở trong
-           // nếu không ở trong vật thể nào, đếm sẽ = 0
-//     unsigned char soVat = 0;
-//      while ( soVat < soLuongVatThe ) {
-//         dem += giaTriTrongVatThe[soVat];
-//         soVat++;
-//      }
-
+      // ---- Xem nếu điểm này ở trong vật thể nào nếu không ở trong vật thể nào, đếm sẽ = 0
+      unsigned char soVat = 0;
+      while ( soVat < soLuongVatThe ) {
+         dem += giaTriTrongVatThe[soVat];
+         soVat++;
+      }
+   
       // ---- tìm điểm trúng có giá trị bool đến mục đích
       soDoan = 0;
       while ( (soDoan < soLuongDoan) && (dem < mucDichBool) ) {
@@ -2189,7 +2191,9 @@ float xemTiaCoTrungVatBoolTrongKhongGianVat( VatThe *danhSachVatTheBool, unsigne
       }
       
 //      printf( "dem %d\n\n", dem );
-      if( dem > 0 ) {
+      if( (dem > 0) && soDoan ) {
+
+
          soDoan--;
          diemTrungTDVT->x = doan[mangChiSo[soDoan]].diemTrungTDVT.x;
          diemTrungTDVT->y = doan[mangChiSo[soDoan]].diemTrungTDVT.y;
@@ -18756,6 +18760,15 @@ unsigned short vatTheThu( VatThe *danhSachVat ) {
    datBienHoaChoVat( &(danhSachVat[soLuungVat]), &phongTo, &quaternion, &viTri );
    danhSachVat[soLuungVat].hoaTiet.hoaTietDiHuong = datHoaTietDiHuong( &mauOc0, &mauNen );
    danhSachVat[soLuungVat].soHoaTiet = kHOA_TIET__DI_HUONG;
+   soLuungVat++;
+
+   viTri.x = 0.0f; viTri.y += 1.5f;   viTri.z = 3.0f;
+   danhSachVat[soLuungVat].hinhDang.hinhCau = datHinhCau( 1.2f, &(danhSachVat[soLuungVat].baoBiVT));
+   danhSachVat[soLuungVat].loai = kLOAI_HINH_DANG__HINH_CAU;
+   danhSachVat[soLuungVat].chietSuat = 1.0f;
+   datBienHoaChoVat( &(danhSachVat[soLuungVat]), &phongTo, &quaternion, &viTri );
+   danhSachVat[soLuungVat].hoaTiet.hoaTietNgoiSaoCau = datHoaTietNgoiSaoCau( &mauNen, &mauNen, &mauOc2, 0.2f, 0.1f, 0.0f, 5 );
+   danhSachVat[soLuungVat].soHoaTiet = kHOA_TIET__NGOI_SAO_CAU;
    soLuungVat++;
 
    return soLuungVat;
