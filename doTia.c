@@ -1,6 +1,6 @@
 //  Ví dụ phương pháp kết xuất dò tia đơn giản
-//  Phiên Bản 4.24
-//  Phát hành 2559/09/17
+//  Phiên Bản 4.25
+//  Phát hành 2559/09/18
 //  Hệ tọa độ giống OpenGL (+y là hướng lên)
 //  Khởi đầu 2557/12/18
 
@@ -971,7 +971,7 @@ int main( int argc, char **argv ) {
    // ---- giữ số phim trường
    phimTruong.soPhimTruong = soPhimTruong;
 
-   thoiGian = phimTruong.soHoatHinhDau;
+//   thoiGian = phimTruong.soHoatHinhDau;
 
    // ---- cỡ kích ảnh
    unsigned int beCaoAnh;// = 201;//601;  // 601
@@ -1002,7 +1002,7 @@ int main( int argc, char **argv ) {
 
 //      xemVatThe( phimTruong.danhSachVatThe, phimTruong.soLuongVatThe );
       char tenAnh[256];
-      sprintf( tenAnh, "KetXuat_%02d_%04d.exr", phimTruong.soPhimTruong, phimTruong.soHoatHinhDau );
+      sprintf( tenAnh, "TGTB_%02d_%04d.exr", phimTruong.soPhimTruong, phimTruong.soHoatHinhDau );
 
       // ---- xây tầng bậc đoạn bao bì
       phimTruong.baoBi = tinhBaoBiTGChoDanhSachVatThe( phimTruong.danhSachVatThe, phimTruong.soLuongVatThe );
@@ -1043,8 +1043,8 @@ int main( int argc, char **argv ) {
       printf( "-->> %s <<--  %ld giây (%5.2f phút) %d/%d\n", tenAnh, thoiGianKetXuat, (float)thoiGianKetXuat/60.0f,
              phimTruong.soHoatHinhDau, phimTruong.soHoatHinhCuoi );
 
-      // ---- thời gian
-      thoiGian++;
+      // ---- số hoạt hình hiện tại
+      phimTruong.soHoatHinhHienTai++;
    }
    // ---- in ra hết thời gian
    time_t thoiGianKetThucToanCau;
@@ -1118,7 +1118,7 @@ void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong ) {
    while( hang < beCao ) {
 
       // ---- cho biết khi đến hàng mới
-      printf( "%4d/%d (%d‰)\n", hang, beCao, hang*1000/beCao );
+      printf( "hàng %4d/%d (%d‰)   ảnh %d/%d  PT(%d)\n", hang, beCao, hang*1000/beCao, phimTruong->soHoatHinhHienTai, phimTruong->soHoatHinhCuoi, phimTruong->soPhimTruong );
 
       // ---- tính hướng cho tia của điểm ảnh này
       tia.huong.x = gocX + buocDoc.x*hang - tia.goc.x;
@@ -1211,7 +1211,7 @@ void veAnhChieuCuTuyen( Anh *anh, PhimTruong *phimTruong ) {
    while( hang < beCao ) {
       
       // ---- cho biết khi đến hàng mới
-      printf( "%4d/%d (%d‰)\n", hang, beCao, hang*1000/beCao );
+      printf( "hàng %4d/%d (%d‰)   ảnh %d/%d  PT(%d)\n", hang, beCao, hang*1000/beCao, phimTruong->soHoatHinhHienTai, phimTruong->soHoatHinhCuoi, phimTruong->soPhimTruong );
       
       // ---- tính hướng cho tia của điểm ảnh này
       tia.goc.x = gocX + buocDoc.x*hang;
@@ -1295,7 +1295,7 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
    while( hang < beCao ) {
       
       // ---- cho biết khi đến hàng mới
-      printf( "%4d/%d (%d‰)\n", hang, beCao, hang*1000/beCao );
+      printf( "hàng %4d/%d (%d‰)   ảnh %d/%d  PT(%d)\n", hang, beCao, hang*1000/beCao, phimTruong->soHoatHinhHienTai, phimTruong->soHoatHinhCuoi, phimTruong->soPhimTruong );
       
       float gocXoayNgang = gocNgang;
       Vecto xoayDoc = xoayVectoQuanhTruc( &huongMayQuayPhimNhin, &huongNgang, gocXoayDoc );
@@ -8858,6 +8858,7 @@ PhimTruong datPhimTruongSo0( unsigned int argc, char **argv ) {
       soHoatHinhCuoi = 1520;
    
    phimTruong.soHoatHinhDau = soHoatHinhDau;
+   phimTruong.soHoatHinhHienTai = soHoatHinhDau;
    phimTruong.soHoatHinhCuoi = soHoatHinhCuoi;
    
    phimTruong.soLuongVatThe = 0;
@@ -14791,6 +14792,7 @@ PhimTruong datPhimTruongSo1( unsigned int argc, char **argv ) {
       soHoatHinhCuoi = 2000;
    
    phimTruong.soHoatHinhDau = soHoatHinhDau;
+   phimTruong.soHoatHinhHienTai = soHoatHinhDau;
    phimTruong.soHoatHinhCuoi = soHoatHinhCuoi;
 
    phimTruong.danhSachVatThe = malloc( kSO_LUONG_VAT_THE_TOI_DA*sizeof(VatThe) );
@@ -18602,6 +18604,7 @@ PhimTruong datPhimTruongSo2( unsigned int argc, char **argv ) {
       soHoatHinhCuoi = 100;
    
    phimTruong.soHoatHinhDau = soHoatHinhDau;
+   phimTruong.soHoatHinhHienTai = soHoatHinhDau;
    phimTruong.soHoatHinhCuoi = soHoatHinhCuoi;
    
    phimTruong.soLuongVatThe = 0;
