@@ -1,0 +1,1324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1536"
+   height="810"
+   id="svg3071"
+   version="1.1"
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="Thế Giới Banh.svg"
+   inkscape:export-filename="/Users/su_huynh/Documents/Blender/Thế Giới Trái Banh/Tinh Phụng.png"
+   inkscape:export-xdpi="240.00235"
+   inkscape:export-ydpi="240.00235">
+  <defs
+     id="defs3073">
+    <linearGradient
+       id="linearGradient5171">
+      <stop
+         style="stop-color:#f4daf2;stop-opacity:1;"
+         offset="0"
+         id="stop5173" />
+      <stop
+         id="stop5175"
+         offset="0.5"
+         style="stop-color:#b433b2;stop-opacity:1;" />
+      <stop
+         style="stop-color:#500052;stop-opacity:1;"
+         offset="1"
+         id="stop5177" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5151">
+      <stop
+         style="stop-color:#fff7f0;stop-opacity:1;"
+         offset="0"
+         id="stop5153" />
+      <stop
+         id="stop5155"
+         offset="0.5"
+         style="stop-color:#ff8d00;stop-opacity:1;" />
+      <stop
+         style="stop-color:#8c6700;stop-opacity:1;"
+         offset="1"
+         id="stop5157" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5135">
+      <stop
+         id="stop5137"
+         offset="0"
+         style="stop-color:#ffd9da;stop-opacity:1;" />
+      <stop
+         style="stop-color:#d8004c;stop-opacity:1;"
+         offset="0.5"
+         id="stop5139" />
+      <stop
+         id="stop5141"
+         offset="1"
+         style="stop-color:#420037;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5127">
+      <stop
+         id="stop5129"
+         offset="0"
+         style="stop-color:#fff8da;stop-opacity:1;" />
+      <stop
+         style="stop-color:#ffe600;stop-opacity:1;"
+         offset="0.5"
+         id="stop5131" />
+      <stop
+         id="stop5133"
+         offset="1"
+         style="stop-color:#8c6700;stop-opacity:1;" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3978"
+       id="radialGradient4024"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <linearGradient
+       id="linearGradient3978">
+      <stop
+         style="stop-color:#e7d9da;stop-opacity:1;"
+         offset="0"
+         id="stop3980" />
+      <stop
+         id="stop3986"
+         offset="0.5"
+         style="stop-color:#d872b3;stop-opacity:1;" />
+      <stop
+         style="stop-color:#784d97;stop-opacity:1;"
+         offset="1"
+         id="stop3982" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3978"
+       id="radialGradient4010"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <linearGradient
+       id="linearGradient4052">
+      <stop
+         style="stop-color:#e7d9da;stop-opacity:1;"
+         offset="0"
+         id="stop4054" />
+      <stop
+         id="stop4056"
+         offset="0.5"
+         style="stop-color:#d872b3;stop-opacity:1;" />
+      <stop
+         style="stop-color:#784d97;stop-opacity:1;"
+         offset="1"
+         id="stop4058" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3978"
+       id="radialGradient3984"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)" />
+    <linearGradient
+       id="linearGradient4061">
+      <stop
+         style="stop-color:#e7d9da;stop-opacity:1;"
+         offset="0"
+         id="stop4063" />
+      <stop
+         id="stop4065"
+         offset="0.5"
+         style="stop-color:#d872b3;stop-opacity:1;" />
+      <stop
+         style="stop-color:#784d97;stop-opacity:1;"
+         offset="1"
+         id="stop4067" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3978"
+       id="radialGradient4863"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3978"
+       id="radialGradient5058"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5127"
+       id="radialGradient5109"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5135"
+       id="radialGradient5113"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5171"
+       id="radialGradient5145"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5151"
+       id="radialGradient5149"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.24679488"
+     inkscape:cx="675.85686"
+     inkscape:cy="58.356045"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="968"
+     inkscape:window-height="662"
+     inkscape:window-x="202"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata3076">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Nét"
+     style="display:none"
+     transform="translate(0,-242.36218)">
+    <text
+       sodipodi:linespacing="100%"
+       id="text4966"
+       y="235.88846"
+       x="474.33145"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         y="235.88846"
+         x="474.33145"
+         sodipodi:role="line"
+         id="tspan4968"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">T</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="485.63144"
+       y="235.88846"
+       id="text4986"
+       sodipodi:linespacing="100%"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4988"
+         sodipodi:role="line"
+         x="485.63144"
+         y="235.88846">H</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text4994"
+       y="235.88846"
+       x="496.43106"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         y="235.88846"
+         x="496.43106"
+         sodipodi:role="line"
+         id="tspan4996"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="516.43103"
+       y="235.88846"
+       id="text5002"
+       sodipodi:linespacing="100%"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan5004"
+         sodipodi:role="line"
+         x="516.43103"
+         y="235.88846">G</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5026"
+       y="253.88846"
+       x="490.43127"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         y="253.88846"
+         x="490.43127"
+         sodipodi:role="line"
+         id="tspan5028"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">B</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="530.13214"
+       y="253.88846"
+       id="text5050"
+       sodipodi:linespacing="100%"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan5052"
+         sodipodi:role="line"
+         x="530.13214"
+         y="253.88846">H</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5042"
+       y="253.88846"
+       x="517.13159"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         y="253.88846"
+         x="517.13159"
+         sodipodi:role="line"
+         id="tspan5044"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">N</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="502.43127"
+       y="253.88846"
+       id="text5034"
+       sodipodi:linespacing="100%"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan5036"
+         sodipodi:role="line"
+         x="502.43127"
+         y="253.88846">A</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5010"
+       y="235.88846"
+       x="526.53131"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         y="235.88846"
+         x="526.53131"
+         sodipodi:role="line"
+         id="tspan5012"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">I</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="549.03131"
+       y="235.88846"
+       id="text5018"
+       sodipodi:linespacing="100%"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan5020"
+         sodipodi:role="line"
+         x="549.03131"
+         y="235.88846">I</tspan></text>
+    <path
+       sodipodi:nodetypes="cccccccc"
+       inkscape:connector-curvature="0"
+       id="path4980"
+       d="m 497.55812,218.07511 2.87262,3.50827 -2.92512,0 -0.80295,-0.64192 -0.80296,0.64192 -2.92512,0 2.87262,-3.50827 z"
+       style="fill:none;stroke:#000000;stroke-width:1.10000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       style="fill:#ffffff;stroke:#000000"
+       d="m 505.25147,216.05309 -3.14185,3.74209 -1.3475,0 -0.88221,-0.93681 1.42719,-2.70415 z"
+       id="path4960"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4964"
+       d="m 543.25194,216.05309 -3.14185,3.74209 -2.72414,0 1.92162,-3.64096 z"
+       style="fill:#ffffff;stroke:#000000"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       inkscape:export-ydpi="1200.3875"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path5094"
+       d="m 541.45927,222.63302 c 1.11469,0.10474 1.3906,-1.56989 1.41593,-2.12389 l 2.57902,0 c -0.19128,1.92509 -1.73484,2.71464 -2.32617,3.23641 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     transform="translate(0,-242.36218)">
+    <rect
+       style="opacity:0.98999999000000005;color:#000000;fill:none;stroke:none;stroke-width:2.50000000000000000;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect5068"
+       width="1536"
+       height="810"
+       x="0"
+       y="242.36218"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/Thế Giới Trái Banh/Thế Giới Trái Banh.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffffff;stroke:#000000"
+       d="m 347.64187,-124.43484 -3.14185,3.74209 -1.3475,0 -0.88221,-0.93681 1.42719,-2.70415 z"
+       id="path4831"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4034"
+       d="m 377.8492,-117.85491 c 1.11469,0.10474 1.16901,-1.50658 1.41593,-2.12389 l 2.57902,0 c -0.19128,1.92509 -1.73484,2.71464 -2.32617,3.23641 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4032"
+       d="m 379.64187,-124.43484 -3.14185,3.74209 -2.72414,0 1.92162,-3.64096 z"
+       style="fill:#ffffff;stroke:#000000"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       sodipodi:linespacing="100%"
+       id="text4026"
+       y="-104.59947"
+       x="350.22186"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         id="tspan4028"
+         y="-104.59947"
+         x="350.22186"
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">THE GI   I</tspan><tspan
+         y="-88.700523"
+         x="350.22186"
+         sodipodi:role="line"
+         id="tspan4030"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">BANH</tspan></text>
+    <rect
+       style="opacity:0.98999999;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3994"
+       width="110.70557"
+       height="62.933399"
+       x="59.083141"
+       y="-127.16231" />
+    <path
+       style="fill:#6a365a;fill-opacity:1;stroke:none"
+       d="m 139.61912,-109.78664 c 1.11469,0.10474 1.37128,-1.91113 1.6182,-2.52844 l 1.71935,0 c -0.19128,1.92509 -1.73484,2.71464 -2.32617,3.23641 z"
+       id="path3992"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="120.63905"
+       y="-226.9762"
+       id="text3065"
+       sodipodi:linespacing="120%"><tspan
+         sodipodi:role="line"
+         x="120.63905"
+         y="-226.9762"
+         id="tspan3069">TRÁI BANH</tspan><tspan
+         sodipodi:role="line"
+         x="120.63905"
+         y="-207.89746"
+         id="tspan3118">LOANH  QOANH</tspan></text>
+    <text
+       sodipodi:linespacing="120%"
+       id="text3122"
+       y="-152.94333"
+       x="112.95257"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:120.00000477%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         id="tspan3126"
+         y="-152.94333"
+         x="112.95257"
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Futura;-inkscape-font-specification:Futura Medium">THẾ GIỚI</tspan><tspan
+         y="-133.86459"
+         x="112.95257"
+         sodipodi:role="line"
+         id="tspan3130"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Futura;-inkscape-font-specification:Futura Medium">BANH</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 196.96425,-221.34163 c 30.44117,-27.59428 71.05058,-36.7824 111.25157,-28.72314"
+       id="path3132"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 196.15514,-177.24555 c 23.90118,-27.04073 92.53811,-46.62751 136.33375,-33.9823"
+       id="path3134"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 197.77334,-172.79548 c 41.59786,-33.29149 84.82567,-42.47789 133.5019,-34.38686"
+       id="path3136"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 222.04642,-142.04959 c 21.43103,-15.29336 76.64473,-28.72314 100.73325,-23.86853"
+       id="path3138"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 197.77335,-216.08246 c 3.06217,-5.4601 13.57722,-11.0364 21.44121,-14.9684"
+       id="path3154"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 209.10078,-224.98259 c -0.22332,10.26979 -2.93687,19.0529 0.40455,32.76865"
+       id="path3156"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 224.06917,-234.28727 c -1.42551,10.31878 -0.40299,23.47253 1.21366,32.3641"
+       id="path3158"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 236.20571,-239.54643 c -0.56274,10.43301 0.7858,20.89683 2.42731,30.74589"
+       id="path3160"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 235.39661,-224.57804 c -4.93663,-0.17778 -8.42703,2.29205 -12.13654,3.64097"
+       id="path3162"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 232.1602,-152.16337 c -7.16497,-6.7435 -15.92464,-15.224 -20.22756,-25.89128 5.43181,-5.04642 12.67199,-4.25374 16.99115,-4.45006 5.23653,8.21665 1.58154,10.37104 -2.02276,15.77749 4.68145,-1.72414 10.58905,-5.29452 12.94564,-6.47282 8.29386,2.33753 6.124,5.59838 7.68647,11.32744 -6.09494,3.56764 -10.22698,6.27858 -15.37294,9.70923 z"
+       id="path3164"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 252.38776,-160.2544 c -0.40562,-8.92361 -1.96276,-26.18679 -2.02276,-36.81416 8.42331,6.76784 19.05891,23.28079 23.05942,29.12769"
+       id="path3166"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 250.365,-175.62735 c 3.84198,-2.13223 10.56931,-4.14684 13.75474,-5.66371"
+       id="path3168"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 277.46993,-167.53632 c -3.42202,-11.73267 -5.71356,-21.9452 -7.28192,-33.9823 11.14388,9.76965 18.44907,23.56051 24.67762,31.55499 0.0213,-9.14414 -1.56193,-27.53397 -4.45006,-34.7914"
+       id="path3170"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 301.33846,-204.75503 c 6.32405,12.58943 1.4865,28.37645 1.21364,33.9823"
+       id="path3172"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 326.42063,-203.54138 c 2.05123,11.08665 -1.17382,21.31601 -4.04551,30.34134"
+       id="path3174"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 304.57486,-189.38209 c 6.7621,-2.32885 14.97099,-1.05523 20.63211,-0.8091"
+       id="path3176"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 254.00596,-246.01925 c -5.08807,1.1061 -13.43605,2.90464 -14.15929,3.64096 0.72142,10.84982 1.26378,21.16629 3.64096,31.15044 3.17068,-2.98879 7.99673,-2.96611 12.94564,-3.64096"
+       id="path3178"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 241.06032,-227.00535 c 3.42013,-1.92113 9.38676,-2.99407 11.32744,-3.64096"
+       id="path3180"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 282.32455,-246.82836 c -5.65815,-4.10862 -9.85529,-2.14331 -14.9684,-1.21365 -5.11183,4.03768 -4.45006,9.56243 -4.45006,14.96839 -0.80947,12.08259 5.4633,13.52411 13.35019,15.7775 7.40607,-3.43825 7.02632,-9.07005 8.09102,-13.75474 -2.63809,-0.73529 -5.39335,-0.26967 -8.09102,-0.40455"
+       id="path3182"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 288.39281,-246.01925 c 1.18244,8.57107 3.54763,19.27337 4.45007,25.89127"
+       id="path3184"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 296.88839,-246.01925 c -3.54082,4.42876 -0.96067,8.05836 -0.40455,12.13653 1.22726,9.60037 4.26478,9.85541 10.11378,13.75474 8.48309,-3.29923 6.32613,-6.50716 4.85461,-14.96839 -5.3463,-12.12213 -7.52028,-9.64224 -14.56384,-10.92288 z"
+       id="path3186"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 306.59762,-244.8056 c 2.21884,0.12226 1.61332,-1.88221 2.42731,-2.83186"
+       id="path3188"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 299.72025,-251.68297 c 0,-0.8091 0,-1.61821 0,-2.42731"
+       id="path3190"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 313.07044,-243.9965 c 2.49211,2.10004 5.39685,15.05436 7.68647,22.25032"
+       id="path3192"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1;font-family:Arial;-inkscape-font-specification:Arial"
+       x="111.33437"
+       y="-98.935745"
+       id="text3194"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-opacity:1;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         sodipodi:role="line"
+         x="111.33437"
+         y="-98.935745"
+         id="tspan3196">THẾ GI   I</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-opacity:1;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan3198"
+         sodipodi:role="line"
+         x="111.33437"
+         y="-83.036797">BANH</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;color:#000000;fill:url(#radialGradient3984);fill-opacity:1;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path3968"
+       sodipodi:cx="106.70038"
+       sodipodi:cy="-117.13023"
+       sodipodi:rx="6.573957"
+       sodipodi:ry="6.573957"
+       d="m 113.27434,-117.13023 c 0,3.63069 -2.94327,6.57395 -6.57396,6.57395 -3.6307,0 -6.57396,-2.94326 -6.57396,-6.57395 0,-3.6307 2.94326,-6.57396 6.57396,-6.57396 3.63069,0 6.57396,2.94326 6.57396,6.57396 z"
+       transform="translate(28.908571,12.07971)" />
+    <path
+       style="fill:#ffffff;stroke:none"
+       d="m 142.75439,-117.27083 -3.7421,3.74209 -2.12389,0 1.92162,-3.64096 z"
+       id="path3988"
+       inkscape:connector-curvature="0" />
+    <rect
+       y="-126.75777"
+       x="180.44852"
+       height="62.933399"
+       width="110.70557"
+       id="rect3996"
+       style="opacity:0.98999999;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path3998"
+       d="m 260.32707,-109.78664 c 1.11469,0.10474 1.16901,-1.50658 1.41593,-2.12389 l 2.57902,0 c -0.19128,1.92509 -1.73484,2.71464 -2.32617,3.23641 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <text
+       sodipodi:linespacing="100%"
+       id="text4000"
+       y="-98.531204"
+       x="232.69974"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         id="tspan4002"
+         y="-98.531204"
+         x="232.69974"
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-opacity:1;font-family:Futura;-inkscape-font-specification:Futura Medium">THẾ GI   I</tspan><tspan
+         y="-82.632256"
+         x="232.69974"
+         sodipodi:role="line"
+         id="tspan4004"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-opacity:1;font-family:Futura;-inkscape-font-specification:Futura Medium">BANH</tspan></text>
+    <path
+       transform="matrix(1.0153846,0,0,1.0153846,148.53125,14.3874)"
+       d="m 113.27434,-117.13023 c 0,3.63069 -2.94327,6.57395 -6.57396,6.57395 -3.6307,0 -6.57396,-2.94326 -6.57396,-6.57395 0,-3.6307 2.94326,-6.57396 6.57396,-6.57396 3.63069,0 6.57396,2.94326 6.57396,6.57396 z"
+       sodipodi:ry="6.573957"
+       sodipodi:rx="6.573957"
+       sodipodi:cy="-117.13023"
+       sodipodi:cx="106.70038"
+       id="path4006"
+       style="opacity:0.98999999;color:#000000;fill:url(#radialGradient4010);fill-opacity:1;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       sodipodi:type="arc" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4008"
+       d="m 264.11974,-116.86628 -3.7421,3.74209 -2.12389,0 1.92162,-3.64096 z"
+       style="fill:#ffffff;stroke:none" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       d="m 377.8492,-117.85491 c 1.11469,0.10474 1.16901,-1.50658 1.41593,-2.12389 l 2.57902,0 c -0.19128,1.92509 -1.73484,2.71464 -2.32617,3.23641 z"
+       id="path4012"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1;font-family:Arial;-inkscape-font-specification:Arial"
+       x="350.22186"
+       y="-104.59947"
+       id="text4014"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-opacity:1;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         sodipodi:role="line"
+         x="350.22186"
+         y="-104.59947"
+         id="tspan4016">THE GI   I</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-opacity:1;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4018"
+         sodipodi:role="line"
+         x="350.22186"
+         y="-88.700523">BANH</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;color:#000000;fill:url(#radialGradient4024);fill-opacity:1;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path4020"
+       sodipodi:cx="106.70038"
+       sodipodi:cy="-117.13023"
+       sodipodi:rx="6.573957"
+       sodipodi:ry="6.573957"
+       d="m 113.27434,-117.13023 c 0,3.63069 -2.94327,6.57395 -6.57396,6.57395 -3.6307,0 -6.57396,-2.94326 -6.57396,-6.57395 0,-3.6307 2.94326,-6.57396 6.57396,-6.57396 3.63069,0 6.57396,2.94326 6.57396,6.57396 z"
+       transform="matrix(1.3095706,0,0,1.3095706,234.38731,42.50094)" />
+    <path
+       style="fill:#ffffff;stroke:none"
+       d="m 379.64187,-124.43484 -3.14185,3.74209 -2.72414,0 1.92162,-3.64096 z"
+       id="path4022"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:120.00000477%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+       x="385.44568"
+       y="148.33289"
+       id="text4307"
+       sodipodi:linespacing="120%"><tspan
+         sodipodi:role="line"
+         id="tspan4309"
+         x="385.44568"
+         y="148.33289" /></text>
+    <path
+       sodipodi:nodetypes="cccccccc"
+       inkscape:connector-curvature="0"
+       id="path4315"
+       d="m 339.94852,-122.41282 2.87262,3.50827 -2.92512,0 -0.80295,-0.64192 -0.80296,0.64192 -2.92512,0 2.87262,-3.50827 z"
+       style="fill:none;stroke:#000000;stroke-width:1.10000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       style="fill:#ffffff;stroke:none"
+       d="m 339.94852,-122.41282 2.87262,3.50827 -2.92512,0 -0.80295,-0.64192 -0.80296,0.64192 -2.92512,0 2.87262,-3.50827 z"
+       id="path4317"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path4829"
+       d="m 347.64187,-124.43484 -3.14185,3.74209 -1.3475,0 -0.88221,-0.93681 1.42719,-2.70415 z"
+       style="fill:#ffffff;stroke:none" />
+    <path
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path4833"
+       d="m 340.8419,-60.43484 -3.14185,3.74209 -1.3475,0 -0.88221,-0.93681 1.42719,-2.70415 z"
+       style="fill:#ffffff;stroke:#000000" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000"
+       d="m 378.3492,-53.85491 c 1.11469,0.10474 1.16901,-1.50658 1.41593,-2.12389 l 2.57902,0 c -0.19128,1.92509 -1.73484,2.71464 -2.32617,3.23641 z"
+       id="path4835"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#ffffff;stroke:#000000"
+       d="m 380.14187,-60.43484 -3.14185,3.74209 -2.72414,0 1.92162,-3.64096 z"
+       id="path4837"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="308.72186"
+       y="-40.599472"
+       id="text4839"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4843"
+         sodipodi:role="line"
+         x="308.72186"
+         y="-40.599472">T</tspan></text>
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4845"
+       d="m 378.3492,-53.85491 c 1.11469,0.10474 1.16901,-1.50658 1.41593,-2.12389 l 2.57902,0 c -0.19128,1.92509 -1.73484,2.71464 -2.32617,3.23641 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <text
+       sodipodi:linespacing="100%"
+       id="text4847"
+       y="-40.599472"
+       x="308.72186"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="-40.599472"
+         x="308.72186"
+         sodipodi:role="line"
+         id="tspan4851"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">T</tspan></text>
+    <path
+       transform="matrix(1.3095706,0,0,1.3095706,234.88731,106.50094)"
+       d="m 113.27434,-117.13023 c 0,3.63069 -2.94327,6.57395 -6.57396,6.57395 -3.6307,0 -6.57396,-2.94326 -6.57396,-6.57395 0,-3.6307 2.94326,-6.57396 6.57396,-6.57396 3.63069,0 6.57396,2.94326 6.57396,6.57396 z"
+       sodipodi:ry="6.573957"
+       sodipodi:rx="6.573957"
+       sodipodi:cy="-117.13023"
+       sodipodi:cx="106.70038"
+       id="path4853"
+       style="opacity:0.98999999;color:#000000;fill:url(#radialGradient4863);fill-opacity:1;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       sodipodi:type="arc" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4855"
+       d="m 380.14187,-60.43484 -3.14185,3.74209 -2.72414,0 1.92162,-3.64096 z"
+       style="fill:#ffffff;stroke:none" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.10000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 333.14855,-58.41282 2.87262,3.50827 -2.92512,0 -0.80295,-0.64192 -0.80296,0.64192 -2.92512,0 2.87262,-3.50827 z"
+       id="path4857"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       sodipodi:nodetypes="cccccccc"
+       inkscape:connector-curvature="0"
+       id="path4859"
+       d="m 333.14855,-58.41282 2.87262,3.50827 -2.92512,0 -0.80295,-0.64192 -0.80296,0.64192 -2.92512,0 2.87262,-3.50827 z"
+       style="fill:#ffffff;stroke:none" />
+    <path
+       style="fill:#ffffff;stroke:none"
+       d="m 340.8419,-60.43484 -3.14185,3.74209 -1.3475,0 -0.88221,-0.93681 1.42719,-2.70415 z"
+       id="path4861"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <text
+       sodipodi:linespacing="100%"
+       id="text4869"
+       y="-40.599472"
+       x="320.72186"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="-40.599472"
+         x="320.72186"
+         sodipodi:role="line"
+         id="tspan4871"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">H</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="320.72186"
+       y="-40.599472"
+       id="text4873"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4875"
+         sodipodi:role="line"
+         x="320.72186"
+         y="-40.599472">H</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="332.02148"
+       y="-40.599472"
+       id="text4877"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4879"
+         sodipodi:role="line"
+         x="332.02148"
+         y="-40.599472">E</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text4881"
+       y="-40.599472"
+       x="332.02148"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="-40.599472"
+         x="332.02148"
+         sodipodi:role="line"
+         id="tspan4883"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">E</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text4885"
+       y="-40.599472"
+       x="352.02148"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="-40.599472"
+         x="352.02148"
+         sodipodi:role="line"
+         id="tspan4887"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">G</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="352.02148"
+       y="-40.599472"
+       id="text4889"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4891"
+         sodipodi:role="line"
+         x="352.02148"
+         y="-40.599472">G</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="362.82132"
+       y="-40.599472"
+       id="text4893"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4895"
+         sodipodi:role="line"
+         x="362.82132"
+         y="-40.599472">I</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text4897"
+       y="-40.599472"
+       x="362.82132"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="-40.599472"
+         x="362.82132"
+         sodipodi:role="line"
+         id="tspan4899"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">I</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text4901"
+       y="-40.599472"
+       x="386.82132"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="-40.599472"
+         x="386.82132"
+         sodipodi:role="line"
+         id="tspan4903"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">I</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="386.82132"
+       y="-40.599472"
+       id="text4905"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4907"
+         sodipodi:role="line"
+         x="386.82132"
+         y="-40.599472">I</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="328.02148"
+       y="-22.599472"
+       id="text4928"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4930"
+         sodipodi:role="line"
+         x="328.02148"
+         y="-22.599472">B</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text4932"
+       y="-22.599472"
+       x="328.02148"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="-22.599472"
+         x="328.02148"
+         sodipodi:role="line"
+         id="tspan4934"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">B</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text4936"
+       y="-22.599472"
+       x="340.02148"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="-22.599472"
+         x="340.02148"
+         sodipodi:role="line"
+         id="tspan4938"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="340.02148"
+       y="-22.599472"
+       id="text4940"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4942"
+         sodipodi:role="line"
+         x="340.02148"
+         y="-22.599472">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="355.3212"
+       y="-22.599472"
+       id="text4944"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4946"
+         sodipodi:role="line"
+         x="355.3212"
+         y="-22.599472">N</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text4948"
+       y="-22.599472"
+       x="355.3212"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="-22.599472"
+         x="355.3212"
+         sodipodi:role="line"
+         id="tspan4950"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">N</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text4952"
+       y="-22.599472"
+       x="369.3212"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         y="-22.599472"
+         x="369.3212"
+         sodipodi:role="line"
+         id="tspan4954"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">H</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:15.89894581px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="369.3212"
+       y="-22.599472"
+       id="text4956"
+       sodipodi:linespacing="100%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4958"
+         sodipodi:role="line"
+         x="369.3212"
+         y="-22.599472">H</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       d="m 1145.5112,475.61199 c 13.3763,1.2576 16.6872,-18.8388 16.9912,-25.4868 l 30.9482,0 c -2.2953,23.1012 -20.818,32.5764 -27.914,38.8368 z"
+       id="path4970"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <text
+       xml:space="preserve"
+       style="font-size:192px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="339.97742"
+       y="634.67712"
+       id="text4972"
+       sodipodi:linespacing="100%"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         style="font-size:192px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan4974"
+         sodipodi:role="line"
+         x="339.97742"
+         y="634.67712">T</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;color:#000000;fill:url(#radialGradient5058);fill-opacity:1;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path4976"
+       sodipodi:cx="106.70038"
+       sodipodi:cy="-117.13023"
+       sodipodi:rx="6.573957"
+       sodipodi:ry="6.573957"
+       d="m 113.27434,-117.13023 a 6.573957,6.573957 0 1 1 -13.14792,0 6.573957,6.573957 0 1 1 13.14792,0 z"
+       transform="matrix(15.714847,0,0,15.714847,-576.0314,2399.8828)"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       style="fill:#ffffff;stroke:none"
+       d="m 1167.0233,396.65307 -37.7022,44.90532 -32.6897,0 23.0594,-43.69176 z"
+       id="path4978"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       style="fill:#ffffff;stroke:none"
+       d="m 618.69744,420.91719 34.47144,42.0996 -35.10144,0 -9.6354,-7.7028 -9.63552,7.7028 -35.10144,0 34.47144,-42.0996 z"
+       id="path4982"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path4984"
+       d="m 711.01764,396.65307 -37.7022,44.90532 -16.17,0 -10.58652,-11.2416 17.12628,-32.45016 z"
+       style="fill:#ffffff;stroke:none"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <text
+       sodipodi:linespacing="100%"
+       id="text4990"
+       y="634.67712"
+       x="475.57727"
+       style="font-size:192px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         y="634.67712"
+         x="475.57727"
+         sodipodi:role="line"
+         id="tspan4992"
+         style="font-size:192px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">H</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:192px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="605.17273"
+       y="634.67712"
+       id="text4998"
+       sodipodi:linespacing="100%"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         style="font-size:192px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan5000"
+         sodipodi:role="line"
+         x="605.17273"
+         y="634.67712">E</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5006"
+       y="634.67712"
+       x="845.17236"
+       style="font-size:192px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         y="634.67712"
+         x="845.17236"
+         sodipodi:role="line"
+         id="tspan5008"
+         style="font-size:192px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">G</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:192px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="966.37573"
+       y="634.67712"
+       id="text5014"
+       sodipodi:linespacing="100%"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         style="font-size:192px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan5016"
+         sodipodi:role="line"
+         x="966.37573"
+         y="634.67712">I</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5022"
+       y="634.67712"
+       x="1236.3757"
+       style="font-size:192px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         y="634.67712"
+         x="1236.3757"
+         sodipodi:role="line"
+         id="tspan5024"
+         style="font-size:192px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">I</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:190.78735352px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="533.17529"
+       y="850.67712"
+       id="text5030"
+       sodipodi:linespacing="100%"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         style="font-size:192px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan5032"
+         sodipodi:role="line"
+         x="533.17529"
+         y="850.67712">B</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5038"
+       y="850.67712"
+       x="677.17529"
+       style="font-size:192px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         y="850.67712"
+         x="677.17529"
+         sodipodi:role="line"
+         id="tspan5040"
+         style="font-size:192px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:192px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="853.5791"
+       y="850.67712"
+       id="text5046"
+       sodipodi:linespacing="100%"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         style="font-size:192px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium"
+         id="tspan5048"
+         sodipodi:role="line"
+         x="853.5791"
+         y="850.67712">N</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5054"
+       y="850.67712"
+       x="1009.5857"
+       style="font-size:192px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875"><tspan
+         y="850.67712"
+         x="1009.5857"
+         sodipodi:role="line"
+         id="tspan5056"
+         style="font-size:192px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:100%;fill:#ffffff;stroke:#ffffff;stroke-width:18;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Futura;-inkscape-font-specification:Futura Medium">H</tspan></text>
+  </g>
+</svg>

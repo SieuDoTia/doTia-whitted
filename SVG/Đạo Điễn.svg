@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1536"
+   height="810"
+   id="svg3248"
+   version="1.1"
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="Đạo Điễn.svg"
+   inkscape:export-filename="/Users/su_huynh/Documents/Blender/Thế Giới Trái Banh/Đạo Diễn.png"
+   inkscape:export-xdpi="240"
+   inkscape:export-ydpi="240">
+  <defs
+     id="defs3250">
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5151"
+       id="radialGradient5149"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <linearGradient
+       id="linearGradient5151">
+      <stop
+         style="stop-color:#fff7f0;stop-opacity:1;"
+         offset="0"
+         id="stop5153" />
+      <stop
+         id="stop5155"
+         offset="0.5"
+         style="stop-color:#ff8d00;stop-opacity:1;" />
+      <stop
+         style="stop-color:#8c6700;stop-opacity:1;"
+         offset="1"
+         id="stop5157" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5171"
+       id="radialGradient5145"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <linearGradient
+       id="linearGradient5171">
+      <stop
+         style="stop-color:#f4daf2;stop-opacity:1;"
+         offset="0"
+         id="stop5173" />
+      <stop
+         id="stop5175"
+         offset="0.5"
+         style="stop-color:#b433b2;stop-opacity:1;" />
+      <stop
+         style="stop-color:#500052;stop-opacity:1;"
+         offset="1"
+         id="stop5177" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5135"
+       id="radialGradient5113"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <linearGradient
+       id="linearGradient5135">
+      <stop
+         id="stop5137"
+         offset="0"
+         style="stop-color:#ffd9da;stop-opacity:1;" />
+      <stop
+         style="stop-color:#d8004c;stop-opacity:1;"
+         offset="0.5"
+         id="stop5139" />
+      <stop
+         id="stop5141"
+         offset="1"
+         style="stop-color:#420037;stop-opacity:1;" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5127"
+       id="radialGradient5109"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1089995,-5.2052544e-7,5.3063749e-7,1.1305436,-11.801714,15.589401)"
+       cx="108.27371"
+       cy="-119.41872"
+       fx="108.27371"
+       fy="-119.41872"
+       r="6.573957" />
+    <linearGradient
+       id="linearGradient5127">
+      <stop
+         id="stop5129"
+         offset="0"
+         style="stop-color:#fff8da;stop-opacity:1;" />
+      <stop
+         style="stop-color:#ffe600;stop-opacity:1;"
+         offset="0.5"
+         id="stop5131" />
+      <stop
+         id="stop5133"
+         offset="1"
+         style="stop-color:#8c6700;stop-opacity:1;" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.16098633"
+     inkscape:cx="2162.3224"
+     inkscape:cy="-244.36782"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="940"
+     inkscape:window-height="671"
+     inkscape:window-x="222"
+     inkscape:window-y="20"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3253">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-242.36218)">
+    <text
+       xml:space="preserve"
+       style="font-size:90px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:120.00000477%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;display:inline;font-family:Futura;-inkscape-font-specification:Futura Medium"
+       x="759.22119"
+       y="739.34705"
+       id="text5060"
+       sodipodi:linespacing="120%"><tspan
+         sodipodi:role="line"
+         id="tspan5062"
+         x="759.22119"
+         y="739.34705"
+         style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none">ĐA     DIEN</tspan></text>
+    <text
+       sodipodi:linespacing="120%"
+       id="text5064"
+       y="878.84851"
+       x="768.82324"
+       style="font-size:90px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:120.00000477%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;display:inline;font-family:Futura;-inkscape-font-specification:Futura Medium"
+       xml:space="preserve"><tspan
+         y="878.84851"
+         x="768.82324"
+         id="tspan5066"
+         sodipodi:role="line"
+         style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none">H     NHU T  CHAU</tspan></text>
+    <path
+       inkscape:export-ydpi="1200.3875"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       sodipodi:nodetypes="cccscc"
+       inkscape:connector-curvature="0"
+       id="path5099"
+       d="m 771.53856,813.4876 c 6.27012,0.588 9.82208,-10.8296 9.9644,-13.946 l 12.50716,0 c -1.0764,10.8276 -8.71404,16.4388 -13.0848,18.204 -2.38176,0.96 -7.59276,1.3176 -7.59276,1.3176 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;display:inline" />
+    <path
+       inkscape:export-ydpi="1200.3875"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       transform="matrix(7.3663345,0,0,7.3663345,-93.76476,1563.2012)"
+       d="m 113.27434,-117.13023 c 0,3.63069 -2.94327,6.57395 -6.57396,6.57395 -3.6307,0 -6.57396,-2.94326 -6.57396,-6.57395 0,-3.6307 2.94326,-6.57396 6.57396,-6.57396 3.63069,0 6.57396,2.94326 6.57396,6.57396 z"
+       sodipodi:ry="6.573957"
+       sodipodi:rx="6.573957"
+       sodipodi:cy="-117.13023"
+       sodipodi:cx="106.70038"
+       id="path5101"
+       style="opacity:0.98999999;color:#000000;fill:url(#radialGradient5109);fill-opacity:1;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       sodipodi:type="arc" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;color:#000000;fill:url(#radialGradient5113);fill-opacity:1;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path5111"
+       sodipodi:cx="106.70038"
+       sodipodi:cy="-117.13023"
+       sodipodi:rx="6.573957"
+       sodipodi:ry="6.573957"
+       d="m 113.27434,-117.13023 c 0,3.63069 -2.94327,6.57395 -6.57396,6.57395 -3.6307,0 -6.57396,-2.94326 -6.57396,-6.57395 0,-3.6307 2.94326,-6.57396 6.57396,-6.57396 3.63069,0 6.57396,2.94326 6.57396,6.57396 z"
+       transform="matrix(7.3663345,0,0,7.3663345,-303.1602,1703.9048)"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       style="fill:#ffffff;stroke:none;display:inline"
+       d="m 488.169,770.1664 14.15836,17.734 -14.4538,0 -4.51656,-5.6108 -6.51668,5.6108 -12.4538,0 14.1586,-17.734 z"
+       id="path5117"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path5119"
+       d="m 443.32836,756.7916 17.67276,21.0492 3.5798,0 4.96236,-5.2692 -8.028,-15.2112 z"
+       style="fill:#ffffff;stroke:none;display:inline"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       inkscape:export-ydpi="1200.3875"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:connector-curvature="0"
+       id="path5121"
+       d="m 1074.9664,784.2604 14.1586,17.734 -12.4538,0 -6.5168,-5.6108 -6.5166,5.6108 -12.4538,0 14.1585,-17.734 z"
+       style="fill:#ffffff;stroke:none;display:inline" />
+    <path
+       style="fill:#ffffff;stroke:none;display:inline"
+       d="m 909.06792,646.86039 14.1586,17.73401 -12.4538,0 -6.5168,-5.6108 -6.51656,5.6108 -12.4538,0 14.15848,-17.73401 z"
+       id="path5125"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;color:#000000;fill:url(#radialGradient5145);fill-opacity:1;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path5143"
+       sodipodi:cx="106.70038"
+       sodipodi:cy="-117.13023"
+       sodipodi:rx="6.573957"
+       sodipodi:ry="6.573957"
+       d="m 113.27434,-117.13023 c 0,3.63069 -2.94327,6.57395 -6.57396,6.57395 -3.6307,0 -6.57396,-2.94326 -6.57396,-6.57395 0,-3.6307 2.94326,-6.57396 6.57396,-6.57396 3.63069,0 6.57396,2.94326 6.57396,6.57396 z"
+       transform="matrix(1.429019,0,0,1.429019,459.8784,923.318)"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-ydpi="1200.3875" />
+    <path
+       inkscape:export-ydpi="1200.3875"
+       inkscape:export-xdpi="1200.3875"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/THẾ GIỚI BANH.png"
+       transform="matrix(1.429019,0,0,1.429019,593.4174,1066.9088)"
+       d="m 113.27434,-117.13023 c 0,3.63069 -2.94327,6.57395 -6.57396,6.57395 -3.6307,0 -6.57396,-2.94326 -6.57396,-6.57395 0,-3.6307 2.94326,-6.57396 6.57396,-6.57396 3.63069,0 6.57396,2.94326 6.57396,6.57396 z"
+       sodipodi:ry="6.573957"
+       sodipodi:rx="6.573957"
+       sodipodi:cy="-117.13023"
+       sodipodi:cx="106.70038"
+       id="path5147"
+       style="opacity:0.98999999;color:#000000;fill:url(#radialGradient5149);fill-opacity:1;stroke:none;stroke-width:1.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       sodipodi:type="arc" />
+    <path
+       style="fill:#ffffff;stroke:none;display:inline"
+       d="m 894.26412,632.22639 c -5.18952,0 -8.54292,6.0768 -8.54292,6.0768 l -6.82312,-2.8372 c 2.77872,-6.3216 7.60356,-15.744 17.73852,-15.744 4.84572,0 10.14588,2.4864 12.9582,6.06 1.2816,1.6272 4.92096,4.0452 7.93884,4.0452 5.18964,0 8.54316,-6.0768 8.54316,-6.0768 l 6.82288,2.8372 c -2.77848,6.3216 -7.60356,15.744 -17.73828,15.744 -4.84596,0 -10.14588,-2.4864 -12.9582,-6.06 -1.2816,-1.6272 -4.92096,-4.0452 -7.93908,-4.0452 z"
+       id="path5163"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sccsssccsss" />
+  </g>
+</svg>
