@@ -1,6 +1,6 @@
 //  Ví dụ phương pháp kết xuất dò tia đơn giản
-//  Phiên Bản 4.26
-//  Phát hành 2559/09/27
+//  Phiên Bản 4.28
+//  Phát hành 2559/09/30
 //  Hệ tọa độ giống OpenGL (+y là hướng lên)
 //  Khởi đầu 2557/12/18
 
@@ -404,10 +404,12 @@ typedef struct {
    Vecto viTri;    // vị trí
    float nuaBeRong;   // bề dài cảnh X
    float nuaBeDai;    // bề dài cảnh Z
+   float banKinhBinh;     // bán kính bình phương
    float bienDo0;  // biên độ 0
    float bienDo1;  // biên độ 1
    float bienDo2;  // biên độ 2
    float bienDoNhat;  // biến độ nhất = biên độ 0 + biên độ 1 + biên độ 2
+   unsigned char tron;  // cho biết mặt vuông hay tròn , = 0 vuông; = 1 tròn
    float hopQuanh[6];  // hộp quanh
 } MatSong;
 
@@ -763,7 +765,7 @@ MatParabol datMatParabol( float banKinh, float beCao, BaoBi *baoBiVT ); // đặ
 float xemCatMatParabol( MatParabol *matParabol, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung );  // xem cắt mặt parabol
 
 // ---- mặt sóng
-MatSong datMatSong( float beRong, float beDai, float bienDo0, float bienDo1, float bienDo2, BaoBi *baoBiVT ); // đặt mặt sóng
+MatSong datMatSong( float beRong, float beDai, float bienDo0, float bienDo1, float bienDo2, unsigned char tron, BaoBi *baoBiVT ); // đặt mặt sóng
 float xemCatMatSong( MatSong *matSong, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung, float thoiGian );  // xem cắt mặt sóng
 
 // ---- hình xuyến
@@ -4433,14 +4435,25 @@ float xemCatMatParabol( MatParabol *matParabol, Tia *tia, Vecto *phapTuyen, Vect
 }
 
 #pragma mark ---- Mặt Sóng
-MatSong datMatSong( float beRong, float beDai, float bienDo0, float bienDo1, float bienDo2, BaoBi *baoBiVT ) {
+MatSong datMatSong( float beRong, float beDai, float bienDo0, float bienDo1, float bienDo2, unsigned char tron, BaoBi *baoBiVT ) {
    MatSong matSong;
-   matSong.nuaBeRong = 0.5f*beRong;
-   matSong.nuaBeDai = 0.5f*beDai;
+
+   if( tron ) {
+      // ---- tính bán kính
+      float banKinh = 0.25f*(beRong + beDai);
+      matSong.banKinhBinh = banKinh*banKinh;
+   }
+   else {
+      matSong.nuaBeRong = 0.5f*beRong;
+      matSong.nuaBeDai = 0.5f*beDai;
+   }
+
    matSong.bienDo0 = bienDo0;
    matSong.bienDo1 = bienDo1;
    matSong.bienDo2 = bienDo2;
    matSong.bienDoNhat = bienDo0 + bienDo1 + bienDo2;
+   
+   matSong.tron = tron;
 
    baoBiVT->gocCucTieu.x = -0.5f*beRong;
    baoBiVT->gocCucDai.x = 0.5f*beRong;
@@ -4553,27 +4566,42 @@ float xemCatMatSong( MatSong *matSong, Tia *tia, Vecto *phapTuyen, Vecto *diemTr
             diemTrung->z = tia->goc.z + cachXa*tia->huong.z;
 
             // ---- xem điểm ớ trong phạm vi mặt sóng
-            if( diemTrung->x < -matSong->nuaBeRong ) {
-               cachXa = kVO_CUC;
+            if( matSong->tron ) {
+               float banKinhBinh = diemTrung->x*diemTrung->x + diemTrung->z*diemTrung->z;
+               if( banKinhBinh > matSong->banKinhBinh )
+                  cachXa = kVO_CUC;
+               else {
+                  
+                  phapTuyen->x = -matSong->bienDo0*kA_0*cosf( kA_0*diemTrung->x + kB_0*diemTrung->z - kC_0*thoiGian )
+                  -matSong->bienDo1*kA_1*cosf( kA_1*diemTrung->x + kB_1*diemTrung->z - kC_1*thoiGian );
+                  phapTuyen->y = 1.0f;
+                  phapTuyen->z = -matSong->bienDo0*kB_0*cosf( kA_0*diemTrung->x + kB_0*diemTrung->z - kC_0*thoiGian )
+                  -matSong->bienDo1*kB_1*cosf( kA_1*diemTrung->x + kB_1*diemTrung->z - kC_1*thoiGian );
+                  donViHoa( phapTuyen );
+               }
             }
-            else if( diemTrung->x > matSong->nuaBeRong ) {
-              cachXa = kVO_CUC;
-            }
-            else if( diemTrung->z < -matSong->nuaBeDai ) {
-               cachXa = kVO_CUC;
-            }
-            else if( diemTrung->z > matSong->nuaBeDai ) {
-               cachXa = kVO_CUC;
-            }
-            
             else {
-               
-               phapTuyen->x = -matSong->bienDo0*kA_0*cosf( kA_0*diemTrung->x + kB_0*diemTrung->z - kC_0*thoiGian )
-               -matSong->bienDo1*kA_1*cosf( kA_1*diemTrung->x + kB_1*diemTrung->z - kC_1*thoiGian );
-               phapTuyen->y = 1.0f;
-               phapTuyen->z = -matSong->bienDo0*kB_0*cosf( kA_0*diemTrung->x + kB_0*diemTrung->z - kC_0*thoiGian )
-               -matSong->bienDo1*kB_1*cosf( kA_1*diemTrung->x + kB_1*diemTrung->z - kC_1*thoiGian );
-               donViHoa( phapTuyen );
+               if( diemTrung->x < -matSong->nuaBeRong ) {
+                  cachXa = kVO_CUC;
+               }
+               else if( diemTrung->x > matSong->nuaBeRong ) {
+                  cachXa = kVO_CUC;
+               }
+               else if( diemTrung->z < -matSong->nuaBeDai ) {
+                  cachXa = kVO_CUC;
+               }
+               else if( diemTrung->z > matSong->nuaBeDai ) {
+                  cachXa = kVO_CUC;
+               }
+               else {
+                  
+                  phapTuyen->x = -matSong->bienDo0*kA_0*cosf( kA_0*diemTrung->x + kB_0*diemTrung->z - kC_0*thoiGian )
+                  -matSong->bienDo1*kA_1*cosf( kA_1*diemTrung->x + kB_1*diemTrung->z - kC_1*thoiGian );
+                  phapTuyen->y = 1.0f;
+                  phapTuyen->z = -matSong->bienDo0*kB_0*cosf( kA_0*diemTrung->x + kB_0*diemTrung->z - kC_0*thoiGian )
+                  -matSong->bienDo1*kB_1*cosf( kA_1*diemTrung->x + kB_1*diemTrung->z - kC_1*thoiGian );
+                  donViHoa( phapTuyen );
+               }
             }
          }
          
@@ -5681,7 +5709,7 @@ void luuThongTinKenh_EXR( FILE *tep, unsigned char *danhSachKenh, unsigned char 
 void luuThongTinCuaSoDuLieu( FILE *tep, unsigned int beRong, unsigned int beCao );
 void luuThongTinCuaSoChieu( FILE *tep, unsigned int beRong, unsigned int beCao );
 void luuThoiGianKetXuat( FILE *tep, unsigned short thoiGianKetXuat );
-void luuBangDuLieuAnh( FILE *tep, unsigned short beRong, unsigned short beCao, unsigned char soLuongKenh, unsigned char kieuDuLieu );
+void luuBangDuLieuAnh( FILE *tep, unsigned short soLuongThanhPhan );
 void chepDuLieuKenhFloat( unsigned char *dem, const float *kenh, unsigned short beRong );
 void chepDuLieuKenhHalf( unsigned char *dem, const float *kenh, unsigned short beRong );
 unsigned short doiFloatSangHalf( float soFloat );
@@ -5801,10 +5829,11 @@ void luuAnhZIP( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short
    // ==== bảng cho thành phần dữ liệu ảnh
    // ---- giữ địa chỉ đầu bảng thành phần
    unsigned long long diaChiDauBangThanhPhan = ftell( tep );
+   unsigned short soLuongThanhPhan = (beCao >> 4) + 1;
    // ---- lưu bàng rỗng
-   luuBangDuLieuAnh( tep, beRong, beCao, 3, kieuDuLieu );
-   unsigned long long *bangThanhPhan = malloc( (beCao >> 1) + 1 );  // (bề cao / 16) * 8 + 1
-   
+   luuBangDuLieuAnh( tep, soLuongThanhPhan );
+   unsigned long long *bangThanhPhan = malloc( soLuongThanhPhan << 3 );  // sốLượngThanhPhần * 8
+
    // ---- bề dài dệm
    unsigned int beDaiDem = (beRong << kieuDuLieu)*3 << 4; // nhân 3 cho 3 kênh, 16 hàng
    // ---- tạo đệm để lọc dữ liệu
@@ -5892,7 +5921,7 @@ void luuAnhZIP( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short
    // ---- lưu bảng thành phân
    fseek( tep, diaChiDauBangThanhPhan, SEEK_SET );
    soHang = 0;
-   unsigned short soLuongThanhPhan = soThanhPhan;
+
    soThanhPhan = 0;
    while( soThanhPhan < soLuongThanhPhan ) {
       unsigned long long diaChiThanhPhan = bangThanhPhan[soThanhPhan];
@@ -6066,14 +6095,13 @@ void luuThoiGianKetXuat( FILE *tep, unsigned short thoiGianKetXuat ) {
    fputc( '0', tep );
 }
 
-void luuBangDuLieuAnh( FILE *tep, unsigned short beRong, unsigned short beCao, unsigned char soLuongKenh, unsigned char kieuDuLieu ) {
+void luuBangDuLieuAnh( FILE *tep, unsigned short soLuongThanhPhan ) {
    
-   // ---- tính địa chỉ cho thành phần đầu sau bảng  
-   unsigned long long diaChiThanhPhan = ftell( tep ) + (beCao << 3);
-   unsigned long long soLuongByteMotHangAnh = (beRong*soLuongKenh << kieuDuLieu) + 8;  // mỗi kênh là kiếu float cho nên nhân 4
+   // ---- chưa biết địa chỉ thành phần vì chưa nén dữ liệu, sau nén sẽ đặt gía trị trong bảng  
+   unsigned long long diaChiThanhPhan = 0x0;
 
-   unsigned short soHang = 0;
-   while( soHang < beCao ) {
+   unsigned short soThanhPhan = 0;
+   while( soThanhPhan < soLuongThanhPhan ) {
       fputc( diaChiThanhPhan & 0xff, tep );
       fputc( (diaChiThanhPhan >> 8), tep );
       fputc( (diaChiThanhPhan >> 16), tep );
@@ -6082,8 +6110,7 @@ void luuBangDuLieuAnh( FILE *tep, unsigned short beRong, unsigned short beCao, u
       fputc( (diaChiThanhPhan >> 40), tep );
       fputc( (diaChiThanhPhan >> 48), tep );
       fputc( (diaChiThanhPhan >> 56), tep );
-      diaChiThanhPhan += soLuongByteMotHangAnh;
-      soHang++;
+      soThanhPhan++;
    }
 
 }
@@ -6095,15 +6122,15 @@ void chepDuLieuKenhFloat( unsigned char *dem, const float *kenh, unsigned short 
    while( soCot < beRong ) {
 
       union {
-         float f;
          unsigned int i;
-      } ui;
+         float f;
+      } u_if;
 
-      ui.f = kenh[soCot];
-      dem[diaChiDem] = ui.i & 0xff;
-      dem[diaChiDem + 1] = (ui.i >> 8) & 0xff;
-      dem[diaChiDem + 2] = (ui.i >> 16) & 0xff;
-      dem[diaChiDem + 3] = (ui.i >> 24) & 0xff;
+      u_if.f = kenh[soCot];
+      dem[diaChiDem] = u_if.i & 0xff;
+      dem[diaChiDem + 1] = (u_if.i >> 8) & 0xff;
+      dem[diaChiDem + 2] = (u_if.i >> 16) & 0xff;
+      dem[diaChiDem + 3] = (u_if.i >> 24) & 0xff;
       diaChiDem += 4;
       soCot++;
    }
@@ -9032,7 +9059,7 @@ unsigned short datMatBien( VatThe *danhSachVat ) {
    Vecto phongTo;
    phongTo.x = 1.0f;     phongTo.y = 1.0f;     phongTo.z = 1.0f;
    
-   danhSachVat[0].hinhDang.matSong = datMatSong( 3000.0f, 3000.0f, 0.3f, 0.3f, 0.1f, &(danhSachVat[0].baoBiVT) );
+   danhSachVat[0].hinhDang.matSong = datMatSong( 3000.0f, 3000.0f, 0.3f, 0.3f, 0.1f, kSAI, &(danhSachVat[0].baoBiVT) );
    danhSachVat[0].loai = kLOAI_HINH_DANG__MAT_SONG;
    danhSachVat[0].chietSuat = 1.0f;
    datBienHoaChoVat( &(danhSachVat[0]), &phongTo, &quaternion, &viTri );
@@ -9040,7 +9067,7 @@ unsigned short datMatBien( VatThe *danhSachVat ) {
    danhSachVat[0].soHoaTiet = kHOA_TIET__KHONG;
 
    viTri.z = -3000.0f;
-   danhSachVat[1].hinhDang.matSong = datMatSong( 3000.0f, 3000.0f, 0.3f, 0.3f, 0.1f, &(danhSachVat[1].baoBiVT) );
+   danhSachVat[1].hinhDang.matSong = datMatSong( 3000.0f, 3000.0f, 0.3f, 0.3f, 0.1f, kSAI, &(danhSachVat[1].baoBiVT) );
    danhSachVat[1].loai = kLOAI_HINH_DANG__MAT_SONG;
    danhSachVat[1].chietSuat = 1.0f;
    datBienHoaChoVat( &(danhSachVat[1]), &phongTo, &quaternion, &viTri );
@@ -15515,7 +15542,7 @@ unsigned short datSongBongBong( VatThe *danhSachVat ) {
    
    Vecto viTri;
    viTri.x = 0.0f;       viTri.y = -170.0f;       viTri.z = -100.0f;
-   danhSachVat[0].hinhDang.matSong = datMatSong( 2000.0f, 600.0f, 0.3f, 0.3f, 0.1f, &(danhSachVat[0].baoBiVT) );
+   danhSachVat[0].hinhDang.matSong = datMatSong( 2000.0f, 600.0f, 0.3f, 0.3f, 0.1f, kSAI, &(danhSachVat[0].baoBiVT) );
    danhSachVat[0].loai = kLOAI_HINH_DANG__MAT_SONG;
    danhSachVat[0].chietSuat = 1.0f;
    datBienHoaChoVat( &(danhSachVat[0]), &phongTo, &quaternion, &viTri );
@@ -18743,13 +18770,14 @@ unsigned short thapNui( VatThe *danhSachVat, Vecto viTriDayThap ) {
    Vecto viTri = viTriDayThap;
    unsigned char soLuongVat = 0;
    
-   Mau mau0;   Mau mau1;   Mau mau2;  // Mau mau3;
-
+   Mau mau0;   Mau mau1;   Mau mau2;  // Mau mau3;  
+   Mau mauNuoc;
 
    // ----
    mau0.d = 0.25f;   mau0.l = 0.15f;   mau0.x = 0.0f;    mau0.dd = 1.0f;    mau0.p = 0.0f;
    mau1.d = 1.0f;   mau1.l = 0.8f;   mau1.x = 0.4f;    mau1.dd = 1.0f;    mau1.p = 0.0f;
    mau2.d = 0.85f;   mau2.l = 0.5f;   mau2.x = 0.0f;    mau2.dd = 1.0f;    mau2.p = 0.0f;
+   mauNuoc.d = 0.3f;   mauNuoc.l = 0.3f;   mauNuoc.x = 0.3f;  mauNuoc.dd = 1.0f;  mauNuoc.p = 0.5f;
    
    viTri.y += 22.0f;
    danhSachVat[soLuongVat].hinhDang.hop = datHop( 39.0f, 43.999f, 39.0f, &(danhSachVat[soLuongVat].baoBiVT));
@@ -18855,13 +18883,84 @@ unsigned short thapNui( VatThe *danhSachVat, Vecto viTriDayThap ) {
    danhSachVat[soLuongVat].soHoaTiet = kHOA_TIET__KHONG;
    soLuongVat++;
 
-   viTri.y = viTriDayThap.y + 47.5f;
+   // ---- nắp
+   viTri.y = viTriDayThap.y + 46.0f;
    viTri.z = viTriDayThap.z;
-   danhSachVat[soLuongVat].hinhDang.hinhNon = datHinhNon( 20.0f, 15.5f, 5.0f, &(danhSachVat[soLuongVat].baoBiVT));
-   danhSachVat[soLuongVat].loai = kLOAI_HINH_DANG__HINH_NON;
+   // ---- vật thể bool
+   danhSachVat[soLuongVat].loai = kLOAI_VAT_THE__BOOL;
+   danhSachVat[soLuongVat].mucDichBool = 1;
    danhSachVat[soLuongVat].chietSuat = 1.0f;
    datBienHoaChoVat( &(danhSachVat[soLuongVat]), &phongTo, &quaternion, &viTri );
-   danhSachVat[soLuongVat].hoaTiet.hoaTietKhong = datHoaTietKhong( &mau0 );
+   danhSachVat[soLuongVat].hoaTiet.hoaTietKhong = datHoaTietKhong( &mau1 );
+   danhSachVat[soLuongVat].soHoaTiet = kHOA_TIET__KHONG;
+   
+   danhSachVat[soLuongVat].soLuongVatThe = 2;
+   danhSachVat[soLuongVat].danhSachVatThe = malloc( 2*sizeof(VatThe) );
+   
+   // vị trí tương đối
+   Vecto viTriTuongDoi;
+   viTriTuongDoi.x = 0.0f;      viTriTuongDoi.y = 0.0f;        viTriTuongDoi.z = 0.0f;
+   danhSachVat[soLuongVat].danhSachVatThe[0].hinhDang.hinhNon = datHinhNon( 20.0f, 18.5f, 2.0f, &(danhSachVat[soLuongVat].danhSachVatThe[0].baoBiVT) );
+   danhSachVat[soLuongVat].danhSachVatThe[0].loai = kLOAI_HINH_DANG__HINH_NON;
+   danhSachVat[soLuongVat].danhSachVatThe[0].chietSuat = 1.0f;
+   datBienHoaChoVat( &(danhSachVat[soLuongVat].danhSachVatThe[0]), &phongTo, &quaternion, &viTriTuongDoi );
+   danhSachVat[soLuongVat].danhSachVatThe[0].hoaTiet.hoaTietKhong = datHoaTietKhong( &mau1 );
+   danhSachVat[soLuongVat].danhSachVatThe[0].soHoaTiet = kHOA_TIET__KHONG;
+   danhSachVat[soLuongVat].danhSachVatThe[0].giaTri = 1;
+   
+//   viTriTuongDoi.x = 0.0f;      viTriTuongDoi.y = 0.0f;        viTriTuongDoi.z = 0.0f;
+   danhSachVat[soLuongVat].danhSachVatThe[1].hinhDang.hinhNon = datHinhNon( 8.5f, 12.5f, 3.0f, &(danhSachVat[soLuongVat].danhSachVatThe[1].baoBiVT) );
+   danhSachVat[soLuongVat].danhSachVatThe[1].loai = kLOAI_HINH_DANG__HINH_NON;
+   danhSachVat[soLuongVat].danhSachVatThe[1].chietSuat = 1.0f;
+   datBienHoaChoVat( &(danhSachVat[soLuongVat].danhSachVatThe[1]), &phongTo, &quaternion, &viTriTuongDoi );
+   danhSachVat[soLuongVat].danhSachVatThe[1].hoaTiet.hoaTietKhong = datHoaTietKhong( &mau1 );
+   danhSachVat[soLuongVat].danhSachVatThe[1].soHoaTiet = kHOA_TIET__KHONG;
+   danhSachVat[soLuongVat].danhSachVatThe[1].giaTri = -1;
+   // ---- đừng quên tính bao bì vật thể cho vật thể ghép/bool
+   tinhBaoBiVTChoVatTheGhep( &(danhSachVat[soLuongVat]) );
+   soLuongVat++;
+   
+   // ---- vật thể bool
+   viTri.y += 1.25f;
+   danhSachVat[soLuongVat].loai = kLOAI_VAT_THE__BOOL;
+   danhSachVat[soLuongVat].mucDichBool = 1;
+   danhSachVat[soLuongVat].chietSuat = 1.0f;
+   datBienHoaChoVat( &(danhSachVat[soLuongVat]), &phongTo, &quaternion, &viTri );
+   danhSachVat[soLuongVat].hoaTiet.hoaTietKhong = datHoaTietKhong( &mau1 );
+   danhSachVat[soLuongVat].soHoaTiet = kHOA_TIET__KHONG;
+   
+   danhSachVat[soLuongVat].soLuongVatThe = 2;
+   danhSachVat[soLuongVat].danhSachVatThe = malloc( 2*sizeof(VatThe) );
+   
+   // vị trí tương đối
+   viTriTuongDoi.x = 0.0f;      viTriTuongDoi.y = 0.0f;        viTriTuongDoi.z = 0.0f;
+   danhSachVat[soLuongVat].danhSachVatThe[0].hinhDang.hinhTru = datHinhTru( 17.5f, 0.5f, &(danhSachVat[soLuongVat].danhSachVatThe[0].baoBiVT) );
+   danhSachVat[soLuongVat].danhSachVatThe[0].loai = kLOAI_HINH_DANG__HINH_TRU;
+   danhSachVat[soLuongVat].danhSachVatThe[0].chietSuat = 1.0f;
+   datBienHoaChoVat( &(danhSachVat[soLuongVat].danhSachVatThe[0]), &phongTo, &quaternion, &viTriTuongDoi );
+   danhSachVat[soLuongVat].danhSachVatThe[0].hoaTiet.hoaTietKhong = datHoaTietKhong( &mau1 );
+   danhSachVat[soLuongVat].danhSachVatThe[0].soHoaTiet = kHOA_TIET__KHONG;
+   danhSachVat[soLuongVat].danhSachVatThe[0].giaTri = 1;
+   
+   //   viTriTuongDoi.x = 0.0f;      viTriTuongDoi.y = 0.0f;        viTriTuongDoi.z = 0.0f;
+   danhSachVat[soLuongVat].danhSachVatThe[1].hinhDang.hinhTru = datHinhTru( 13.0f, 1.0f, &(danhSachVat[soLuongVat].danhSachVatThe[1].baoBiVT) );
+   danhSachVat[soLuongVat].danhSachVatThe[1].loai = kLOAI_HINH_DANG__HINH_TRU;
+   danhSachVat[soLuongVat].danhSachVatThe[1].chietSuat = 1.0f;
+   datBienHoaChoVat( &(danhSachVat[soLuongVat].danhSachVatThe[1]), &phongTo, &quaternion, &viTriTuongDoi );
+   danhSachVat[soLuongVat].danhSachVatThe[1].hoaTiet.hoaTietKhong = datHoaTietKhong( &mau1 );
+   danhSachVat[soLuongVat].danhSachVatThe[1].soHoaTiet = kHOA_TIET__KHONG;
+   danhSachVat[soLuongVat].danhSachVatThe[1].giaTri = -1;
+   // ---- đừng quên tính bao bì vật thể cho vật thể ghép/bool
+   tinhBaoBiVTChoVatTheGhep( &(danhSachVat[soLuongVat]) );
+   soLuongVat++;
+
+   // ---- mặt nước
+   viTri.y = viTriDayThap.y + 46.1f;
+   danhSachVat[soLuongVat].hinhDang.matSong = datMatSong( 26.0f, 26.0f, 0.3f, 0.35f, 0.35f, kDUNG, &(danhSachVat[soLuongVat].baoBiVT) );
+   danhSachVat[soLuongVat].loai = kLOAI_HINH_DANG__MAT_SONG;
+   danhSachVat[soLuongVat].chietSuat = 1.0f;
+   datBienHoaChoVat( &(danhSachVat[soLuongVat]), &phongTo, &quaternion, &viTri );
+   danhSachVat[soLuongVat].hoaTiet.hoaTietKhong = datHoaTietKhong( &mauNuoc );
    danhSachVat[soLuongVat].soHoaTiet = kHOA_TIET__KHONG;
    soLuongVat++;
    
@@ -18869,12 +18968,10 @@ unsigned short thapNui( VatThe *danhSachVat, Vecto viTriDayThap ) {
    float mangHo_ViTriX[] = {-13.0f, 13.0f,  26.0f, 26.0f,  13.0f, -13.0f,      -26.0f, -26.0f};
    float mangHo_ViTriZ[] = {26.0f, 26.0f,   13.0f, -13.0f,    -26.0f, -26.0f,   -13.0f, 13.0f};
 //   unsigned char mangMau[] = {0, 0,   0, 1, 0,  0, 1, 0,   0, 1, 0};
-   Mau mauNuoc;
-   mauNuoc.d = 0.3f;   mauNuoc.l = 0.3f;   mauNuoc.x = 0.3f;  mauNuoc.dd = 1.0f;  mauNuoc.p = 0.5f;
 
    unsigned char soHo = 0;
    while( soHo < 8 ) {
-      viTri.y = viTriDayThap.y + 2.5f;
+      viTri.y = viTriDayThap.y + 3.5f;
       viTri.x = mangHo_ViTriX[soHo];  viTri.z = mangHo_ViTriZ[soHo];
       // ---- vật thể bool
       danhSachVat[soLuongVat].loai = kLOAI_VAT_THE__BOOL;
@@ -18911,8 +19008,8 @@ unsigned short thapNui( VatThe *danhSachVat, Vecto viTriDayThap ) {
       soLuongVat++;
       
       // ---- mặt nước
-      viTri.y += 1.5f;
-      danhSachVat[soLuongVat].hinhDang.matSong = datMatSong( 12.0f, 12.0f, 0.3f, 0.15f, 0.35f, &(danhSachVat[soLuongVat].baoBiVT) );
+      viTri.y += 2.0f;
+      danhSachVat[soLuongVat].hinhDang.matSong = datMatSong( 12.0f, 12.0f, 0.3f, 0.35f, 0.35f, kDUNG, &(danhSachVat[soLuongVat].baoBiVT) );
       danhSachVat[soLuongVat].loai = kLOAI_HINH_DANG__MAT_SONG;
       danhSachVat[soLuongVat].chietSuat = 1.0f;
       datBienHoaChoVat( &(danhSachVat[soLuongVat]), &phongTo, &quaternion, &viTri );
@@ -18925,7 +19022,6 @@ unsigned short thapNui( VatThe *danhSachVat, Vecto viTriDayThap ) {
    
    // ---- hộp giữa các hồ
    float mangViTri_x[] = {0.0f, -26.0f, 0.0f, 26.0f};
-//   float mangViTri_y[] = {2.25f, 2.25f, 2.25f, 2.25f};
    float mangViTri_z[] = {-26.0f, 0.0f, 26.0f, 0.0f};
    
    unsigned char soVat = 0;
@@ -19255,7 +19351,7 @@ unsigned short thapNui( VatThe *danhSachVat, Vecto viTriDayThap ) {
       
       // ---- mặt nước
       viTri.y += 1.0f;
-      danhSachVat[soLuongVat].hinhDang.matSong = datMatSong( 12.0f, 12.0f, 0.3f, 0.15f, 0.35f, &(danhSachVat[soLuongVat].baoBiVT) );
+      danhSachVat[soLuongVat].hinhDang.matSong = datMatSong( 12.0f, 12.0f, 0.3f, 0.15f, 0.35f, kDUNG, &(danhSachVat[soLuongVat].baoBiVT) );
       danhSachVat[soLuongVat].loai = kLOAI_HINH_DANG__MAT_SONG;
       danhSachVat[soLuongVat].chietSuat = 1.0f;
       datBienHoaChoVat( &(danhSachVat[soLuongVat]), &phongTo, &quaternion, &viTri );
