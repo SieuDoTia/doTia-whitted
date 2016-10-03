@@ -1,6 +1,6 @@
 //  Ví dụ phương pháp kết xuất dò tia đơn giản
-//  Phiên Bản 4.28
-//  Phát hành 2559/09/30
+//  Phiên Bản 4.29
+//  Phát hành 2559/10/03
 //  Hệ tọa độ giống OpenGL (+y là hướng lên)
 //  Khởi đầu 2557/12/18
 
@@ -1144,7 +1144,7 @@ void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong ) {
          anh->kenhDo[chiSoAnh] = mauCoSuongMu.d;
          anh->kenhLuc[chiSoAnh] = mauCoSuongMu.l;
          anh->kenhXanh[chiSoAnh] = mauCoSuongMu.x;
-         anh->kenhDuc[chiSoAnh] = 1.0f;//mauDoTia.dd;
+         anh->kenhDuc[chiSoAnh] = mauDoTia.dd;
 
          chiSoAnh++;
 
@@ -5829,9 +5829,14 @@ void luuAnhZIP( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short
    // ==== bảng cho thành phần dữ liệu ảnh
    // ---- giữ địa chỉ đầu bảng thành phần
    unsigned long long diaChiDauBangThanhPhan = ftell( tep );
-   unsigned short soLuongThanhPhan = (beCao >> 4) + 1;
+   unsigned short soLuongThanhPhan = beCao >> 4;
+   // ---- nếu có phần dư, cần thêm một thành phần
+   if( beCao & 0xf )
+      soLuongThanhPhan++;
+
    // ---- lưu bàng rỗng
    luuBangDuLieuAnh( tep, soLuongThanhPhan );
+
    unsigned long long *bangThanhPhan = malloc( soLuongThanhPhan << 3 );  // sốLượngThanhPhần * 8
 
    // ---- bề dài dệm
@@ -5850,6 +5855,8 @@ void luuAnhZIP( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short
       unsigned short soLuongHangCon = beCao - soHang;
       if( soLuongHangCon > 16 )
          soLuongHangCon = 16;
+      else
+         beDaiDem = (beDaiDem >> 4)*soLuongHangCon;   // bề dài đệm cho thành phần dư (không đủ 16 hàng)
       
       bangThanhPhan[soThanhPhan] = ftell( tep );
       soThanhPhan++;
@@ -5915,7 +5922,7 @@ void luuAnhZIP( char *tenTep, Anh *anh, unsigned char kieuDuLieu, unsigned short
          diaChi++;
       }
 
-      soHang+= 16;
+      soHang += 16;
    }
    
    // ---- lưu bảng thành phân
@@ -14835,7 +14842,7 @@ void nangCapLocXoay( VatThe *danhSachVat, unsigned short soHoatHinh );
 #define kNHAN_VAT__BONG_BONG_DAU_PT1     14
 #define kNHAN_VAT__BONG_BONG_CUOI_PT1    15
 
-#define kSO_LUONG__BONG_BONG_TRONG_BAY  100  // <----- 5000
+#define kSO_LUONG__BONG_BONG_TRONG_BAY  5050  // <----- 5050
 #define kTOC_DO_BONG_BONG_TRONG_BAY     0.004f       // tốc độ bong bóng trong bay
 #define kSO_LUONG__HAT_BAY_TRONG_LOC_XOAY  300   // số lượng hạt bay trong lốc xoay
 
@@ -18697,7 +18704,7 @@ PhimTruong datPhimTruongSo2( unsigned int argc, char **argv ) {
 void chuanBiMayQuayPhimVaMatTroiPhimTruong2( PhimTruong *phimTruong ) {
    
    // ==== máy quay phim
-   phimTruong->mayQuayPhim.kieuChieu = kKIEU_CHIEU__TOAN_CANH;
+   phimTruong->mayQuayPhim.kieuChieu = kKIEU_CHIEU__PHOI_CANH;
    // ---- vị trí bắt đầu cho máy quay phim
    phimTruong->mayQuayPhim.viTri.x = 50.0f;
    phimTruong->mayQuayPhim.viTri.y = 100.0f;
