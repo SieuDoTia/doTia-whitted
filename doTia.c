@@ -1,6 +1,6 @@
 //  Ví dụ phương pháp kết xuất dò tia đơn giản
-//  Phiên Bản 4.29
-//  Phát hành 2559/10/03
+//  Phiên Bản 4.32
+//  Phát hành 2559/12/02
 //  Hệ tọa độ giống OpenGL (+y là hướng lên)
 //  Khởi đầu 2557/12/18
 
@@ -71,6 +71,7 @@
 #define kSO_LUONG_VAT_THE_TOI_DA 16384    // số lượng tố đa có thể chứa
 
 #define kSO_NGUYEN_TOI_DA  2147483647.0f // <--- cho 64 bit? // 32767.0f // <--- cho 32 bit?    // cho đơn vị hóa số ngẫu nhiên
+#define kSO_LUONG__GIAO_DIEM_TOI_DA   114688
 
 // ========= KIỂU DỮ LIỆU CƠ BẢN
 /* Vectơ - cũng xài cho điểm */
@@ -690,12 +691,12 @@ typedef struct {
 
 
 // ---- vẽ và dò tia
-void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong );  // vẽ ảnh chiếu phốo cảnh
-void veAnhChieuCuTuyen( Anh *anh, PhimTruong *phimTruong );   // vẽ ảnh cự tuyến
-void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong );   // vẽ ảnh toàn cầu
+void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem );  // vẽ ảnh chiếu phốo cảnh
+void veAnhChieuCuTuyen( Anh *anh, PhimTruong *phimTruong, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem );   // vẽ ảnh cự tuyến
+void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem );   // vẽ ảnh toàn cầu
 
-//void veAnhChatLuongCao( Anh *anh, PhimTruong *phimTruong );
-Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi);  // dò tia
+//void veAnhChatLuongCao( Anh *anh, PhimTruong *phimTruong, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem );
+Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem );  // dò tia
 
 #pragma mark ---- XEM CẮT
 void xemTiaCoTrungVatTheGanNhat( GiaoDiemBIH *nhiCayGiaoDiem, unsigned short soLuongGiaoDiem, VatThe *danhSachVatThe, unsigned short *mangChiSoVatTheSapXep, Tia *tia, ThongTinToMau *thongTinToMauVatTheGanNhat );
@@ -719,7 +720,7 @@ float timLonNhatCuaTamGiaTri( float so0, float so1, float so2, float so3, float 
 
 #pragma mark TẦNG BẬC
 void datLaiMangChiVatThe( unsigned short *mangChiSoVatTheSapXep, unsigned short soLuongVatThe );
-unsigned int chiaVatThe( VatThe *danhSachVatThe, unsigned short *mangChiSoVatTheSapXep, unsigned short soLuongVatThe, unsigned short chiSoVatThe, BaoBi *baoBi, unsigned int truc, float toaDoMatPhang );
+unsigned int chiaVatThe( VatThe *danhSachVatThe, unsigned short *mangChiSoVatTheSapXep, unsigned short soLuongVatThe, unsigned short chiSoVatThe, BaoBi *baoBi, unsigned int truc, float toaDoMatPhang, GiaoDiemBIH *mangGiaoDiem, unsigned int *soLuongGiaoDiem );
 GiaoDiemBIH chiaVatTheVaTaoGiaoDiem( VatThe *danhSachVatThe, unsigned short *mangChiSoVatTheSapXep, unsigned short soLuongVatThe, unsigned int truc, float toaDoMatPhang,
                                      unsigned short *soLuongTrai, unsigned short *soLuongPhai );
 void tinhTrucVaToaMatPhangChia( BaoBi *baoBi, unsigned int *truc, float *toaDoMatPhang );
@@ -728,7 +729,7 @@ void chiaBaoBi( unsigned int truc, float matPhangChia, BaoBi *baoBi, BaoBi *baoB
 void xemCay( GiaoDiemBIH *cay, unsigned short soLuongGiaoDiem );
 void xemVatThe( VatThe *danhSachVatThe, unsigned short soLuongVatThe );
 // ---- thấy nguồn ánh sáng
-unsigned char thayNguonAnhSang( VatThe *danhSachVat, unsigned short *mangChiSoVatTheSapXep, unsigned short soLuongVat, Vecto *diemTrung, Vecto *huongAnhSang, ThongTinToMau *thongTinToMauBong, unsigned char *soLuongVatTheToMauBong );
+unsigned char thayNguonAnhSang( VatThe *danhSachVat, unsigned short *mangChiSoVatTheSapXep, unsigned short soLuongVat, Vecto *diemTrung, Vecto *huongAnhSang, ThongTinToMau *thongTinToMauBong, unsigned char *soLuongVatTheToMauBong, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem );
 
 
 #pragma mark CÁC HÌNH DẠNG
@@ -770,7 +771,7 @@ float xemCatMatSong( MatSong *matSong, Tia *tia, Vecto *phapTuyen, Vecto *diemTr
 
 // ---- hình xuyến
 HinhXuyen datHinhXuyen( float banKinhVong, float banKinhOng, BaoBi *baoBiVT ); // đặt hình xuyến
-float xemCatHinhXuyen( HinhXuyen *hinhXuyen, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung, float thoiGian );  // xem cắt hình xuyến
+float xemCatHinhXuyen( HinhXuyen *hinhXuyen, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung );  // xem cắt hình xuyến
 
 
 // ---- tứ diện
@@ -899,7 +900,7 @@ Mau hoaTietBauTroi( Vecto huongTia, HoaTietBauTroi *hoaTietBauTroi );
 Mau hoaTietTraiBanh( Vecto *viTri );   // họa tiết trái banh
 
 // ---- chọn và tô họa tiết ngẫu nhiên
-void chonVaToHoatTietNgauNhien( unsigned char *soHoaTiet, HoaTiet *hoaTiet );
+void chonVaToHoaTietNgauNhien( unsigned char *soHoaTiet, HoaTiet *hoaTiet );
 
 #pragma mark Ma Trận
 // kèm thêm ở đang sau như này: [vectơ] * [phóng to] * [xoay] * [dịch]
@@ -955,9 +956,7 @@ void nangCapPhimTruong3( PhimTruong *phimTruong );
 
 
 // ---- Biến Tòàn Cầu
-#define kSO_LUONG__GIAO_DIEM_TOI_DA   114688
-GiaoDiemBIH mangGiaoDiem[kSO_LUONG__GIAO_DIEM_TOI_DA];  // 28672/7 ≈ 16384 vật thể
-unsigned int chiSoGiaoDiem;
+//unsigned int chiSoGiaoDiem;
 
 
 int main( int argc, char **argv ) {
@@ -996,6 +995,7 @@ int main( int argc, char **argv ) {
    time_t thoiGianBatDauToanCau;
    time(&thoiGianBatDauToanCau);
 
+
    while( phimTruong.soHoatHinhDau < phimTruong.soHoatHinhCuoi ) {
 
       // ---- nâng cấp hoạt hình
@@ -1005,7 +1005,8 @@ int main( int argc, char **argv ) {
          nangCapPhimTruong1( &phimTruong );
       else if( soPhimTruong == 2 )
          nangCapPhimTruong2( &phimTruong );
-
+      else if( soPhimTruong == 3 )
+         nangCapPhimTruong3( &phimTruong );
 
 //      xemVatThe( phimTruong.danhSachVatThe, phimTruong.soLuongVatThe );
       char tenAnh[256];
@@ -1013,8 +1014,6 @@ int main( int argc, char **argv ) {
 
       // ---- xây tầng bậc đoạn bao bì
       phimTruong.baoBi = tinhBaoBiTGChoDanhSachVatThe( phimTruong.danhSachVatThe, phimTruong.soLuongVatThe );
- 
-      chiSoGiaoDiem = 0;
 
       datLaiMangChiVatThe( phimTruong.mangChiSoVatTheSapXep, phimTruong.soLuongVatThe );
       // ==== tạo tầng bậc bao bì
@@ -1022,21 +1021,24 @@ int main( int argc, char **argv ) {
       float toaDoMatPhang;
       unsigned int truc;
       tinhTrucVaToaMatPhangChia( &(phimTruong.baoBi), &truc, &toaDoMatPhang );
+
       // ---- tạo cây tầng bậc bao bì
-      chiaVatThe( phimTruong.danhSachVatThe, phimTruong.mangChiSoVatTheSapXep, phimTruong.soLuongVatThe, 0, &(phimTruong.baoBi), truc, toaDoMatPhang );
+      GiaoDiemBIH mangGiaoDiem[kSO_LUONG__GIAO_DIEM_TOI_DA];  // 28672/7 ≈ 16384 vật thể
+      unsigned int soLuongGiaoDiem = 0;
+      chiaVatThe( phimTruong.danhSachVatThe, phimTruong.mangChiSoVatTheSapXep, phimTruong.soLuongVatThe, 0, &(phimTruong.baoBi), truc, toaDoMatPhang, mangGiaoDiem, &soLuongGiaoDiem );
 //      xemCay( mangGiaoDiem, chiSoGiaoDiem );
-      printf( "cây chiSoGiaoDiem %d\n", chiSoGiaoDiem );
+      printf( "cây soLuongGiaoDiem %d\n", soLuongGiaoDiem );
       // ==== thời gian bặt đầu tính
       time_t thoiGianBatDau;
       time(&thoiGianBatDau);
 
       // ==== vẽ ảnh (kết xuất)
       if( phimTruong.mayQuayPhim.kieuChieu == kKIEU_CHIEU__PHOI_CANH )
-         veAnhChieuPhoiCanh( &anh, &phimTruong );
+         veAnhChieuPhoiCanh( &anh, &phimTruong, mangGiaoDiem, soLuongGiaoDiem );
       else if( phimTruong.mayQuayPhim.kieuChieu == kKIEU_CHIEU__CU_TUYEN )
-         veAnhChieuCuTuyen( &anh, &phimTruong );
+         veAnhChieuCuTuyen( &anh, &phimTruong, mangGiaoDiem, soLuongGiaoDiem );
       else if( phimTruong.mayQuayPhim.kieuChieu == kKIEU_CHIEU__TOAN_CANH )
-         veAnhChieuToanCanh( &anh, &phimTruong );
+         veAnhChieuToanCanh( &anh, &phimTruong, mangGiaoDiem, soLuongGiaoDiem );
       
       // ==== thời gian xong
       time_t thoiGianKetThuc;
@@ -1069,7 +1071,7 @@ int main( int argc, char **argv ) {
 }
 
 #pragma mark ---- Vẽ Ảnh
-void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong ) {
+void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem ) {
    
    MayQuayPhim *mayQuayPhim = &(phimTruong->mayQuayPhim);
    // ---- góc tia là vị trí máy quay phim
@@ -1136,7 +1138,7 @@ void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong ) {
       unsigned short cot = 0;
       while( cot < beRong ) {
 
-         Mau mauDoTia = doTia( &tia, phimTruong, 0 );
+         Mau mauDoTia = doTia( &tia, phimTruong, 0, mangGiaoDiem, soLuongGiaoDiem );
          Mau mauBauTroi = hoaTietBauTroi( tia.huong, &(phimTruong->hoaTietBauTroi) );
          Mau mauCoSuongMu = toSuongMu( &(tia.huong), &mauDoTia, &mauBauTroi );
 
@@ -1161,7 +1163,7 @@ void veAnhChieuPhoiCanh( Anh *anh, PhimTruong *phimTruong ) {
 
 }
 
-void veAnhChieuCuTuyen( Anh *anh, PhimTruong *phimTruong ) {
+void veAnhChieuCuTuyen( Anh *anh, PhimTruong *phimTruong, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem ) {
    
    MayQuayPhim *mayQuayPhim = &(phimTruong->mayQuayPhim);
    
@@ -1228,7 +1230,7 @@ void veAnhChieuCuTuyen( Anh *anh, PhimTruong *phimTruong ) {
       
       unsigned short cot = 0;
       while( cot < beRong ) {
-         Mau mauDoTia = doTia( &tia, phimTruong, 0 );
+         Mau mauDoTia = doTia( &tia, phimTruong, 0, mangGiaoDiem, soLuongGiaoDiem );
          Mau mauBauTroi = hoaTietBauTroi( tia.huong, &(phimTruong->hoaTietBauTroi) );
          Mau mauCoSuongMu = toSuongMu( &(tia.huong), &mauDoTia, &mauBauTroi );
          
@@ -1252,7 +1254,7 @@ void veAnhChieuCuTuyen( Anh *anh, PhimTruong *phimTruong ) {
    
 }
 
-void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
+void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem ) {
    
    MayQuayPhim *mayQuayPhim = &(phimTruong->mayQuayPhim);
    // ---- góc tia là vị trí máy quay phim
@@ -1261,11 +1263,10 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
    tia.goc.y = mayQuayPhim->viTri.y;
    tia.goc.z = mayQuayPhim->viTri.z;
    
-   //   printf( "Tia %5.3f %5.3f %5.3f\n", tia.goc.x, tia.goc.y, tia.goc.z );
+//   printf( "ToanCanh: Tia %5.3f %5.3f %5.3f\n", tia.goc.x, tia.goc.y, tia.goc.z );
    unsigned short beRong = anh->beRong;
    unsigned short beCao = anh->beCao;
    
-   //   printf( "Tia %5.3f %5.3f %5.3f\n", gocX, gocY, gocZ );
    // ---- tính vectơ hướng lên (dộc)
    Vecto huongDoc;  // hướng dọc
    huongDoc.x = mayQuayPhim->xoay[4];
@@ -1279,9 +1280,9 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
    huongNgang.z = -mayQuayPhim->xoay[2];
    donViHoa( &huongNgang );
    
-   //   printf( "huongNgang %5.3f %5.3f %5.3f\n", huongNgang.x, huongNgang.y, huongNgang.z );
-   //   printf( "huongDoc %5.3f %5.3f %5.3f\n\n", huongDoc.x, huongDoc.y, huongDoc.z );
-   
+//      printf( "huongNgang %5.3f %5.3f %5.3f\n", huongNgang.x, huongNgang.y, huongNgang.z );
+//      printf( "huongDoc %5.3f %5.3f %5.3f\n\n", huongDoc.x, huongDoc.y, huongDoc.z );
+  
    // ---- vecto nhìn (trái dưới)
    Vecto huongMayQuayPhimNhin;
    huongMayQuayPhimNhin.x = mayQuayPhim->xoay[8];
@@ -1314,7 +1315,7 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
          
          tia.huong = xoayVectoQuanhTruc( &xoayDoc, &huongDoc, gocXoayNgang );
          
-         Mau mauDoTia = doTia( &tia, phimTruong, 0 );
+         Mau mauDoTia = doTia( &tia, phimTruong, 0, mangGiaoDiem, soLuongGiaoDiem );
          Mau mauBauTroi = hoaTietBauTroi( tia.huong, &(phimTruong->hoaTietBauTroi) );
          Mau mauCoSuongMu = toSuongMu( &(tia.huong), &mauDoTia, &mauBauTroi );
          
@@ -1337,7 +1338,7 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
    
 }
 
-/*void veAnhChatLuongCao( Anh *anh, PhimTruong *phimTruong ) {
+/*void veAnhChatLuongCao( Anh *anh, PhimTruong *phimTruong, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem ) {
    
    MayQuayPhim *mayQuayPhim = &(phimTruong->mayQuayPhim);
    Tia tia;
@@ -1413,7 +1414,7 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
          tiaPhu.huong.x = tia.huong.x - 0.25f*buocNgang.x - 0.25f*buocDoc.x;
          tiaPhu.huong.y = tia.huong.y - 0.25f*buocNgang.y - 0.25f*buocDoc.y;
          tiaPhu.huong.z = tia.huong.z - 0.25f*buocNgang.z - 0.25f*buocDoc.z;
-         Mau mauDoTia = doTia( &tiaPhu, phimTruong, 0 );
+         Mau mauDoTia = doTia( &tiaPhu, phimTruong, 0, mangGiaoDiem, soLuongGiaoDiem );
          Mau mauBauTroi = hoaTietBauTroi( tiaPhu.huong, &(phimTruong->hoaTietBauTroi) );
          Mau mauCoSuongMu0 = toSuongMu( &(tiaPhu.huong), &mauDoTia, &mauBauTroi );
          
@@ -1421,7 +1422,7 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
          tiaPhu.huong.x = tia.huong.x + 0.25f*buocNgang.x - 0.25f*buocDoc.x;
          tiaPhu.huong.y = tia.huong.y + 0.25f*buocNgang.y - 0.25f*buocDoc.y;
          tiaPhu.huong.z = tia.huong.z + 0.25f*buocNgang.z - 0.25f*buocDoc.z;
-         mauDoTia = doTia( &tiaPhu, phimTruong, 0 );
+         mauDoTia = doTia( &tiaPhu, phimTruong, 0, mangGiaoDiem, soLuongGiaoDiem );
          mauBauTroi = hoaTietBauTroi( tiaPhu.huong, &(phimTruong->hoaTietBauTroi) );
          Mau mauCoSuongMu1 = toSuongMu( &(tiaPhu.huong), &mauDoTia, &mauBauTroi );
 
@@ -1429,7 +1430,7 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
          tiaPhu.huong.x = tia.huong.x + 0.25f*buocNgang.x - 0.25f*buocDoc.x;
          tiaPhu.huong.y = tia.huong.y + 0.25f*buocNgang.y - 0.25f*buocDoc.y;
          tiaPhu.huong.z = tia.huong.z + 0.25f*buocNgang.z - 0.25f*buocDoc.z;
-         mauDoTia = doTia( &tiaPhu, phimTruong, 0 );
+         mauDoTia = doTia( &tiaPhu, phimTruong, 0, mangGiaoDiem, soLuongGiaoDiem );
          mauBauTroi = hoaTietBauTroi( tiaPhu.huong, &(phimTruong->hoaTietBauTroi) );
          Mau mauCoSuongMu2 = toSuongMu( &(tiaPhu.huong), &mauDoTia, &mauBauTroi );
          
@@ -1437,7 +1438,7 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
          tiaPhu.huong.x = tia.huong.x + 0.25f*buocNgang.x + 0.25f*buocDoc.x;
          tiaPhu.huong.y = tia.huong.y + 0.25f*buocNgang.y + 0.25f*buocDoc.y;
          tiaPhu.huong.z = tia.huong.z + 0.25f*buocNgang.z + 0.25f*buocDoc.z;
-         mauDoTia = doTia( &tiaPhu, phimTruong, 0 );
+         mauDoTia = doTia( &tiaPhu, phimTruong, 0, mangGiaoDiem, soLuongGiaoDiem );
          mauBauTroi = hoaTietBauTroi( tiaPhu.huong, &(phimTruong->hoaTietBauTroi) );
          Mau mauCoSuongMu3 = toSuongMu( &(tiaPhu.huong), &mauDoTia, &mauBauTroi );
          
@@ -1464,7 +1465,7 @@ void veAnhChieuToanCanh( Anh *anh, PhimTruong *phimTruong ) {
 
 #define kSO_LUONG__VAT_THE_BONG_TOI_DA 16 
 
-Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi ) {
+Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem ) {
    
    Mau mau;
    mau.d = 0.0f;
@@ -1485,7 +1486,7 @@ Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi ) {
    ThongTinToMau thongTinToMauVatTheGanNhat;
    thongTinToMauVatTheGanNhat.vatThe = NULL;  // chưa có vật thể gần nhất
 
-   xemTiaCoTrungVatTheGanNhat( mangGiaoDiem, chiSoGiaoDiem, phimTruong->danhSachVatThe, phimTruong->mangChiSoVatTheSapXep, tia, &thongTinToMauVatTheGanNhat );
+   xemTiaCoTrungVatTheGanNhat( mangGiaoDiem, soLuongGiaoDiem, phimTruong->danhSachVatThe, phimTruong->mangChiSoVatTheSapXep, tia, &thongTinToMauVatTheGanNhat );
 
    // ==== tính màu
    if( thongTinToMauVatTheGanNhat.vatThe != NULL ) {  // tô màu
@@ -1519,7 +1520,7 @@ Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi ) {
       // ---- xem nếu được thấy nguồn ánh sáng cho bóng tối (chỉ có mặt trời cách xa vô cực)
       ThongTinToMau thongTinToMauBong[kSO_LUONG__VAT_THE_BONG_TOI_DA];
       unsigned char soLuongVatTheBongToi = 0;
-      unsigned char thay = thayNguonAnhSang( phimTruong->danhSachVatThe, phimTruong->mangChiSoVatTheSapXep, phimTruong->soLuongVatThe, &diemTrungChoThayNAS, &(phimTruong->matTroi.huongAnh), thongTinToMauBong, &soLuongVatTheBongToi );
+      unsigned char thay = thayNguonAnhSang( phimTruong->danhSachVatThe, phimTruong->mangChiSoVatTheSapXep, phimTruong->soLuongVatThe, &diemTrungChoThayNAS, &(phimTruong->matTroi.huongAnh), thongTinToMauBong, &soLuongVatTheBongToi, mangGiaoDiem, soLuongGiaoDiem );
 
       // ---- tính màu nguồn ánh sáng
       Mau mauNguonAnhSang;
@@ -1584,7 +1585,7 @@ Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi ) {
          if( tiSoPhanXa ) {
             // ---- tia phản xạ
             Tia tiaPhanXa = tinhTiaPhanXa( thongTinToMauVatTheGanNhat.phapTuyenTDVT, diemTrung, tia->huong );
-            mauPhanXa = doTia( &tiaPhanXa, phimTruong, soNhoi + 1 );
+            mauPhanXa = doTia( &tiaPhanXa, phimTruong, soNhoi + 1, mangGiaoDiem, soLuongGiaoDiem );
             // ---- tính màu cao quang
             if( thay || (mauVat.dd < 1.0f) ) {
                mauCaoQuang = tinhCaoQuang( &(phimTruong->matTroi), &(tiaPhanXa.huong), 250.0f*tiSoPhanXa );
@@ -1617,7 +1618,7 @@ Mau doTia( Tia *tia, PhimTruong *phimTruong, unsigned short soNhoi ) {
          if( doDuc < 1.0f ) {
             // ---- tia khúc xạ
             Tia tiaKhucXa = tinhTiaKhucXa( thongTinToMauVatTheGanNhat.phapTuyenTDVT, diemTrung, tia->huong, thongTinToMauVatTheGanNhat.vatThe->chietSuat );
-            mauKhucXa = doTia( &tiaKhucXa, phimTruong, soNhoi + 1 );
+            mauKhucXa = doTia( &tiaKhucXa, phimTruong, soNhoi + 1, mangGiaoDiem, soLuongGiaoDiem );
          }
          else {
             mauKhucXa.d = 0.0f;
@@ -1962,7 +1963,7 @@ float xemTiaCoTrungVatTrongKhongGianVat( VatThe *vatThe, Tia *tia, Vecto *phapTu
       else if( vatThe->loai == kLOAI_HINH_DANG__HINH_XUYEN ) {
          HinhXuyen *hinhXuyen = &(vatThe->hinhDang.hinhXuyen);
          // ---- kiếm cách xa (cách xa theo đơn vị hướng tia, không phải đơn vị thế giới)
-         cachXa = xemCatHinhXuyen( hinhXuyen, tia, phapTuyen, diemTrungTDVT, (float)thoiGian );
+         cachXa = xemCatHinhXuyen( hinhXuyen, tia, phapTuyen, diemTrungTDVT );
       }
       else if( vatThe->loai == kLOAI_HINH_DANG__TU_DIEN ) {
          TuDien *tuDien = &(vatThe->hinhDang.tuDien);
@@ -2731,10 +2732,10 @@ void datLaiMangChiVatThe( unsigned short *mangChiSoVatTheSapXep, unsigned short 
 
 }
 
-unsigned int chiaVatThe( VatThe *danhSachVatThe, unsigned short *mangChiSoVatTheSapXep, unsigned short soLuongVatThe, unsigned short chiSoVatThe, BaoBi *baoBi, unsigned int truc, float toaDoMatPhang ) {
+unsigned int chiaVatThe( VatThe *danhSachVatThe, unsigned short *mangChiSoVatTheSapXep, unsigned short soLuongVatThe, unsigned short chiSoVatThe, BaoBi *baoBi, unsigned int truc, float toaDoMatPhang, GiaoDiemBIH *mangGiaoDiem, unsigned int *soLuongGiaoDiem ) {
 
    // ---- giữ chỉ số cho giao điểm này
-   unsigned int chiSoGiaoDiemNay = chiSoGiaoDiem;
+   unsigned int chiSoGiaoDiemNay = *soLuongGiaoDiem;
 
    // ---- tính bao bì trại và phải
    if( soLuongVatThe > 1 ) {
@@ -2745,9 +2746,9 @@ unsigned int chiaVatThe( VatThe *danhSachVatThe, unsigned short *mangChiSoVatThe
       mangGiaoDiem[chiSoGiaoDiemNay] = chiaVatTheVaTaoGiaoDiem( danhSachVatThe, mangChiSoVatTheSapXep, soLuongVatThe, truc, toaDoMatPhang, &soLuongTrai, &soLuongPhai );
 //   printf( "chiSoGiaoDiemNay %d  soLuongTrai %d  soLuongPhai %d\n", chiSoGiaoDiemNay, soLuongTrai, soLuongPhai );
       // ---- đã tạo giao điểm này, tăng lên cho giao điểm tiếp trong mảngGiaoĐiểm
-      chiSoGiaoDiem++;
-      if( chiSoGiaoDiem == kSO_LUONG__GIAO_DIEM_TOI_DA ) {
-         printf( "chiSoaGiamDiem > kSO_LUONG__GIAO_DIEM_TOI_DA (%d)\n", kSO_LUONG__GIAO_DIEM_TOI_DA );
+      (*soLuongGiaoDiem)++;
+      if( *soLuongGiaoDiem == kSO_LUONG__GIAO_DIEM_TOI_DA ) {
+         printf( "soLuongGiaoDiem > kSO_LUONG__GIAO_DIEM_TOI_DA (%d)\n", kSO_LUONG__GIAO_DIEM_TOI_DA );
          exit(0);
       }
 
@@ -2760,7 +2761,7 @@ unsigned int chiaVatThe( VatThe *danhSachVatThe, unsigned short *mangChiSoVatThe
       // ---- nếu có vật thể trong bao bi trái
       if( soLuongTrai > 0 ) {
          tinhTrucVaToaMatPhangChia( &baoBiTrai, &truc, &toaDoMatPhang );
-         mangGiaoDiem[chiSoGiaoDiemNay].conTrai = chiaVatThe( danhSachVatThe, &(mangChiSoVatTheSapXep[0]), soLuongTrai, chiSoVatThe, &baoBiTrai, truc, toaDoMatPhang );
+         mangGiaoDiem[chiSoGiaoDiemNay].conTrai = chiaVatThe( danhSachVatThe, &(mangChiSoVatTheSapXep[0]), soLuongTrai, chiSoVatThe, &baoBiTrai, truc, toaDoMatPhang, mangGiaoDiem, soLuongGiaoDiem );
       }
       else {
          mangGiaoDiem[chiSoGiaoDiemNay].conTrai = -1;
@@ -2769,7 +2770,7 @@ unsigned int chiaVatThe( VatThe *danhSachVatThe, unsigned short *mangChiSoVatThe
       // ---- nếu có vật thể trong bao bi trái
       if( soLuongPhai > 0 ) {
          tinhTrucVaToaMatPhangChia( &baoBiPhai, &truc, &toaDoMatPhang );   // phải làm vì tọaĐộMặtPhẳng không giống
-         mangGiaoDiem[chiSoGiaoDiemNay].conPhai = chiaVatThe( danhSachVatThe, &(mangChiSoVatTheSapXep[soLuongTrai]), soLuongPhai, chiSoVatThe + soLuongTrai, &baoBiPhai, truc, toaDoMatPhang );
+         mangGiaoDiem[chiSoGiaoDiemNay].conPhai = chiaVatThe( danhSachVatThe, &(mangChiSoVatTheSapXep[soLuongTrai]), soLuongPhai, chiSoVatThe + soLuongTrai, &baoBiPhai, truc, toaDoMatPhang, mangGiaoDiem, soLuongGiaoDiem );
       }
       else {
          mangGiaoDiem[chiSoGiaoDiemNay].conPhai = -1;
@@ -2780,9 +2781,9 @@ unsigned int chiaVatThe( VatThe *danhSachVatThe, unsigned short *mangChiSoVatThe
       mangGiaoDiem[chiSoGiaoDiemNay].conTrai = -1;
       mangGiaoDiem[chiSoGiaoDiemNay].conPhai = -1;
       mangGiaoDiem[chiSoGiaoDiemNay].chiSoVatThe = chiSoVatThe;
-      chiSoGiaoDiem++;
-      if( chiSoGiaoDiem == kSO_LUONG__GIAO_DIEM_TOI_DA ) {
-         printf( "chiSoaGiamDiem == kSO_LUONG__GIAO_DIEM_TOI_DA (%d)\n", kSO_LUONG__GIAO_DIEM_TOI_DA );
+      (*soLuongGiaoDiem)++;
+      if( *soLuongGiaoDiem == kSO_LUONG__GIAO_DIEM_TOI_DA ) {
+         printf( "soLuongGiaoDiem == kSO_LUONG__GIAO_DIEM_TOI_DA (%d)\n", kSO_LUONG__GIAO_DIEM_TOI_DA );
          exit(0);
       }
    }
@@ -3025,7 +3026,7 @@ void xemVatThe( VatThe *danhSachVatThe, unsigned short soLuongVatThe ) {
 }
 
 #pragma mark ---- Tìm Có Trúng
-unsigned char thayNguonAnhSang( VatThe *danhSachVat, unsigned short *mangChiSoVatTheSapXep, unsigned short soLuongVat, Vecto *diemTrung, Vecto *huongAnhSang, ThongTinToMau *thongTinToMauBong, unsigned char *soLuongVatTheToMauBong ) {
+unsigned char thayNguonAnhSang( VatThe *danhSachVat, unsigned short *mangChiSoVatTheSapXep, unsigned short soLuongVat, Vecto *diemTrung, Vecto *huongAnhSang, ThongTinToMau *thongTinToMauBong, unsigned char *soLuongVatTheToMauBong, GiaoDiemBIH *mangGiaoDiem, unsigned int soLuongGiaoDiem ) {
 
    Tia tiaDenNguonaAnhSang;
 
@@ -3040,7 +3041,7 @@ unsigned char thayNguonAnhSang( VatThe *danhSachVat, unsigned short *mangChiSoVa
 
    // ==== xem nếu tia có trúng vật thể nào
    // ---- xem nếu có trúng vật thể nào
-   unsigned char ketQuaThay = xemTiaCoTrungVatTheNao( mangGiaoDiem, chiSoGiaoDiem, danhSachVat, mangChiSoVatTheSapXep, &(tiaDenNguonaAnhSang), thongTinToMauBong, soLuongVatTheToMauBong );
+   unsigned char ketQuaThay = xemTiaCoTrungVatTheNao( mangGiaoDiem, soLuongGiaoDiem, danhSachVat, mangChiSoVatTheSapXep, &(tiaDenNguonaAnhSang), thongTinToMauBong, soLuongVatTheToMauBong );
 //   printf( "-- thayNguon: thay %d phapTuyen %5.3f %5.3f %5.3f\n", ketQuaThay, thongTinToMauBong->phapTuyenTDVT.x, thongTinToMauBong->phapTuyenTDVT.y, thongTinToMauBong->phapTuyenTDVT.z );
    return !ketQuaThay;
 }
@@ -4621,6 +4622,32 @@ float xemCatMatSong( MatSong *matSong, Tia *tia, Vecto *phapTuyen, Vecto *diemTr
 }
 
 #pragma mark ---- Hình Xuyến
+// R - bán kính vòng
+// r - bán kính ống
+// (x^2 + y^2 + z^2 + R^2 - r^2)^2 - 4*R^2*(x^2 + z^2) = 0
+// [(x_0 + x_h*t)^2 + (y_0 + y_h*t)^2 + (z_0 + z_h*t)^2 + R^2 - r^2]^2 - 4*R^2*((x_0 + x_h*t)^2 + (z_0 + z_h*t)^2)
+// [(x_0^2 + y_0^2 + z_0^2 + R^2 - r^2) + 2.0*(x_0*x_h + y_0*y_h + z_0*z_h)*t + (x_h^2 + y_h^2 + z_h^2)*t^2]^2 -
+//          4*R^2*[(x_0^2 + z_0^2) + 2.0*(x_0*x_h + z_0*z_h)*t + (x_h^2 + z_h^2)*t^2] = 0
+// A_0 = x_0^2 + y_0^2 + z_0^2 + R^2 - r^2
+// A_1 = 2.0*(x_0*x_h + y_0*y_h + z_0*z_h)
+// A_2 = x_h^2 + y_h^2 + z_h^2
+// B_0 = x_0^2 + z_0^2
+// B_1 = 2.0*(x_0*x_h + z_0*z_h)
+// B_2 = x_h^2 + z_h^2
+//  thay vào
+// [A_0 + A_1*t + A_2*t^2]^2 - 4*R^2*[B_0 + B_1*t + B_2*t^2] = 0
+// [A_0*A_0 + 2*A_1*A_0*t + A_1*A_1*t^2 + 2*A_2*A_1*t^3 + A_2*A_2*t^4 - 4*R^2*[B_0 + B_1*t + B_2*t^2] = 0
+//
+
+// ---- Pháp tuyến
+// C = (x^2 + y^2 + z^2 + R^2 - r^2)
+// Thay thế vào:
+// C^2 - 4*R^2*(z^2 + z^2)
+// ∇
+// 2C*dCX/dx - 8*R^2*x; 2C*dC/dy; 2C*dX/dz - 8*R^2*z
+// 4C*x - 8*R^2*x; 4C*y; 4C*z - 8*R^2*z
+// C*x - 2*R^2*x; C*y; C*z - 2*R^2*z
+
 HinhXuyen datHinhXuyen( float banKinhVong, float banKinhOng, BaoBi *baoBiVT ) {
    HinhXuyen hinhXuyen;
    hinhXuyen.banKinhVong = banKinhVong;
@@ -4636,13 +4663,219 @@ HinhXuyen datHinhXuyen( float banKinhVong, float banKinhOng, BaoBi *baoBiVT ) {
    return hinhXuyen;
 }
 
-float xemCatHinhXuyen( HinhXuyen *hinhXuyen, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung, float thoiGian ) {
+typedef struct {
+   float thuc;
+   float ao;
+} SoPhuc;
+
+// ---- có lẻ xài hai hình trụ xem cắt trước này không?
+unsigned char timNghiemBacBa( float c_2, float c_1, float c_0, SoPhuc *mangNghiem );
+
+float xemCatHinhXuyen( HinhXuyen *hinhXuyen, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung ) {
    
    float cachXa = kVO_CUC;
+   //  printf( "---- tia %5.3f %5.3f %5.3f  %5.3f %5.3f %5.3f\n", tia->goc.x, tia->goc.y, tia->goc.z, tia->huong.x, tia->huong.y, tia->huong.z );
    
-   // <----------- chưa làm
-   //   printf( "cachXa %5.3f\n", cachXa );
-   return cachXa;
+   // ---- tính bình
+   float xGocBinh = tia->goc.x*tia->goc.x;
+   float yGocBinh = tia->goc.y*tia->goc.y;
+   float zGocBinh = tia->goc.z*tia->goc.z;
+   
+   float xHuongBinh = tia->huong.x*tia->huong.x;
+   float yHuongBinh = tia->huong.y*tia->huong.y;
+   float zHuongBinh = tia->huong.z*tia->huong.z;
+   
+   float banKinhVongBinh = hinhXuyen->banKinhVong*hinhXuyen->banKinhVong;
+   float banKinhOngBinh = hinhXuyen->banKinhOng*hinhXuyen->banKinhOng;
+   
+   // ---- tính hệ số cho cộng thức
+   float A_0 = xGocBinh + yGocBinh + zGocBinh + banKinhVongBinh - banKinhOngBinh;
+   float A_1 = 2.0f*(tia->goc.x*tia->huong.x + tia->goc.y*tia->huong.y + tia->goc.z*tia->huong.z);
+   float A_2 = xHuongBinh + yHuongBinh + zHuongBinh;
+   
+   float B_0 = xGocBinh + zGocBinh;
+   float B_1 = 2.0f*(tia->goc.x*tia->huong.x + tia->goc.z*tia->huong.z);
+   float B_2 = xHuongBinh + zHuongBinh;
+   
+   float h_0 = A_0*A_0 - 4.0f*banKinhVongBinh*B_0;
+   float h_1 = 2.0f*A_0*A_1 - 4.0f*banKinhVongBinh*B_1;
+   float h_2 = A_1*A_1 + 2.0f*A_0*A_2 - 4.0f*banKinhVongBinh*B_2;
+   float h_3 = 2.0f*A_1*A_2;
+   float h_4 = A_2*A_2;
+   
+   // ---- giải nghiệm (có 4 cho bậc 4)
+   h_0 /= h_4;
+   h_1 /= h_4;
+   h_2 /= h_4;
+   h_3 /= h_4;
+   //   printf( "1.0*t^4 + %5.3f*t^3 + %5.3f*t^2 + %5.3f*t + %5.3f = 0\n", h_3, h_2, h_1, h_0 );
+   
+   //   h_3 = -0.25f;
+   //   h_2 = -0.85f;
+   //   h_1 = 1.45f;
+   //   h_0 = -4.35f;
+   // ----
+   float p = h_2 - 0.375f*h_3*h_3;
+   float q = 0.125f*h_3*h_3*h_3 - 0.5f*h_3*h_2 + h_1;
+   float r = -3.0f*h_3*h_3*h_3*h_3/256.0f - 0.25f*h_3*h_1 + 0.0625f*h_3*h_3*h_2 + h_0;
+   //   printf( "p %5.3f  q %5.3f  r %5.3f\n", p, q ,r );
+   
+   // ---- chỉ cần tìm một nghiệm thực, phải có ít nhất một
+   SoPhuc mangNghiemBacBa[3];
+   //   timNghiemBacBa( p, 0.25f*p*p - r, -0.125f*q*q, mangNghiemBacBa );
+   //   float z = mangNghiemBacBa[0].thuc;
+   
+   // ====
+   unsigned char soLuongNghiemBacBaThat = timNghiemBacBa( p*0.5f, 0.0625f*p*p - 0.25f*r, -q*q/64.0f, mangNghiemBacBa );
+   //   printf( "soLuongNghiemThat %d\n", soLuongNghiemBacBaThat );
+   // ---- cần căn số của hai nghiệm
+   SoPhuc canSoZ;
+   SoPhuc canSoU;
+   if( soLuongNghiemBacBaThat == 1 ) {
+      float doLonZ = sqrtf( mangNghiemBacBa[2].thuc*mangNghiemBacBa[2].thuc + mangNghiemBacBa[2].ao*mangNghiemBacBa[2].ao );
+      float phanThucZ = mangNghiemBacBa[2].thuc;
+      
+      canSoZ.thuc = sqrtf(0.5*(doLonZ + phanThucZ));
+      canSoZ.ao = sqrtf(0.5*(doLonZ - phanThucZ));
+      
+      // ---- hai nghiệm luôn giống nhau mà nghịch dấu
+      canSoU.thuc = canSoZ.thuc;
+      canSoU.ao = -canSoZ.ao;
+   }
+   else { // chỉ có nghiệm số phức, không trúng hình xuyên
+      return kVO_CUC;
+      /*      if( mangNghiemBacBa[2].thuc < 0.0f ) {
+       canSoZ.thuc = 0.0f;
+       canSoZ.ao = sqrtf( -mangNghiemBacBa[2].thuc );
+       }
+       else {
+       canSoZ.thuc = sqrtf( mangNghiemBacBa[2].thuc );
+       canSoZ.ao = 0.0f;
+       }
+       // ----
+       if( mangNghiemBacBa[1].thuc < 0.0f ) {
+       canSoU.thuc = 0.0f;
+       canSoU.ao = sqrtf( -mangNghiemBacBa[1].thuc );
+       }
+       else {
+       canSoU.thuc = sqrtf( mangNghiemBacBa[1].thuc );
+       canSoU.ao = 0.0f;
+       }*/
+   }
+   
+   //   printf( "canSoZ %5.3f + %5.3fi\n", canSoZ.thuc, canSoZ.ao );
+   
+   //   printf( "canSoU %5.3f + %5.3fi\n", canSoU.thuc, canSoU.ao );
+   // ---- nhân số phức, chỉ thành phân thực khác không
+   float tich = canSoZ.thuc*canSoU.thuc - canSoZ.ao*canSoU.ao;
+   //   printf( "tich %5.3f\n", tich );
+   float v = -0.125f*q/tich;
+   //   printf( "V %5.3f\n", v );
+   float x = 0.25f*h_3;  // hangSo
+   //   printf( "X %5.3f\n", x );
+   // ----
+   SoPhuc mangNghiemBac_4[4];
+   mangNghiemBac_4[0].thuc = canSoZ.thuc + canSoU.thuc + v - x;
+   mangNghiemBac_4[0].ao = canSoZ.ao + canSoU.ao;
+   mangNghiemBac_4[1].thuc = canSoZ.thuc - canSoU.thuc - v - x;
+   mangNghiemBac_4[1].ao = canSoZ.ao - canSoU.ao;
+   mangNghiemBac_4[2].thuc = -canSoZ.thuc + canSoU.thuc - v - x;
+   mangNghiemBac_4[2].ao = -canSoZ.ao + canSoU.ao;
+   mangNghiemBac_4[3].thuc = -canSoZ.thuc - canSoU.thuc + v - x;
+   mangNghiemBac_4[3].ao = -canSoZ.ao - canSoU.ao;
+   //   printf( "  %5.3f + %5.3fi\n", mangNghiemBac_4[0].thuc, mangNghiemBac_4[0].ao );
+   //   printf( "  %5.3f + %5.3fi\n", mangNghiemBac_4[1].thuc, mangNghiemBac_4[1].ao );
+   //   printf( "  %5.3f + %5.3fi\n", mangNghiemBac_4[2].thuc, mangNghiemBac_4[2].ao );
+   //   printf( "  %5.3f + %5.3fi\n", mangNghiemBac_4[3].thuc, mangNghiemBac_4[3].ao );
+   
+   unsigned char soNghiem = 0;
+   float cachGanNhat = kVO_CUC;
+   while( soNghiem < 4 ) {
+      if( mangNghiemBac_4[soNghiem].ao == 0.0f ) {
+         float cachXaMoi = mangNghiemBac_4[soNghiem].thuc;
+         if( (cachXaMoi > 0.001f) && (cachXaMoi < cachGanNhat) ) {
+            cachGanNhat = cachXaMoi;
+         }
+      }
+      soNghiem++;
+   }
+   
+   if( cachGanNhat < kVO_CUC ) {
+      diemTrung->x = tia->goc.x + cachGanNhat*tia->huong.x;
+      diemTrung->y = tia->goc.y + cachGanNhat*tia->huong.y;
+      diemTrung->z = tia->goc.z + cachGanNhat*tia->huong.z;
+      
+      // ---- C*x - 2*R^2*x; C*y; C*z - 2*R^2*z
+      float C = diemTrung->x*diemTrung->x + diemTrung->y*diemTrung->y + diemTrung->z*diemTrung->z + banKinhVongBinh - banKinhOngBinh;
+      phapTuyen->x = (C - 2.0f*banKinhVongBinh)*diemTrung->x;
+      phapTuyen->y = C*diemTrung->y;
+      phapTuyen->z = (C - 2.0f*banKinhVongBinh)*diemTrung->z;
+      donViHoa( phapTuyen );
+   }
+   
+   //   printf( "cachXa %5.3f  cachGanNhat %5.3f\n", cachXa, cachGanNhat );
+   //   if( cachXa == kVO_CUC )
+   //      exit(0);
+   return cachGanNhat;
+}
+
+
+unsigned char timNghiemBacBa( float c_2, float c_1, float c_0, SoPhuc *mangNghiem ) {
+   
+   // ---- chia hệ số
+   //   c_2 /= c_3;
+   //   c_1 /= c_3;
+   //   c_0 /= c_3;
+   //   printf( "1.0*t^3 + %5.3f*t^2 + %5.3f*t + %5.3f\n", c_2, c_1, c_0 );
+   
+   // ---- tính biệt thức
+   float p = -c_2*c_2/9.0f + c_1*0.3333333f;
+   float q = c_2*c_2*c_2/27.0f - c_2*c_1/6.0f + c_0*0.5f;
+   float p_mu3 = p*p*p;
+   float D = q*q + p_mu3;
+   //   printf( "p %5.3f   q %5.3f  D %5.3f\n", p, q, D );
+   
+   // ---- tùy biệt thức
+   if( D <= 0.0f  ) {
+      float goc = acos(-q/sqrtf(-p_mu3));
+      float haiNhanCanSo_p = 2.0f*sqrtf(-p);
+      // ---- trừ hàng số để quay lại biến số gốc x
+      float hangSo = c_2*0.3333333f;
+      
+      mangNghiem[0].thuc = haiNhanCanSo_p*cosf( goc*0.3333333f ) - hangSo;
+      mangNghiem[0].ao = 0.0f;
+      mangNghiem[1].thuc = -haiNhanCanSo_p*cosf( (goc + 3.1415927f)*0.3333333f ) - hangSo;
+      mangNghiem[1].ao = 0.0f;
+      mangNghiem[2].thuc = -haiNhanCanSo_p*cosf( (goc - 3.1415927f)*0.3333333f ) - hangSo;
+      mangNghiem[2].ao = 0.0f;
+      
+      //      printf( "  LP %5.3f;  %5.3f;  %5.3f\n", mangNghiem[0].thuc, mangNghiem[1].thuc, mangNghiem[2].thuc );
+      return 3;
+   }
+   else {
+      // ---- coi chừng
+      float u = -q + sqrtf(D);
+      if( u < 0.0 )
+         u = -powf( -u, 0.3333333f );
+      else
+         u = powf( u, 0.3333333f );
+      
+      float v = -q - sqrtf(D); // tạm thời xài v giỡ giá trị giùm
+      if( v <= 0.0f )
+         v = -powf( -v, 0.3333333f );
+      else
+         v = powf( v, 0.3333333f );
+      
+      float hangSo = c_2*0.3333333f;
+      mangNghiem[0].thuc = u + v - hangSo;
+      mangNghiem[0].ao = 0.0f;
+      mangNghiem[1].thuc = -(u + v)*0.5f - hangSo;
+      mangNghiem[1].ao = 0.866025f*(u-v);   // 0.866025 = √3/2
+      mangNghiem[2].thuc = mangNghiem[1].thuc;
+      mangNghiem[2].ao = -mangNghiem[1].ao;
+      //      printf( "  LP %5.3f;  %5.3f + %5.3fi  %5.3f + %5.3fi\n", mangNghiem[0].thuc, mangNghiem[1].thuc, mangNghiem[1].ao, mangNghiem[2].thuc, mangNghiem[2].ao );
+      return 1;
+   }
 }
 
 
@@ -6423,9 +6656,9 @@ HoaTietCaRo datHoaTietCaRo( Mau *mau0, Mau *mau1, float beRong, float beCao, flo
 
 Mau hoaTietCaRo( Vecto *viTri, HoaTietCaRo *hoaTietCaRo ) {
    
-   int soX = ceil((viTri->x)/hoaTietCaRo->beRong);
-   int soY = ceil((viTri->y)/hoaTietCaRo->beCao);
-   int soZ = ceil((viTri->z)/hoaTietCaRo->beDai);
+   int soX = ceilf((viTri->x)/hoaTietCaRo->beRong);
+   int soY = ceilf((viTri->y)/hoaTietCaRo->beCao);
+   int soZ = ceilf((viTri->z)/hoaTietCaRo->beDai);
 
    Mau mauCaRo;
 
@@ -6536,7 +6769,7 @@ Mau hoaTietOcXoay( Vecto *viTri, HoaTietOcXoay *hoaTietOcXoay ) {
    // ---- tính góc
    float goc = 0.0f;
    if( banKinh != 0.0f )
-      goc = atan( viTri->z/viTri->x );
+      goc = atanf( viTri->z/viTri->x );
    
    // ---- giữ 0 ≤ góc ≤ 2π
    if( viTri->x < 0.0f )
@@ -6613,7 +6846,7 @@ Mau hoaTietGan( float toaDo, HoaTietGan *hoaTietGan ) {
    // ---- tính bề cao cả hai lớp
    float beCaoHaiLop = hoaTietGan->beCaoTren + hoaTietGan->beCaoDuoi;
    // ---- tính số dư đơn vị hóa
-   int so = floor(toaDo/beCaoHaiLop);
+   int so = floorf(toaDo/beCaoHaiLop);
    // ---- tính số dư
    float du = (toaDo - so*beCaoHaiLop)/beCaoHaiLop;
 
@@ -6646,7 +6879,7 @@ Mau hoaTietTraiBanh( Vecto *viTri ) {
    // ---- tính kính độ
    float kinhDo = 0.0f;
    if( banKinh != 0.0f )
-      kinhDo = atan( viTri->z/viTri->x );
+      kinhDo = atanf( viTri->z/viTri->x );
    
    // ---- giữ 0 ≤ kinh độ ≤ 2π
    if( viTri->x < 0.0f )
@@ -6658,7 +6891,7 @@ Mau hoaTietTraiBanh( Vecto *viTri ) {
    // ---- vĩ độ
    float viDo = 0.0f;
    if( banKinh != 0.0f )
-      viDo = atan( viTri->y/banKinh );
+      viDo = atanf( viTri->y/banKinh );
    
    Mau mauTo;  // 
    // 24 16 24   24 16 24
@@ -7153,7 +7386,7 @@ Mau hoaTietQuan( Vecto *viTri, HoaTietQuan *hoaTietQuan ) {
    // ---- tính kính độ
    float kinhDo = 0.0f;
    if( banKinh != 0.0f )
-      kinhDo = atan( viTri->z/viTri->x );
+      kinhDo = atanf( viTri->z/viTri->x );
    
    kinhDo += 0.1f*sinf( hoaTietQuan->tanSo*viDo );
    
@@ -7167,7 +7400,7 @@ Mau hoaTietQuan( Vecto *viTri, HoaTietQuan *hoaTietQuan ) {
    // ---- tính số quăn thực
    float soQuanThuc = kinhDo*hoaTietQuan->soLuongQuan/6.283184f;
 
-   unsigned char soQuan = floor(soQuanThuc);
+   unsigned char soQuan = floorf(soQuanThuc);
    Mau mau;
    if( (soQuanThuc - soQuan) < hoaTietQuan->beRongQuan ) {
       mau.d = hoaTietQuan->mauNen.d;
@@ -7238,7 +7471,7 @@ Mau hoaTietQuanXoay( Vecto *viTri, HoaTietQuanXoay *hoaTietQuanXoay ) {
    // ---- tính góc
    float goc = 0.0f;
    if( banKinh != 0.0f )
-      goc = atan( viTri->z/viTri->x );
+      goc = atanf( viTri->z/viTri->x );
    
    // ---- giữ 0 ≤ góc ≤ 2π
    if( viTri->x < 0.0f )
@@ -7252,7 +7485,7 @@ Mau hoaTietQuanXoay( Vecto *viTri, HoaTietQuanXoay *hoaTietQuanXoay ) {
    // ---- 0,0 đến 1,0
    goc /= hoaTietQuanXoay->doan;
    // ---- cần phần số
-   goc -= floor(goc);
+   goc -= floorf(goc);
 
    Mau mau;
    if( goc < 0.333333f ) {
@@ -7389,7 +7622,7 @@ Mau hoaTietQuanSongTheoHuong( Vecto *viTri, HoaTietQuanSongTheoHuong *hoaTietQua
    // ---- 0,0 đến 1,0
    float doanDonViHoa = doan / hoaTietQuanSongTheoHuong->doan;
    // ---- cần phần số
-   doanDonViHoa -= floor(doanDonViHoa);
+   doanDonViHoa -= floorf(doanDonViHoa);
    if( doanDonViHoa > 1.0f ){
       printf( "hoaTietQuanSongTheoHuong: đoánĐơnVịHóa > 1.0f\n" );
       exit(0);
@@ -7502,7 +7735,7 @@ Mau hoaTietQuanSongTrucZ( Vecto *viTri, HoaTietQuanSongTrucZ *hoaTietQuanSongTru
    // ---- tính góc
    float goc = 0.0f;
    if( banKinh != 0.0f )
-      goc = atan( viTri->z/viTri->x );
+      goc = atanf( viTri->z/viTri->x );
    
    // ---- giữ 0 ≤ góc ≤ 2π
    if( viTri->x < 0.0f )
@@ -7520,7 +7753,7 @@ Mau hoaTietQuanSongTrucZ( Vecto *viTri, HoaTietQuanSongTrucZ *hoaTietQuanSongTru
    // ---- 0,0 đến 1,0
    goc /= hoaTietQuanSongTrucZ->doan;
    // ---- cần phần số
-   goc -= floor(goc);
+   goc -= floorf(goc);
    if( goc > 1.0f )
       exit(0);
    
@@ -7637,7 +7870,7 @@ Mau hoaTietQuanSongTiaPhai( Vecto *viTri, HoaTietQuanSongTiaPhai *hoaTietQuanSon
    // ---- tính góc
    float goc = 0.0f;
    if( banKinh != 0.0f )
-      goc = atan( viTri->z/viTri->x );
+      goc = atanf( viTri->z/viTri->x );
    
    // ---- giữ 0 ≤ góc ≤ 2π
    if( viTri->x < 0.0f )
@@ -7655,7 +7888,7 @@ Mau hoaTietQuanSongTiaPhai( Vecto *viTri, HoaTietQuanSongTiaPhai *hoaTietQuanSon
    // ---- 0,0 đến 1,0
    goc /= hoaTietQuanSongTiaPhai->doanVong;
    // ---- cần phần số
-   goc -= floor(goc);
+   goc -= floorf(goc);
    if( goc > 1.0f ){
       printf( "hoaTietQuanSongTiaPhai: góc > 1\n" );
       exit(0);
@@ -7770,15 +8003,15 @@ Mau hoaTietSoc( Vecto *viTri, HoaTietSoc *hoaTietSoc ) {
 
    if( hoaTietSoc->trucSoc == kTRUC_X ) {
       float soSoc = viTri->x/hoaTietSoc->quangSoc;
-      phanSo = soSoc - floor( soSoc );
+      phanSo = soSoc - floorf( soSoc );
    }
    else if( hoaTietSoc->trucSoc == kTRUC_Y ) {
       float soSoc = viTri->y/hoaTietSoc->quangSoc;
-      phanSo = soSoc - floor( soSoc );
+      phanSo = soSoc - floorf( soSoc );
    }
    else { //  if( hoaTietSoc->trucSoc == kTRUC_Z )
       float soSoc = viTri->z/hoaTietSoc->quangSoc;
-      phanSo = soSoc - floor( soSoc );
+      phanSo = soSoc - floorf( soSoc );
    }
    // ---- chọn màu
    Mau mau;
@@ -7820,9 +8053,9 @@ Mau hoaTietCaRoMin( Vecto *viTri, HoaTietCaRoMin *hoaTietCaRoMin ) {
    float y = (viTri->y)/hoaTietCaRoMin->beCao;
    float z = (viTri->z)/hoaTietCaRoMin->beDai;
    // ---- lấy phần số
-   float phanSoX = 6.283184f*(x - ceil(x));
-   float phanSoY = 6.283184f*(y - ceil(y));  // int
-   float phanSoZ = 6.283184f*(z - ceil(z));  // int
+   float phanSoX = 6.283184f*(x - ceilf(x));
+   float phanSoY = 6.283184f*(y - ceilf(y));  // int
+   float phanSoZ = 6.283184f*(z - ceilf(z));  // int
    
    float ketQua = 0.5f*(sinf( phanSoX ) * sinf( phanSoY ) * sinf( phanSoZ ) + 1.0f);
    float ketQuaNghich = 1.0f - ketQua;
@@ -8045,7 +8278,7 @@ Mau hoaTietBongVong( Vecto *viTri, HoaTietBongVong *hoaTietBongVong ) {
       // ---- tính góc
       float goc = 0.0f;
       if( banKinh != 0.0f )
-         goc = atan( viTri->z/viTri->x );
+         goc = atanf( viTri->z/viTri->x );
       
       // ---- giữ 0 ≤ góc ≤ 2π
       if( viTri->x < 0.0f )
@@ -8137,7 +8370,7 @@ Mau hoaTietBauTroi( Vecto huongTia, HoaTietBauTroi *hoaTietBauTroi ) {
    // ---- tính góc
    float goc = 0.0f;
    if( banKinh != 0.0f )
-      goc = atan( huongTia.z/huongTia.x );
+      goc = atanf( huongTia.z/huongTia.x );
    
    // ---- giữ 0 ≤ góc ≤ 2π
    if( huongTia.x < 0.0f )
@@ -8193,7 +8426,7 @@ Mau hoaTietBauTroi( Vecto huongTia, HoaTietBauTroi *hoaTietBauTroi ) {
 }
 
 #pragma mark ---- Họa Tiệt Ngẫu Nhiên
-void chonVaToHoatTietNgauNhien( unsigned char *soHoaTiet, HoaTiet *hoaTiet ) {
+void chonVaToHoaTietNgauNhien( unsigned char *soHoaTiet, HoaTiet *hoaTiet ) {
    // ---- chọn họa tiệt
    *soHoaTiet = rand() % 9;
 
@@ -11788,7 +12021,7 @@ unsigned short datCacTraiBanhTrenLoHuongX( VatThe *danhSachVat ) {
       danhSachVat[chiSoTraiBanh].chietSuat = 1.0f;
       datBienHoaChoVat( &(danhSachVat[chiSoTraiBanh]), &phongTo, &quaternion, &viTri );
       // ---- chọn họa tiết và cỡ kích trái banh
-      chonVaToHoatTietNgauNhien( &(danhSachVat[chiSoTraiBanh].soHoaTiet), &(danhSachVat[chiSoTraiBanh].hoaTiet) );
+      chonVaToHoaTietNgauNhien( &(danhSachVat[chiSoTraiBanh].soHoaTiet), &(danhSachVat[chiSoTraiBanh].hoaTiet) );
 
       chiSoTraiBanh++;
    }
@@ -11825,7 +12058,7 @@ unsigned short datCacTraiBanhTrenLoHuongX( VatThe *danhSachVat ) {
       // ---- trái banh này -ang đi ra ngoài
       danhSachVat[chiSoTraiBanh].thaiTrang = kTHAI_TRANG__RA_VONG;
       // ---- chọn họa tiết và cỡ kích trái banh
-      chonVaToHoatTietNgauNhien( &(danhSachVat[chiSoTraiBanh].soHoaTiet), &(danhSachVat[chiSoTraiBanh].hoaTiet) );
+      chonVaToHoaTietNgauNhien( &(danhSachVat[chiSoTraiBanh].soHoaTiet), &(danhSachVat[chiSoTraiBanh].hoaTiet) );
       
       chiSoTraiBanh++;
    }
@@ -11986,7 +12219,7 @@ float danhSachDuongRa[] = { kDUONG_Z, kDUONG_Z, kDUONG_Z, kDUONG_Z, kDUONG_Z,
       datBienHoaChoVat( &(danhSachVat[chiSoTraiBanh]), &phongTo, &quaternion, &viTri );
       
       // ---- chọn họa tiết và cỡ kích trái banh
-      chonVaToHoatTietNgauNhien( &(danhSachVat[chiSoTraiBanh].soHoaTiet), &(danhSachVat[chiSoTraiBanh].hoaTiet) );
+      chonVaToHoaTietNgauNhien( &(danhSachVat[chiSoTraiBanh].soHoaTiet), &(danhSachVat[chiSoTraiBanh].hoaTiet) );
       
       chiSoTraiBanh++;
    }
@@ -12026,7 +12259,7 @@ float danhSachDuongRa[] = { kDUONG_Z, kDUONG_Z, kDUONG_Z, kDUONG_Z, kDUONG_Z,
       danhSachVat[chiSoTraiBanh].thaiTrang = kTHAI_TRANG__RA_VONG;
       
       // ---- chọn họa tiết và cỡ kích trái banh
-      chonVaToHoatTietNgauNhien( &(danhSachVat[chiSoTraiBanh].soHoaTiet), &(danhSachVat[chiSoTraiBanh].hoaTiet) );
+      chonVaToHoaTietNgauNhien( &(danhSachVat[chiSoTraiBanh].soHoaTiet), &(danhSachVat[chiSoTraiBanh].hoaTiet) );
       
       chiSoTraiBanh++;
    }
@@ -18158,7 +18391,7 @@ void nangCapVaiChanh_PT_1( VatThe *vaiChanh, unsigned short soHoatHinh ) {
       viTriVaiChanh.z = -160.0f - 2.0f*(soHoatHinh - 1770);
    }
    else { // ---- bị hút lên trong lốc xoay
-      viTriVaiChanh.y = 100.2f + vaiChanh->hinhDang.hinhCau.banKinh + 20*atan( (soHoatHinh - 1920)*0.05f );
+      viTriVaiChanh.y = 100.2f + vaiChanh->hinhDang.hinhCau.banKinh + 20*atanf( (soHoatHinh - 1920)*0.05f );
       
       float banKinh = expf( (viTriVaiChanh.y - 100.7f)*0.04 ) - 1.0f;
       float goc = soHoatHinh*0.3333f;
@@ -19414,7 +19647,7 @@ PhimTruong datPhimTruongSo3( unsigned int argc, char **argv ) {
    phimTruong.danhSachVatThe = malloc( kSO_LUONG_VAT_THE_TOI_DA*sizeof(VatThe) );
    
    // ---- chuẩn bị máy quay phim
-   chuanBiMayQuayPhimVaMatTroiPhimTruong2( &phimTruong );
+   chuanBiMayQuayPhimVaMatTroiPhimTruong3( &phimTruong );
    Mau mauDinhTroi;
    mauDinhTroi.d = 0.0f;   mauDinhTroi.l = 0.0f;   mauDinhTroi.x = 0.5f;   mauDinhTroi.dd = 1.0f;
    Mau mauChanTroi;  // chỉ có một;
@@ -19434,8 +19667,8 @@ void chuanBiMayQuayPhimVaMatTroiPhimTruong3( PhimTruong *phimTruong ) {
    // ==== máy quay phim
    phimTruong->mayQuayPhim.kieuChieu = kKIEU_CHIEU__TOAN_CANH;
    // ---- vị trí bắt đầu cho máy quay phim
-   phimTruong->mayQuayPhim.viTri.x = 0.0f;
-   phimTruong->mayQuayPhim.viTri.y = 2.6f;
+   phimTruong->mayQuayPhim.viTri.x = -3.0f;
+   phimTruong->mayQuayPhim.viTri.y = 2.25f;
    phimTruong->mayQuayPhim.viTri.z = 10.0f;
    phimTruong->mayQuayPhim.cachManChieu = 5.0f;
    Vecto trucQuayMayQuayPhim;
@@ -19447,7 +19680,7 @@ void chuanBiMayQuayPhimVaMatTroiPhimTruong3( PhimTruong *phimTruong ) {
    trucQuayMayQuayPhim.x = 1.0f;
    trucQuayMayQuayPhim.y = 0.0f;
    trucQuayMayQuayPhim.z = 0.0f;
-   Quaternion quaternion1 = datQuaternionTuVectoVaGocQuay( &trucQuayMayQuayPhim, -0.4f );
+   Quaternion quaternion1 = datQuaternionTuVectoVaGocQuay( &trucQuayMayQuayPhim, -0.6f );
    Quaternion quaternionKetQua = nhanQuaternionVoiQuaternion( &quaternion, &quaternion1 );
    phimTruong->mayQuayPhim.quaternion = quaternionKetQua;
    
@@ -19596,6 +19829,19 @@ unsigned short vatTheThu( VatThe *danhSachVat ) {
    datBienHoaChoVat( &(danhSachVat[soLuongVat]), &phongTo, &quaternion, &viTri );
    danhSachVat[soLuongVat].hoaTiet.hoaTietNgoiSaoCau = datHoaTietNgoiSaoCau( &mauNen, &mauNen, &mauOc2, 0.2f, 0.1f, 0.0f, 5 );
    danhSachVat[soLuongVat].soHoaTiet = kHOA_TIET__NGOI_SAO_CAU;
+   soLuongVat++;
+   
+   mauNen.d = 0.4f;   mauNen.l = 0.0f;   mauNen.x = 0.5f;  mauNen.dd = 1.0f;
+   mauOc0.d = 0.2f;   mauOc0.l = 0.0f;   mauOc0.x = 0.65f;  mauOc0.dd = 1.0f;
+   viTri.x = -3.0f;
+   viTri.z = 3.0f;
+   viTri.y = -1.0f;
+   danhSachVat[soLuongVat].hinhDang.hinhXuyen = datHinhXuyen( 3.5f, 0.5f, &(danhSachVat[soLuongVat].baoBiVT));
+   danhSachVat[soLuongVat].loai = kLOAI_HINH_DANG__HINH_XUYEN;
+   danhSachVat[soLuongVat].chietSuat = 1.0f;
+   datBienHoaChoVat( &(danhSachVat[soLuongVat]), &phongTo, &quaternion, &viTri );
+   danhSachVat[soLuongVat].hoaTiet.hoaTietDiHuong = datHoaTietDiHuong( &mauOc0, &mauNen );
+   danhSachVat[soLuongVat].soHoaTiet = kHOA_TIET__DI_HUONG;
    soLuongVat++;
    
    return soLuongVat;
