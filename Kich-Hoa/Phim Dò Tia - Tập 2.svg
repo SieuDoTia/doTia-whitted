@@ -24,16 +24,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.358436"
-     inkscape:cx="500.22794"
-     inkscape:cy="220.56496"
+     inkscape:zoom="0.48027964"
+     inkscape:cx="488.93519"
+     inkscape:cy="590.52524"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1123"
      inkscape:window-height="637"
-     inkscape:window-x="92"
-     inkscape:window-y="0"
+     inkscape:window-x="140"
+     inkscape:window-y="140"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata7539">
@@ -43,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -51,8 +51,7 @@
      inkscape:label="Nền"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <rect
        style="opacity:0.98999999;color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        id="rect8506"
@@ -60,7 +59,7 @@
        height="1080"
        x="-18"
        y="-9.6378174"
-       inkscape:export-filename="/Users/su_huynh/Documents/Blender/CâuChuyệnDòTia/Cảnh 1 - Trang 0.png"
+       inkscape:export-filename="/Users/su_huynh/Documents/Blender/Thế Giới Trái Banh/Tập 2 - Trang 0.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <rect
@@ -303,7 +302,7 @@
          y="615.68701"
          x="382.64383"
          sodipodi:role="line"
-         id="tspan5413">Lốc xoay tang, trái banh quậy rớt xuống</tspan><tspan
+         id="tspan5413">Lốc xoay tan, trái banh quậy rớt xuống</tspan><tspan
          y="639.68701"
          x="382.64383"
          sodipodi:role="line"
@@ -452,6 +451,12 @@
        id="path5159"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 522.65989,152.79825 c 12.9069,-0.56246 20.20644,-5.76903 27.23721,-11.04211 l -1.47228,92.75373 c -0.96728,15.01253 -14.98519,19.13966 -27.23721,19.13966 z"
+       id="path5223"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
     <path
        sodipodi:type="arc"
        style="opacity:0.98999999000000005;color:#000000;fill:#ffffff;stroke:#000000;stroke-width:0.70700952;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;stroke-miterlimit:4;stroke-dasharray:none"
@@ -623,12 +628,6 @@
        d="m 415.91949,143.22842 44.90459,6.62527"
        id="path5221"
        inkscape:connector-curvature="0" />
-    <path
-       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 522.65989,152.79825 c 12.9069,-0.56246 20.20644,-5.76903 27.23721,-11.04211 l -1.47228,92.75373 c -0.96728,15.01253 -14.98519,19.13966 -27.23721,19.13966 z"
-       id="path5223"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
     <path
        style="color:#000000;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        d="m 521.92375,152.06211 25.76493,-10.30597"
@@ -1216,17 +1215,6 @@
        id="path5387"
        d="m 575.77387,551.78651 c 9.63255,11.477 32.91302,9.02777 39.01546,-0.73614 l -17.66737,-59.6274 z"
        style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <text
-       xml:space="preserve"
-       style="font-size:15px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:'冬青黑體簡體中文';-inkscape-font-specification:Sans"
-       x="520.29718"
-       y="379.51886"
-       id="text5393"
-       sodipodi:linespacing="100%"><tspan
-         sodipodi:role="line"
-         x="520.29718"
-         y="379.51886"
-         id="tspan5395">trái banh quậy</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path5397"
