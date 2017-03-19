@@ -100,3 +100,167 @@ por estudio	để học
 es broma	đùa thôi mà
 es la primera vez que estoy aquí	lần đầu tiên đến đây
 estamos de luna de miel	chúnh tôi đang nghỉ tuần trăng mật
+
+SỐ
+cero	không
+uno	một
+dos	hai
+tres	ba
+cuatro	bốn
+cinco	năm
+seis	sáu
+siete	bảy
+ocho	tám
+nueve	chín
+diez	mười
+once	mười một
+doce	mười hai
+trece	mười ba
+catorce	mười bốn
+quine	mười lăm
+dieciséis	mười sáu
+diecisiete	mười bảy
+dieciocho	mười tám
+diecinueve	mười chín
+veinte	hai mươi
+veintiuno	hai mươi mốt
+veintidós	hai mươi hai
+veintitrés	hai mươi ba
+veinticuatro	hai mươi bốn
+veinticinco	hai mươi lăm
+veintiséis	hai mươi sáu
+veintisiete	hai mươi bảy
+veintiocho	hai mươi tám
+veintinueve	hai mươi chín
+treinta	ba mươi
+cuarenta	bốn mươi
+cincuenta	năm mươi
+sesenta	sáu mươi
+setenta	bảy mươi
+ochenta	tám mươi
+noventa	chín mươi
+cien	một trăm
+mil	một ngàn
+diezmil	mười ngàn
+cienmil	trăm ngàn
+un millón	một triệu
+
+primero(a)	đầu tiên/thứ nhất
+segundo(a)	thứ hai
+tercero(a)	thứ ba
+cuarto(a)	thứ tư
+quinto(a)	thứ năm
+sexto(a)	thứ sáu
+séptimo	thứ bảy
+octavo(a)	thứ tám
+noveno(a)	thứ chín
+décimo(a)	thứ mười
+
+THỜI GIAN
+¿Qué hora es?	Mấy giờ?
+Son las 10 en punto	Bây giờ là 10 giờ
+Son las 10 y media	Bây giờ là 10 giờ rưỡi
+10 y carto	Bây giờ là 10 giờ 15 phút 
+Cuarto para las 10	Bây giờ là 10 giờ kém 15
+A.M.	sáng (trước 12 chưa)
+P.M.	chiều/tối (sau 12 chưa)
+una hora	một tiếng đồng hồ
+media hora	nửa tiếng đồng hồ
+cinco minutos	năm phút
+dos segundos	hai giây
+¿A qué hora empieza?	Mấy giờ thì bắt đầu?
+Empieza a las 9	Bắt đầu lúc 9 giờ
+¿Cuántas horas durará?	Sẽ séo dài mấy tiếng?
+¿Cuántos días durará?	Sẽ séo dài mấy ngày?
+medianoche	nửa đêm (12 giờ khuya)
+las doce de el mediodía	buổi trưa (12 giờ trưa)
+hoy	hôm nay
+ayer	hôn qua
+mañana	ngày mai
+pasado mañana	ngày kia
+esta noche	tối nay
+mañana	buổi sáng
+tarde	buổi chiều
+noche	buổi tối
+ahora	bây giờ
+pronto	sớm
+¿Qué día es hoy?	Hôm này là ngày thứ mấy?
+
+lunes	thứ hai
+martes	thứ ba
+miércoles	thứ tư
+jueves	thứ năm
+viernes	thứ sáu
+sábado	thứ bảy
+domingo	chủ nhật
+
+¿En qué mes estamos?	Bây giờ là tháng mấy?
+
+enero	tháng một
+febrero	tháng hai
+marzo	tháng ba
+abril	tháng tư
+mayo	tháng năm
+junio	tháng sáu
+julio	tháng bảy
+agosto	tháng tám
+setiembre	tháng chín
+octubre	tháng mười
+noviembre	tháng mười một
+diciembre	tháng mười hai
+
+seta semeja	tuần này
+la semana pasada	tuần trước
+la semana próxima	tuần sau
+este mes	tháng này
+el mes pasado	tháng trước
+el próximos mes	tháng sau
+este año	năm này
+el año pasado	năm trước
+el próximo año	năm sau
+
+estaciones	mùa
+primavera	mùa xuân
+verano	mùa hè
+otoño	mùa thu
+invierno	mùa đông
+los monzones	mùa mưa
+
+ĐỊA ĐIỂM
+¿Donde está?	Đây là ở đây?
+¿Esta lejos?	(Nó) bao xa?
+¿Cómo llego?	Làm sao tới?
+señalemelo en el mapa	chỉ giùm trong bản đồ
+norte	phía bắc
+sur	phía nam
+este	phía đông
+oeste	phía tây
+cruce la calle	đi qua đường
+izquierda	trái
+derecha	phải
+gira a la izquierda	rẽ trái
+gira a la derecha	rẽ phải
+arriba	lên
+abajo	xuống
+todo recto	đi thẳng
+frente a	ở phía trước
+detrás	ở phía sau
+debajo	phía dưới
+sobre	phía trên
+opuesto(a)	đối diện
+cerca (de)	gần
+lejos (de)	xa
+en la esquina	phía góc
+más adelante	ngay đẳng trước kia
+aqua	đây
+allí	đó
+semáforo	tin hiệu giao thông
+cruce	ngã tư
+aeropuerto	sân bay
+parada de autobús	trạm xe buýt
+estación de tren	trạm xe lửa
+información turística	thông tin du lịch
+gran alamacen	của hàng bách hóa/siêu thị
+
+
+https://www.youtube.com/watch?v=fyc24YtDBhM
