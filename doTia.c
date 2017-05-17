@@ -1,6 +1,6 @@
 //  Ví dụ phương pháp kết xuất dò tia đơn giản
 //  Phiên Bản 4.32
-//  Phát hành 2559/12/02
+//  Phát hành 2560/05/13
 //  Hệ tọa độ giống OpenGL (+y là hướng lên)
 //  Khởi đầu 2557/12/18
 
@@ -17,7 +17,7 @@
 //  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520  2048 1024  0.003  <---- 2K
 //  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520  1536  768  0.004  <---- ~ Câu Truyện Đồ Chơi 1
 //  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520  1024  512  0.006
-//  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520   512  256  0.014
+//  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520   512  256  0.012
 //  Lệnh dạng ví dụ: <tên chương trình biên dịch> 0  0 1520   256  128  0.024
 //
 //  • CHO MÁY PHIM 1 ĐƠN VỊ CHIẾU_TOAN_CANH ≈ 5/24 ĐƠN VỊ CHIẾU_PHỐI_CẢNH
@@ -388,7 +388,7 @@ typedef struct {
 /* Mat Hyperbol */
 typedef struct {
    float banKinh;  // bán kính
-   float cachXa;   // cách xa
+   float bienDo;   // biên độ
    float beCao;    // bề cao quanh trung tâm
    float hopQuanh[6];   // hộp quanh
 } MatHyperbol;
@@ -758,7 +758,7 @@ float xemCatHinhNon( HinhNon *hinhNon, Tia *tia, Vecto *phapTuyen, Vecto *diemTr
 unsigned char xemDiemTrongHinhNon( HinhNon *hinhNon, Vecto *diem );
 
 // ---- mặt hyberbol
-MatHyperbol datMatHyperbol( float banKinh, float cachXa, float beCao, BaoBi *baoBiVT ); // đặt mặt hypperbol
+MatHyperbol datMatHyperbol( float banKinh, float bienDo, float beCao, BaoBi *baoBiVT ); // đặt mặt hypperbol
 float xemCatMatHyperbol( MatHyperbol *matHyperbol, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung );  // xem cắt mặt hyperbol
 
 // ---- mặt parabol
@@ -2646,7 +2646,7 @@ void tinhBaoBiVTChoVatTheGhep( VatThe *vatThe ) {
    else {
       // ---- đặt bao bì phim trường bằng bao bì vật thể đầu
       tinhBaoBiTGChoVatThe( &(vatThe->danhSachVatThe[0]) );
-      BaoBi baoBiVatTheGhep = vatThe->danhSachVatThe[0].baoBiVT;
+      BaoBi baoBiVatTheGhep = vatThe->danhSachVatThe[0].baoBiTG;
       
       // ----
       unsigned short chiSo = 1;
@@ -4155,28 +4155,34 @@ unsigned char xemCatHop(const float *hop, Tia *tia ) {
 } */
 
 #pragma mark ---- Mặt Hyberbol
+//     R^2 > 0     R^2 = 0    R^2 < 0
+//     +-------+     +-----+    +-----+
+//      \     /       \   /      \   /
+//       \   /         \ /        ---
+//        | |           x
+//       /   \         / \        ---
+//      /     \       /   \      /   \
+//     +-------+     +-----+    +-----+
+
+
+#pragma mark ---- Mặt Hyberbol
 // (x-x_0)^2 + (z-z_0)^2 = R^2 + B*(y-y_0)^2
 // B - Biên Độ
-MatHyperbol datMatHyperbol( float banKinh, float cachXa, float beCao, BaoBi *baoBiVT ) {
+MatHyperbol datMatHyperbol( float banKinhBinh, float bienDo, float beCao, BaoBi *baoBiVT ) {
    MatHyperbol matHyperbol;
-
-   matHyperbol.banKinh = banKinh;
-   matHyperbol.cachXa = cachXa;
+   
+   matHyperbol.banKinhBinh = banKinhBinh;  // số này có thể có giá trị âm
+   matHyperbol.bienDo = bienDo;
    matHyperbol.beCao = beCao;
-
-   float banKinhCucDai = sqrtf( banKinh + cachXa + 0.25f*beCao*beCao );
-   baoBiVT->gocCucTieu.x = -banKinhCucDai;
-   baoBiVT->gocCucDai.x = banKinhCucDai;
-   baoBiVT->gocCucTieu.y = -0.5f*beCao;
-   baoBiVT->gocCucDai.y = 0.5f*beCao;
-   baoBiVT->gocCucTieu.z = -banKinhCucDai;
-   baoBiVT->gocCucDai.z = banKinhCucDai;
-
+   
+   // ---- tính bao bì
+   tinhBaoBiMatHyperbol( &matHyperbol, baoBiVT );
+   
    return matHyperbol;
 }
 
 float xemCatMatHyperbol( MatHyperbol *matHyperbol, Tia *tia, Vecto *phapTuyen, Vecto *diemTrung ) {
-
+   
    float nghiemGanNhat = kVO_CUC;
    
    // ---- tính vectơ từ trung tâm hình cầu đến điểm nhìn
@@ -4185,11 +4191,15 @@ float xemCatMatHyperbol( MatHyperbol *matHyperbol, Tia *tia, Vecto *phapTuyen, V
    huongDenMatHyperbol.y = tia->goc.y;
    huongDenMatHyperbol.z = tia->goc.z;
    
-   float A = tia->huong.x*tia->huong.x - tia->huong.y*tia->huong.y*matHyperbol->cachXa + tia->huong.z*tia->huong.z;
-   float B = 2.0f*(tia->huong.x*huongDenMatHyperbol.x - tia->huong.y*huongDenMatHyperbol.y*matHyperbol->cachXa + tia->huong.z*huongDenMatHyperbol.z);
-   float C = huongDenMatHyperbol.x*huongDenMatHyperbol.x + huongDenMatHyperbol.z*huongDenMatHyperbol.z - huongDenMatHyperbol.y*huongDenMatHyperbol.y*matHyperbol->cachXa
-                + matHyperbol->banKinh;
+   //   printf( "matHyperbol: tia %5.3f %5.3f %5.3f   %5.3f %5.3f %5.3f    beCao %5.3f\n", tia->goc.x, tia->goc.y, tia->goc.z, tia->huong.x, tia->huong.y, tia->huong.z, matHyperbol->beCao );
+   
+   float A = tia->huong.x*tia->huong.x - tia->huong.y*tia->huong.y*matHyperbol->bienDo + tia->huong.z*tia->huong.z;
+   float B = 2.0f*(tia->huong.x*huongDenMatHyperbol.x - tia->huong.y*huongDenMatHyperbol.y*matHyperbol->bienDo + tia->huong.z*huongDenMatHyperbol.z);
+   float C = huongDenMatHyperbol.x*huongDenMatHyperbol.x + huongDenMatHyperbol.z*huongDenMatHyperbol.z - huongDenMatHyperbol.y*huongDenMatHyperbol.y*matHyperbol->bienDo
+   - matHyperbol->banKinhBinh;
    float D = B*B - 4.0f*A*C;
+   
+   //   printf( "D %5.f\n", D );
    
    if( D > 0.0f ) {
       // ---- tính nghiệm và nghiệm gần nhất, xài giải thuật chính xác hơn
@@ -4214,56 +4224,181 @@ float xemCatMatHyperbol( MatHyperbol *matHyperbol, Tia *tia, Vecto *phapTuyen, V
       else
          nghiemGanNhat = nghiem1;
    }
-
-   // ---- biết có cắt trụ cao vô cụng nhưng chư biết có cắt trụ ở trên và ở dưới hai mặt của hình trụ
+   //  printf( "nghiemGanNhat %5.3f\n", nghiemGanNhat );
+   
    unsigned char catNap = kSAI;  // cắt nắp
-   if( nghiemGanNhat < kVO_CUC ) {
-      // ---- kiểm tra tọa độ y của điểm trúng
-      float toaDoY = tia->goc.y + nghiemGanNhat*tia->huong.y;
-      float yMatTren = matHyperbol->beCao*0.5f;
-      float yMatDuoi = -matHyperbol->beCao*0.5f;
+   // ==== xem trúng nắp mà không trúng mặt hyperbol
+   //        |
+   //        v
+   //     +-----+
+   //      \   /
+   //       | |
+   //      /   \
+   //     +-----+
+   //        ^
+   //        |
+   if( nghiemGanNhat == kVO_CUC ) {
       
-      if( (toaDoY > yMatTren ) && (tia->huong.y < 0.0f) ) {   // tọa độ y cao hơn mà tia đang bay xuống
-         float nghiemY = (yMatTren - tia->goc.y)/tia->huong.y;
-         Vecto diemTrungTuongDoi;
-         diemTrungTuongDoi.x = tia->goc.x + nghiemY*tia->huong.x;
-         diemTrungTuongDoi.y = tia->goc.y + nghiemY*tia->huong.y;
-         diemTrungTuongDoi.z = tia->goc.z + nghiemY*tia->huong.z;
-         // ---- tính bán kính cắt ngang
-         if( diemTrungTuongDoi.x*diemTrungTuongDoi.x + diemTrungTuongDoi.z*diemTrungTuongDoi.z < matHyperbol->banKinh
-            + matHyperbol->cachXa + diemTrungTuongDoi.y*diemTrungTuongDoi.y ) {
+      if(  tia->huong.y < 0.0f ) {   // tọa độ y cao hơn mà tia đang bay xuống
+         float yNapTren = matHyperbol->beCao*0.5f;
+         float nghiemNapTren = (yNapTren - tia->goc.y)/tia->huong.y;
+         Vecto diemTrungNapTren;
+         diemTrungNapTren.x = tia->goc.x + nghiemNapTren*tia->huong.x;
+         diemTrungNapTren.y = tia->goc.y + nghiemNapTren*tia->huong.y;
+         diemTrungNapTren.z = tia->goc.z + nghiemNapTren*tia->huong.z;
+         
+         float banKinhDiemTrungNapBinh = diemTrungNapTren.x*diemTrungNapTren.x + diemTrungNapTren.z*diemTrungNapTren.z;
+         float banKinhNapBinh = matHyperbol->banKinhBinh + matHyperbol->bienDo*yNapTren*yNapTren;
+         // ---- xem nếu trúng nắp trên
+         if( banKinhNapBinh > banKinhDiemTrungNapBinh ) {
             catNap = kTRUNG_TREN;
-            nghiemGanNhat = nghiemY;
-            diemTrung->x = tia->goc.x + nghiemY*tia->huong.x;
-            diemTrung->y = tia->goc.y + nghiemY*tia->huong.y;
-            diemTrung->z = tia->goc.z + nghiemY*tia->huong.z;
+            nghiemGanNhat = nghiemNapTren;
+            diemTrung->x = tia->goc.x + nghiemNapTren*tia->huong.x;
+            diemTrung->y = tia->goc.y + nghiemNapTren*tia->huong.y;
+            diemTrung->z = tia->goc.z + nghiemNapTren*tia->huong.z;
          }
-         else
-            nghiemGanNhat = kVO_CUC;
       }
-      else if( (toaDoY < yMatDuoi) && (tia->huong.y > 0.0f) ) { // tọa độ y thấp hơn mà tia đang bay lên
-         float nghiemY = (yMatDuoi - tia->goc.y)/tia->huong.y;
-         Vecto diemTrungTuongDoi;
-         diemTrungTuongDoi.x = tia->goc.x + nghiemY*tia->huong.x;
-         diemTrungTuongDoi.y = tia->goc.y + nghiemY*tia->huong.y;
-         diemTrungTuongDoi.z = tia->goc.z + nghiemY*tia->huong.z;
-         if( diemTrungTuongDoi.x*diemTrungTuongDoi.x + diemTrungTuongDoi.z*diemTrungTuongDoi.z < matHyperbol->banKinh
-            + matHyperbol->cachXa + diemTrungTuongDoi.y*diemTrungTuongDoi.y ) {
+      else if( tia->huong.y > 0.0f ) {
+         float yNapDuoi = -matHyperbol->beCao*0.5f;
+         float nghiemNapDuoi = (yNapDuoi - tia->goc.y)/tia->huong.y;
+         Vecto diemTrungNapDuoi;
+         diemTrungNapDuoi.x = tia->goc.x + nghiemNapDuoi*tia->huong.x;
+         diemTrungNapDuoi.y = tia->goc.y + nghiemNapDuoi*tia->huong.y;
+         diemTrungNapDuoi.z = tia->goc.z + nghiemNapDuoi*tia->huong.z;
+         
+         float banKinhDiemTrungNapBinh = diemTrungNapDuoi.x*diemTrungNapDuoi.x + diemTrungNapDuoi.z*diemTrungNapDuoi.z;
+         float banKinhNapBinh = matHyperbol->banKinhBinh + matHyperbol->bienDo*yNapDuoi*yNapDuoi;
+         // ---- xem nếu trúng nắp trên
+         if( banKinhNapBinh > banKinhDiemTrungNapBinh ) {
             catNap = kTRUNG_DUOI;
-            nghiemGanNhat = nghiemY;
-            diemTrung->x = tia->goc.x + nghiemY*tia->huong.x;
-            diemTrung->y = tia->goc.y + nghiemY*tia->huong.y;
-            diemTrung->z = tia->goc.z + nghiemY*tia->huong.z;
+            nghiemGanNhat = nghiemNapDuoi;
+            diemTrung->x = tia->goc.x + nghiemNapDuoi*tia->huong.x;
+            diemTrung->y = tia->goc.y + nghiemNapDuoi*tia->huong.y;
+            diemTrung->z = tia->goc.z + nghiemNapDuoi*tia->huong.z;
          }
-         else
-            nghiemGanNhat = kVO_CUC;
       }
-      else if( (toaDoY < yMatTren) && (toaDoY > yMatDuoi) )
-         catNap = kSAI;
+      //   còn một trường hợp nhưng không thể trúng gi cả
+      //     +-----+
+      //      \   /
+      //       ---
+      //   ---------->
+      //       ---
+      //      /   \
+      //     +-----+
+   }
+   
+   //   printf( "  nghiemGanNhat %5.3f   ", nghiemGanNhat );
+   
+   
+   else {//if( nghiemGanNhat < kVO_CUC ) {
+      
+      // ---- kiểm tra tọa độ y của điểm trúng
+      float yMatHyperbol = tia->goc.y + nghiemGanNhat*tia->huong.y;
+      float yNapTren = matHyperbol->beCao*0.5f;
+      float yNapDuoi = -matHyperbol->beCao*0.5f;
+      
+      if( tia->huong.y < 0.0f ) {   // tọa độ y cao hơn mà tia đang bay xuống
+         float nghiemNapTren = (yNapTren - tia->goc.y)/tia->huong.y;
+         Vecto diemTrungNapTren;
+         diemTrungNapTren.x = tia->goc.x + nghiemNapTren*tia->huong.x;
+         diemTrungNapTren.y = tia->goc.y + nghiemNapTren*tia->huong.y;
+         diemTrungNapTren.z = tia->goc.z + nghiemNapTren*tia->huong.z;
+         
+         float banKinhDiemTrungNapBinh = diemTrungNapTren.x*diemTrungNapTren.x + diemTrungNapTren.z*diemTrungNapTren.z;
+         float banKinhNapBinh = matHyperbol->banKinhBinh + matHyperbol->bienDo*yNapTren*yNapTren;
+         
+         if( yMatHyperbol > yNapTren ) {
+            
+            // ---- xem tia cắt nắp hay không
+            if( banKinhDiemTrungNapBinh < banKinhNapBinh ) {
+               catNap = kTRUNG_TREN;
+               nghiemGanNhat = nghiemNapTren;
+               diemTrung->x = tia->goc.x + nghiemNapTren*tia->huong.x;
+               diemTrung->y = tia->goc.y + nghiemNapTren*tia->huong.y;
+               diemTrung->z = tia->goc.z + nghiemNapTren*tia->huong.z;
+            }
+            else
+               nghiemGanNhat = kVO_CUC;
+         }
+         else {
+            if( banKinhDiemTrungNapBinh < banKinhNapBinh ) {
+               catNap = kTRUNG_TREN;
+               nghiemGanNhat = nghiemNapTren;
+               diemTrung->x = tia->goc.x + nghiemNapTren*tia->huong.x;
+               diemTrung->y = tia->goc.y + nghiemNapTren*tia->huong.y;
+               diemTrung->z = tia->goc.z + nghiemNapTren*tia->huong.z;
+            }
+            else {
+               // ---- xem điểm trúng ở trong bán kính nắp (nhưng ở trên mặt hyperbol, không ở trên nắp)
+               float xMatHyperbol = tia->goc.x + nghiemGanNhat*tia->huong.x;
+               float zMatHyperbol = tia->goc.z + nghiemGanNhat*tia->huong.z;
+               float banKinhMatHyperbolBinh = xMatHyperbol*xMatHyperbol + zMatHyperbol*zMatHyperbol;
+               
+               if( banKinhMatHyperbolBinh < banKinhNapBinh ) {
+                  diemTrung->x = tia->goc.x + nghiemGanNhat*tia->huong.x;
+                  diemTrung->y = tia->goc.y + nghiemGanNhat*tia->huong.y;
+                  diemTrung->z = tia->goc.z + nghiemGanNhat*tia->huong.z;
+               }
+               else
+                  nghiemGanNhat = kVO_CUC;
+            }
+            
+         }
+      }
+      else if( tia->huong.y > 0.0f ) { // tọa độ y thấp hơn mà tia đang bay lên
+         float nghiemNapDuoi = (yNapDuoi - tia->goc.y)/tia->huong.y;
+         Vecto diemTrungNapDuoi;
+         diemTrungNapDuoi.x = tia->goc.x + nghiemNapDuoi*tia->huong.x;
+         diemTrungNapDuoi.y = tia->goc.y + nghiemNapDuoi*tia->huong.y;
+         diemTrungNapDuoi.z = tia->goc.z + nghiemNapDuoi*tia->huong.z;
+         
+         float banKinhDiemTrungNapBinh = diemTrungNapDuoi.x*diemTrungNapDuoi.x + diemTrungNapDuoi.z*diemTrungNapDuoi.z;
+         float banKinhNapBinh = matHyperbol->banKinhBinh + matHyperbol->bienDo*yNapDuoi*yNapDuoi;
+         
+         if( yMatHyperbol < yNapDuoi ) {
+            
+            // ---- xem tia cắt nắp hay không
+            if( banKinhDiemTrungNapBinh < banKinhNapBinh ) {
+               catNap = kTRUNG_DUOI;
+               nghiemGanNhat = nghiemNapDuoi;
+               diemTrung->x = tia->goc.x + nghiemNapDuoi*tia->huong.x;
+               diemTrung->y = tia->goc.y + nghiemNapDuoi*tia->huong.y;
+               diemTrung->z = tia->goc.z + nghiemNapDuoi*tia->huong.z;
+            }
+            else
+               nghiemGanNhat = kVO_CUC;
+         }
+         else {
+            if( banKinhDiemTrungNapBinh < banKinhNapBinh ) {
+               catNap = kTRUNG_DUOI;
+               nghiemGanNhat = nghiemNapDuoi;
+               diemTrung->x = tia->goc.x + nghiemNapDuoi*tia->huong.x;
+               diemTrung->y = tia->goc.y + nghiemNapDuoi*tia->huong.y;
+               diemTrung->z = tia->goc.z + nghiemNapDuoi*tia->huong.z;
+            }
+            else {
+               // ---- xem điểm trúng ở trong bán kính nắp (nhưng ở trên mặt hyperbol, không ở trên nắp)
+               float xMatHyperbol = tia->goc.x + nghiemGanNhat*tia->huong.x;
+               float zMatHyperbol = tia->goc.z + nghiemGanNhat*tia->huong.z;
+               float banKinhMatHyperbolBinh = xMatHyperbol*xMatHyperbol + zMatHyperbol*zMatHyperbol;
+               
+               if( banKinhMatHyperbolBinh < banKinhNapBinh ) {
+                  diemTrung->x = tia->goc.x + nghiemGanNhat*tia->huong.x;
+                  diemTrung->y = tia->goc.y + nghiemGanNhat*tia->huong.y;
+                  diemTrung->z = tia->goc.z + nghiemGanNhat*tia->huong.z;
+               }
+               else
+                  nghiemGanNhat = kVO_CUC;
+            }
+            
+         }
+      }
+      
       else
          nghiemGanNhat = kVO_CUC;    // không cắt hình trụ
+      
    }
-
+   
    // ---- pháp tuyến cho tường hình trụ
    if( nghiemGanNhat < kVO_CUC && !catNap ) {
       diemTrung->x = tia->goc.x + nghiemGanNhat*tia->huong.x;
@@ -4271,7 +4406,7 @@ float xemCatMatHyperbol( MatHyperbol *matHyperbol, Tia *tia, Vecto *phapTuyen, V
       diemTrung->z = tia->goc.z + nghiemGanNhat*tia->huong.z;
       // ---- vectơ vuông góc cho phát tia tiếp
       phapTuyen->x = diemTrung->x;
-      phapTuyen->y = -diemTrung->y*matHyperbol->cachXa;
+      phapTuyen->y = -diemTrung->y*matHyperbol->bienDo;
       phapTuyen->z = diemTrung->z;
       donViHoa( phapTuyen );
    }
@@ -4285,7 +4420,8 @@ float xemCatMatHyperbol( MatHyperbol *matHyperbol, Tia *tia, Vecto *phapTuyen, V
       phapTuyen->y = -1.0f;
       phapTuyen->z = 0.0f;
    }
-
+   //   printf( "nghiemGanNhat (cuoi) %5.3f   phapTuyen %5.3f %5.3f %5.3f\n", nghiemGanNhat, phapTuyen->x, phapTuyen->y, phapTuyen->z );
+   
    return nghiemGanNhat;
 }
 
