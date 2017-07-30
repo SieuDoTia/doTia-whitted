@@ -1,0 +1,723 @@
+CHÀO HỎI
+hola 	chào
+buenos dias	chào buổi sáng
+buenos tardes	chào buổi chiều
+buenos noches	chào buổi tối
+¿Como estas?	Bạn khỏe không?
+Bien, gracias	Khỏe (tốt), cảm ơn
+No estro y bien, gracias	Không khỏe lắm, cảm ơn
+genial	tuyệt
+bien	tốt
+todo bien	tốt/vâng
+más o menos	tàm tạm
+mal	tệ
+¿Como te llamos?	Tên bạn là gì?
+Me llamo <…>	Tôi tên <…>
+hasta pronto/hasta luego	gặp bạn sau
+adiós	tạm biệt
+cuídate/cuidaos	bảo trọng/giữ gìn sức khỏe
+¿Y tú?	Còn bạn?
+Gusto de conocerte	rất vui được gặp bạn
+Encantado de conocerte	rất vui được gặp bạn
+hace tiempo	lâu lắm rồi
+¿Hablas español?	Nói tiếng Tây Ban Nha được không?
+Puedo hablar un poco de español	Tôi bíết mốt chút tiếng Tây Ban Nha
+No puedo hablar español	Tôi không bíết tiếng Tây Ban Nha
+Soy de <pais>	Tôi đến từ <quốc gia>
+¿Cuantos años tienes?	Bạn bao nhiêu tuổi?
+Tengo <…> años	Tôi <…> tuổi
+
+HỘI THOẠI
+sí	vâng/được
+no	no
+¿Entiendes?	Hiểu không?
+No entirndo	Không hiểu
+entiendo	hiểu
+gracias	cảm ơn
+por favor	làm ơn
+lo siento	xin lỗi
+Repita, por favor	Làm ơn nói lại lần nữa
+¿Puedes repetirlo?	Có thể nói lại lần nữa không?
+Hable más despacio	Nói chậm hơn
+estoy bien	không sao/khỏe
+no lo sé	không biết
+no me gusta	không thích nó
+me gusta	thích nó/thích
+de nada	không có chi/không có gì
+con mucho gusto	không có chi/không có gì
+entiendo que …	(tôi) hiểu là …
+me gustaria/quiero …	(tôi) muốn …
+¿Puedo usar tu teléfono?	Có thể dùng điện thoại?
+¿Estas seguro?	Chắc không?
+¿Qué significa esto?	(Nó) có nghĩa gì?
+¿Cómo pronuncias esto?	(Từ) này phát âm như thế nào?
+¿Puedes escribir cómo se dice?	Có thể viết cho tôi cách nói từ đó không?
+¿Puedes escribir eso en español?	Có thể viết (từ) đó bằng tiếng Tây Ban Nha không?
+no, gracias	không, cảm ơn
+no, eso está mal	không, đó sai rồi
+eso es/correcto	đó đúng/đúng
+ningun problema	không có vấn đề/không có gì
+¡Socorro!/¡Ayuda!	Cứu!
+¿Quién?	Ai?
+¿Qué?	Cái gì?
+¿Cuántos?	Bao nhiêu?
+¿Cuánto?	Bao nhiêu tiền?
+¿Por cuánto [tiempo]?	Bao lâu [thời gian]?
+¿Cómo?	Như thế nào?
+¿Por qué?	Tại sao?
+¿Por qué no?	Tại sao không?
+¿Cuál?	Cái nào?
+¿Cuále?	Cái nào?
+¿Dónde?	Ở đâu?
+¿Cuándo?	Khi nào?
+¿Hay?	Có?
+¿Qué es esto?	Cái này là gì?
+¿De quién es esto?	Cái này của ai?
+¿Cuánto cuesta esto?	Cái này bao nhiêu tiền? (Cái này giá bao nhiêu?)
+¿Qué haces?	(bạn) Đang làm gì đây?
+¿Qué quieres?	(bạn) Muốn gì?
+¿A dónde vas?	(bạn) đi đâu?
+¿A dónde vamos?	Chúng tôi đi đâu?
+voy a …	đi đến …
+vamos a …	chúng tôi di …
+¿Qué pasa ahora?	Cái gì đang xảy ra?
+¿Cuándo es tu cumpleaños?	Khi nào ngày sinh nhật (của bạn)?
+No olvides …	Đừng quên …
+perdón	xin lỗi
+antes	trước
+después	sau
+hasta	cho đến khi
+Quiero ir de compras antes de ver la película	(Tôi) muốn đi mua sắm trước khi xem phim
+Veré una película después de comprar	(Tôi) sẽ xem phim sau khi đi mua sắm
+No tengo que ir sino hasta mañana	(Tôi) không phải đi đâu cho đến ngày mai
+¿Vives aquí?	(Bạn) ở đây không?
+¿Te gusta vivir aquí?	(Bạn) thích ở đây không?
+Me gusta vivir aquí	(Tôi) thích ở đây
+Estoy aquí de vacaciones	Tôi đến đây nghỉ lễ
+de negocios	cho công tác
+por trabajar	để làm việc
+por estudio	để học
+es broma	đùa thôi mà
+es la primera vez que estoy aquí	lần đầu tiên đến đây
+estamos de luna de miel	chúnh tôi đang nghỉ tuần trăng mật
+
+SỐ
+cero	không
+uno	một
+dos	hai
+tres	ba
+cuatro	bốn
+cinco	năm
+seis	sáu
+siete	bảy
+ocho	tám
+nueve	chín
+diez	mười
+once	mười một
+doce	mười hai
+trece	mười ba
+catorce	mười bốn
+quine	mười lăm
+dieciséis	mười sáu
+diecisiete	mười bảy
+dieciocho	mười tám
+diecinueve	mười chín
+veinte	hai mươi
+veintiuno	hai mươi mốt
+veintidós	hai mươi hai
+veintitrés	hai mươi ba
+veinticuatro	hai mươi bốn
+veinticinco	hai mươi lăm
+veintiséis	hai mươi sáu
+veintisiete	hai mươi bảy
+veintiocho	hai mươi tám
+veintinueve	hai mươi chín
+treinta	ba mươi
+cuarenta	bốn mươi
+cincuenta	năm mươi
+sesenta	sáu mươi
+setenta	bảy mươi
+ochenta	tám mươi
+noventa	chín mươi
+cien	một trăm
+mil	một ngàn
+diezmil	mười ngàn
+cienmil	trăm ngàn
+un millón	một triệu
+
+primero(a)	đầu tiên/thứ nhất
+segundo(a)	thứ hai
+tercero(a)	thứ ba
+cuarto(a)	thứ tư
+quinto(a)	thứ năm
+sexto(a)	thứ sáu
+séptimo	thứ bảy
+octavo(a)	thứ tám
+noveno(a)	thứ chín
+décimo(a)	thứ mười
+
+THỜI GIAN
+¿Qué hora es?	Mấy giờ?
+Son las 10 en punto	Bây giờ là 10 giờ
+Son las 10 y media	Bây giờ là 10 giờ rưỡi
+10 y carto	Bây giờ là 10 giờ 15 phút 
+Cuarto para las 10	Bây giờ là 10 giờ kém 15
+A.M.	sáng (trước 12 chưa)
+P.M.	chiều/tối (sau 12 chưa)
+una hora	một tiếng đồng hồ
+media hora	nửa tiếng đồng hồ
+cinco minutos	năm phút
+dos segundos	hai giây
+¿A qué hora empieza?	Mấy giờ thì bắt đầu?
+Empieza a las 9	Bắt đầu lúc 9 giờ
+¿Cuántas horas durará?	Sẽ séo dài mấy tiếng?
+¿Cuántos días durará?	Sẽ séo dài mấy ngày?
+medianoche	nửa đêm (12 giờ khuya)
+las doce de el mediodía	buổi trưa (12 giờ trưa)
+hoy	hôm nay
+ayer	hôn qua
+mañana	ngày mai
+pasado mañana	ngày kia
+esta noche	tối nay
+mañana	buổi sáng
+tarde	buổi chiều
+noche	buổi tối
+ahora	bây giờ
+pronto	sớm
+¿Qué día es hoy?	Hôm này là ngày thứ mấy?
+
+lunes	thứ hai
+martes	thứ ba
+miércoles	thứ tư
+jueves	thứ năm
+viernes	thứ sáu
+sábado	thứ bảy
+domingo	chủ nhật
+
+¿En qué mes estamos?	Bây giờ là tháng mấy?
+
+enero	tháng một
+febrero	tháng hai
+marzo	tháng ba
+abril	tháng tư
+mayo	tháng năm
+junio	tháng sáu
+julio	tháng bảy
+agosto	tháng tám
+setiembre	tháng chín
+octubre	tháng mười
+noviembre	tháng mười một
+diciembre	tháng mười hai
+
+seta semeja	tuần này
+la semana pasada	tuần trước
+la semana próxima	tuần sau
+este mes	tháng này
+el mes pasado	tháng trước
+el próximos mes	tháng sau
+este año	năm này
+el año pasado	năm trước
+el próximo año	năm sau
+
+estaciones	mùa
+primavera	mùa xuân
+verano	mùa hè
+otoño	mùa thu
+invierno	mùa đông
+los monzones	mùa mưa
+
+ĐỊA ĐIỂM
+¿Donde está?	Đây là ở đây?
+¿Esta lejos?	(Nó) bao xa?
+¿Cómo llego?	Làm sao tới?
+señalemelo en el mapa	chỉ giùm trong bản đồ
+norte	phía bắc
+sur	phía nam
+este	phía đông
+oeste	phía tây
+cruce la calle	đi qua đường
+izquierda	trái
+derecha	phải
+gira a la izquierda	rẽ trái
+gira a la derecha	rẽ phải
+arriba	lên
+abajo	xuống
+todo recto	đi thẳng
+frente a	ở phía trước
+detrás	ở phía sau
+debajo	phía dưới
+sobre	phía trên
+opuesto(a)	đối diện
+cerca (de)	gần
+lejos (de)	xa
+en la esquina	phía góc
+más adelante	ngay đẳng trước kia
+aqua	đây
+allí	đó
+semáforo	tin hiệu giao thông
+cruce	ngã tư
+parada de autobús	trạm xe buýt
+información turística	thông tin du lịch
+gran almacen	của hàng bách hóa/siêu thị
+banco	ngân hàng
+cajero automático	máy rút tiền
+hotel	Khách sạn
+café internet	quán mạng
+mercado	chợ
+supermercado	siêu thị
+comisaría de policía	đồn cảnh sát
+correos	bưu điện
+ciné	rạp chiếu phim
+droguería/farmacia	quầy thuốc tây
+escuela	trường học
+casa	nhà
+paseo de cinco minutos	đi bộ 5 phút
+ir en taxi	đi trong tắc xi
+paso elevado	cầu lỗi
+paso de cebra	dấu đi qua đường
+puente	cầu
+carretera	con đường
+túnel	đường hầm
+aparcamiento	công viên
+baño	nhà vệ sinh
+¿dónde está el baño?	nhà về sinh ở đâu?
+aeropuerto	sân bay
+quisiera ir al aeropuerto de Madrid	(Tôi) muốn đi sân bay Madrid
+terminal nacional	ga trong nước
+terminal internacional	ga quốc tế
+vuelo	chuyến bay
+avión	máy bay
+traslado a aeropuerto	đưa đón sân bay
+metro	xe điện ngầm
+¿puede ayudarme?	bạn có thể tôi được không?
+¿dónde puedo comprar un billete?	Tôi có thể mua vé ở đâu?
+taquilla	quầy bán vé
+tarifa	phí vé
+billete/pasaje	vé
+de ida	một chiều
+de vuelta	khứ hồi
+infantil	trẻ em
+estudiantil	học sinh
+estación de tren	trạm xe lửa
+¿qué estación es esta?	Đây là ga nào?
+¿cuál es la estación siguiente?	Ga kế tiếp là ga nào?
+¿para en…?	(Tàu) dừng lại tại…?
+¿hay que hacer transbordo?	Tôi cần đổi tàu không?
+¿qué lína va a…?	Đường này đến đâu?
+¿cuál es el metro más cercano?	xe điện ngầm gần nhất ở đâu?
+¿es esta un tren directo?	Phải là tàu đi trực tiếp không?
+primera clase	thương gia
+clase turista	phổ thông
+comedor	khu vực ăn
+dormitorios	khu vực ngủ
+¿cuál es el vagón restaurante?	toa nào là toa ăn tối?
+camión/autobús	xe buýt
+parada de autobús	trạm xe buýt
+¿el autobús para en…?	xe buýt (này) dừng lại tại…?
+¿cuál es la siguiente parada?	trạm tiếp theo là trạm nào?
+quiero bajar en…	(tôi) muốn xuống xe tại…
+bote	thuyền
+ferry	phà
+cuánto dura el viaje?	chuyến đi bao lâu?
+¿es un barco rápido?	(đó) là thuyền nhanh không?
+esoty mare ado	bị say sóng
+coche	xe
+coche de alquiler	xe cho thuê
+quiero alquilar un conche	(Tôi) muốn thuê một chiếc x
+¿Cuánto por día?	Một ngày là bao nhiêu
+¿Cuánto por semana?	Một tuần là bao nhiêu
+¿Incluye el seguro?	Có kèm bao hiểm?
+por favor active el taximetro	làm ơn bật động hồ tính tiền
+por favor modere la velocidad	làm ơn chậm lại
+po favor acelere	làm ơn tăng tốc độ
+por favor deténgasa aquí	làm ơn dừng lại ở đây
+por favor espere aquí	làm ơn đợi ở đây
+¿cuánto es a…?	Bao nhiêu tiền để tới…?
+motocicleta	xe gắn máy
+bicileta	xe đập
+¿debo ponerme el casco?	(Tôi) cần đội mũ bảo hiểm không?
+¿tiene un mapa del carril bici?	Có bản đồ đường xe đạp không?
+estoy perdido/perdida	tôi bị lạc
+¿tiene un mapa?	(Bạn) có bản đồ không?
+¿puedo usar el teléfono?	Có thể xài điện thoại được không?
+
+CHỔ Ở
+hotel	khách sạn
+hotsal	ký túc xá
+motel	nhà trọ
+casa de húespedes	nhà khách
+condo	nhà chung cư
+albergue juvenil	khu nghỉ mát
+cama y desayuno	chổ ngủ và điểm tâm
+hotel boutique	khách sạn cao cấp
+pensión	khách sạn giá rẽ
+campamento	khu cằm trại
+parque de caravanas	công viên caravan
+villa	biệt thự
+bungalow	nhà nghỉ nông thôn
+¿dónde está el hotel más cercano?	khách sạn gần nhất ở đâu?
+¿podéis/puede recomendarme algún lugar bueno?
+	bạn có thể dề nghị một nơi nào đố (tốt)
+cercano	gần
+barato	giá rẻ
+en la ciudad	trong thành phố
+tienen habitación para esta noche?	có chỗ ở tối nay?
+(habitación) sencilla	(phòng) đơn
+(habitación) gemela/doble	(phòng) đôi
+suite	dãy
+¿tiene baño la habitación?	phòng có buồng tấm không?
+¿existe caja fuerte?	đó có an toàn không?
+¿hay agua caliente?	có nước nóng không?
+¿hay calefaccion central?	có máy điều hòa không?
+¿incluye el desayuno?	có bao gồm bữa ăn sáng không?
+¿a qué hora se sire el desayuno?	mấy giờ phục vụ bữa ăn sáng?
+¿a cuánto la noche?	bao nhiêu mỗi đêm?
+¿a cuánto la semana?	bao nhiêu mỗi tuần?
+¿a cuánto el mes?	bao nhiêu mỗi tháng?
+¿tiene extras?	có gì thêm không?
+¿puede verla?	(tôi) có thề xem nó không?
+me la quedo	tôi sẽ lấy nó
+tengo habitación reservada	(tôi) có phòng đặt trước
+hemos reservado una habitación a nombre de…
+	chúng tôi có đặt phòng tên là...
+quisiere registrarme	(tôi) muốn làm thủ tục nhận phòng
+deseo retirarme	(tôi) muốn làm thủ tục trả phòng
+¿horario de salida?	khi nào thì phải trả phòng?
+¿puedo dejar mi equipaje aquí?	(tôi) có thể để túi xách ở đây không?
+¿puedo cambiar de habitación?	(tôi) có thể đổi phòng không?
+¿puedo ver una habitación doble?	(tôi) có thể xem qua phòng đôi không?
+deseo una habitación con buena vista	(tôi) muốn có căn phòng với tầm nhìn đẹp
+quisiere una habitación de no fumar, por favor
+	(tôi) muốn một phòng không hút thuốc, làm ơn
+¿hay algún mensaje para me?	có ai để lại tin nhắn gĩ cho tôi không?
+dejé mi llave en la habitación	(tôi) để chìa khóa ở trong phòng rổi
+¿puedo cambiar divias aquí?	(tôi) có thể đổi tiền ở đây không?
+¿puedo usar internet?	(tôi) có thể dùng mạng không?
+¿puedo usar lavandería?	(tôi) có thể sử dụng giặt ủi không?
+¿puedo usar la cocina?	(tôi) có thể dùng bếp không?
+¿puedo usar el teléfono?	(tôi) có thể dùng điện thoại không?
+¿tiene internet aquí?	có mạng ở đây không?
+teléfono móvil	điện thoại di động
+tarjeta sim	thẻ sim
+¿hay wifi?	có wifi không?
+¿cuál es la contraseña?	mật khểu là gì vậy?
+¿dondé puedo alquilar un teléfono?	Ở đâu có thể thuê điện thoại di động?
+pídame un taxi, por favor	Xin gọi taxi giùm
+mi estancia ha sido maravillosa	tôi đã có thời gian ở lại đây rất vui vẽ
+
+ĂN UỐNG
+desayuno	ăn sáng
+almuerzo	ăn trưa
+cena	ăn tối
+tentenpie/tapas	ăn nhẹ
+comida	thức ăn
+carne	thịt
+ternera	thịt bò
+pollo	thịt gà
+huevo	trứng
+pato	thịt vịt
+cerdo	thịt lợn
+cordero	thịt cưu
+higado	gan
+marisco	hải sản
+pescado	cá
+gamba/langostino	tôm
+almejas	sò
+salchichas	xúc xích
+beicon/tocino	thịt xông khói
+jamón	giăm bông
+atún	cá ngừ
+bisté	miếng bò hầm
+vegetales	rau
+mantequill	bơ
+yogúr	sữa chua
+queso	pho mát
+pan	bánh mì
+galleta	bánh ngọt nhỏ
+bocadillo	sandwich
+hamburguesa	hamburga
+pizza	bánh pizza
+arroz	cơm
+arroz frito	cơm chiên
+fideos	mì
+pasta	mì ống
+spaghetti	mì spaghetti
+ensaladas	xà lách
+aderezo de ensalada	nước chấm xà lách
+sopa	canh
+tortilla	bánh ngô
+comida callejera	thức ăn đường phố
+comida rápida	thức ăn nhanh
+patatas fritas	khoai tây chiên
+delicias de pollo	cốm gà
+tarta	bánh ngọt
+helado, mantecado	kem
+buñuelo/donut	bánh rán
+tortita dulces	bánh kếp
+pastal	bánh kem
+galletas	bánh quy
+creps	nhiễu
+gelatina	thạch
+mermelada	mút
+cereal	ngũ cốc
+azúcar	dường
+sal	muối
+pimienta	tiêu
+ketchup/salsa de tomate	sốt cà chua
+vinagre	giấm
+salsa de soja	nước tương
+budín de arroz	bánh gạo
+pudín	bánh pudding
+judías	đậu
+garbanzos	đậu xanh
+lentejas	đậu lăng
+judías verdes	đậu xanh
+aceite vegetal	dầu thực vật
+aceita de oliva	dầu ô liu
+aceire de semillas	dầu mè
+hierbas	thảo mộc
+ajo	tỏi
+gengibre	gừng
+chile	ớt
+menta	rau thơm
+perejil	rau mùi tây
+romero	lá hương thảo
+tomillo	húng tây
+jugo de carne	nước xốt
+pollo asado	thịt gà nướng
+carne asada	thịt bò nướng
+estofado	món hầm
+comidas típicas	món ăn địa phương
+tapas	món ăn mặn
+paella	cơm thập cẩm
+croqueta	khoai rán
+chorizo	xúc xích cay
+calamares	???
+tortilla española	trứng tráng tây ban nha
+albóndigas	thịt viên tây ban nha
+sala	nước xốt
+nachos	bánh khoai tây rán
+taco	thịt chiên giòn
+gazpacho	súp rau cà chua
+arroz a la zamorana	???
+pinchos	???
+turrón	kẹo hạt nhân tây ban nha
+paella	cơm tây ban nha
+tenedor	nĩa
+cuchillo	dao
+cuchara	muỗng
+vaso/copa	ly
+copa de vino	ly rượu
+taza de té	chén trà
+tetera	ấm trà
+tazón grande	tô lớn
+tazón pequeño	tô nhỏ
+plato	dĩa
+servilleta	khăn ăn
+calient	nóng
+frío	lạnh
+delicioso	thơm ngon
+sabor	hương vị
+dulce	ngọt
+salado	mặn
+amargo	chua
+picante	cay
+insípido(a)	không có hương vị
+grasiento(a)/grasoso(a)	nhờn
+tengo hambre	tôi đói
+estoy lleno(a)	tôi no rồi
+isuculento!	rất ngon
+me gusta esta comida	tôi thích món này
+¿cómo se llama esto?	món này tên là gì?
+esto es delicioso	nó rất ngon
+¿tienen comida vegetariana?	có thức ăn chay không?
+soy vegetariano(a)	tôi ăn chay
+restaurante	nhà hàng
+reserver (mesa)	đặt bàn
+quisiera una mesa para dos por favor
+	làm ơn cho tôi đặt một bàn dành cho hai người
+¿hay un menú	làm ơn cho thực đơn
+la carta, por favor	làm cho tôi thực đơn các loại đồ uống
+¿tienen el menú en español?	bạn có thực đơn tiếng tây ban nha?
+¿qué me recomiendan?	bạn có thể giới thiệu vài món
+¿qué es lo típico qui?	ở đây có món gì ngon?
+¿toma nota?	có thể gọi một số món ăn không?
+no como carne	(tôi) hông ăn thịt
+no como huevos	(tôi) không ăn trứng
+soy alérgico(a) a ...	(tôi) bị dị ứng với… 
+frutos secos	các loại hạt
+cacahuetes	đậu phòng
+productos lácteos	các sản phẩm từ sữa
+trigo	lúa mì
+miel	mật ong
+sal	bột ngọt
+me gustaría con …	tôi muốn ăn nó kèm với …
+me gustaría sin …	tôi không muốn ăn nó kèm với …
+lo quiero sin aceite	(tôi) muốn nó không có dầu
+la cuenta, por favor	làm ơn cho hóa đơn
+¿está incluida la comisión?	là phí dịch vụ?
+ila cuenta, por favor!	làm ơn cho hóa đơn
+para llevar	lấy đi/mang về nhà
+beber	để uống
+comer	để ăn
+cocina local	món ăn địa phương
+guarnición	món ăn phụ
+plato principal	món chánh
+aperitivo	thức ăn khai vị
+poster	món tráng miệng
+más agua por favor	làm ơn cho nhiều nước hơn
+(una) botella grande de cerveza, por favor
+	làm ơn cho một chai bia lớn
+(una) botella pequeñas de cerveza, por favor
+	làm ơn cho một chai bia nhỏ
+café	cà phê
+té	trà
+chocolate caliente	sôcôla nóng
+té helado	trà đá
+té verde	trà xanh
+té de crisantemo	trà ???
+té de jazmín	trà jasmin
+agua	nước
+agua mineral sin gas	nước khoáng
+agua mineral con gas	nước khoáng sủi
+gaseosa	nước soda
+leche	sữa
+zumo	nước trái cây
+zumo de naranja	nước cam
+zumo de manzana	nước táo
+zumi de vegetal	nước ép rau
+limonada	nước chanh
+bebidas alcohólicas	đồ uống có rượu
+cerveza	bia
+coñac	rượu mạnh
+champan/cava	rượu sâm banh
+vino	rượu nho
+vino tinto	rượu nho đỏ
+vino blanco	rượu nho trắng
+vino rosado	rượu nho hoa hồng
+sidra	rượu táo
+sin hielo, por favor	làm ơn, không nước đá
+hielo, por favor	làm ơn, nước đá
+¡salud!	chức mừng
+¡hasta el fondo!	cạn ly
+me siento ebrio(a)	tôi cảm thấy say
+no me encuentro bien	tôi không cảm thấy tốt
+has bebido demasiado/ha tomado demasiado
+	tôi đã uống qúa nhiều
+¿dónde está el baño?	nhà vệ sinh ở đâu?
+
+MUA SẤM
+¿dónde está el centro comercial más cercano?
+	trung tâm mu sấm gần nhất ở đâu?
+aniticurio	cửa hàng đồ cổ
+mercado	chợ
+supermercado	siêu thị
+¿cuánto cuesta?	(nó) giá bao nhiêu?
+¿puede escribir el precio?	có thể giảm giá không?
+¿puede darlo más barato?	có thể giảm giá nữa không?
+descuento	giảm giá
+¿aceptan trajeta de crédito?	có thể sử dụng thẻ ghi nợ không?
+trajeta de débito	thẻ tín dụng
+cheques de viajero	tấm séc người du lịch
+efectivo	tiền mặt
+¿pueden envolvérmelo, por favor	có thể gói nó không?
+estoy mirando	tôi đang xem
+es algo caro	nó qúa đắt
+es muy barato	nó rất rẻ
+¿tiene otros colores?	có màu khác không?
+¿tiene tallas mayores?	có cái lớn hơn không?
+¿tiene tallas más pequeñas?	có cái nhỏ hơn không?
+¿puedo probármelo?	có thể mặt thử không?
+algo apretado	hơi chật
+algo flojo	hơi rộng
+mi talla es …	kích cỡ của tôi là …
+¿puedo probarme otra talla?	có kích cỡ khác không?
+pequeño	nhỏ
+medio	trung bình
+grande	lớn
+extra grande	rất lớn
+¿tiene uno nuevo?	có một cái mới không?
+¿dónde puedo pagar?	có thể trả (tiền) ở đâu
+demasiado corto	qúa ngắn
+demasiado corto	qúa lớn
+no me sienta bien	không phù hợp
+me llevo este(a)	tôi sẽ lấy cái này
+no quiero bolsa	không muốn túi xách
+¿podrían darme una bolsa por favor?	làm ơn cho tôi cần một túi xách
+busco …	(tôi) đang tìm …
+obsequio/regalo	qùa tặng
+cinturón	dây nịt
+sombrero/gorra	mũ/nón
+vestido	váy đầm
+camisa	áo sơ mi
+zapatos	giày
+sandalias	dép
+calcentines/medias	vớ
+pantalones cortos	quần sọt
+falda	váy ngắn
+bufanda	khăn quàng cổ
+chaqueta	áo khoác
+abrigo	aó choàng
+tacones altos/zapatos de tacón	giày cao gót
+botas	giày ống
+trajes de baño	đồ bơi
+rope interior	đồ lót
+toalla	khăn
+vaqueros	quần jean
+pantalón	quần dài
+piel	da
+algodón	bông
+seda	thậm
+lana	len
+no la/lo quiero	(tôi) không muốn
+lo pensaré	(tôi) sẽ suy nghĩ về nó
+cartera	cái bốp túi
+reloj	đồng hồ tay
+lentes/gafas	kính
+gafas de sol	soi đen
+anillo/sortija	vòng
+pendientes	bông tai
+collar	vòng cổ
+brazalete	vòng tay
+cámara	máy ảnh
+ordenador	más ính
+artículos del hogar	đồ gia dùng
+frutas	trái cây
+plátano	chuối
+manzana	táo
+uvas	nho
+fresa	dâu tây
+naranja	cam
+papaya	đu đủ
+mango	xoài
+ciruela	mận
+guayaba	ổi
+melocotón	đào
+melón	dưa
+frutas y verduras	cửa hàng trái cây và rau
+panaderia	cửa hàng bánh
+lavanderia/tintoreria	tiệm giặt
+zapatería	cửa hàng giày
+librería	tiệm sách
+floristería	tiệm hoa
+¿cuánto es?	bao nhiêu (tiền)
+dinero	tiền
+efectivo	tiền mặt
+precio	giá
+caro(a)	đắt
+barato(a)	rẻ
+pagar	trả (tiền)/ thanh toán
+cambio/vueltas	tiềnlẻ/tiền thừa
+recuerdo	đồ kỳ niệm
+cerámica	đồ sành
+bolsas de mano	túi xánh
+cosméticos	mỹ phẩm
+presume	nước hoa
+
+
+embaja y consulados	đại sứ quán và lãnh sự quán
+
+
+1:14:00
+
+https://www.youtube.com/watch?v=L-eoYnCxYCM
